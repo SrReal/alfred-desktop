@@ -1,0 +1,48 @@
+{
+  "name": "alfredpet-community",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "format": "prettier --write src scripts tests sidecars/semantic-host sidecars/browser-host sidecars/vscode-bridge assets/models package.json package-lock.json tsconfig.json index.html vite.config.ts",
+    "format:check": "prettier --check src scripts tests sidecars/semantic-host sidecars/browser-host sidecars/vscode-bridge assets/models package.json package-lock.json tsconfig.json index.html vite.config.ts",
+    "lint": "eslint src",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@huggingface/tokenizers": "0.2.0",
+    "@tauri-apps/api": "^2.10.0",
+    "@tauri-apps/plugin-autostart": "^2.7.0",
+    "onnxruntime-node": "1.30.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1",
+    "zod": "^4.3.0"
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "4.3.0",
+    "@modelcontextprotocol/node": "2.1.1",
+    "@modelcontextprotocol/server": "2.3.0",
+    "@tauri-apps/cli": "^2.10.0",
+    "@testing-library/jest-dom": "^6.9.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "eslint": "^10.11.0",
+    "jsdom": "^27.0.0",
+    "playwright-core": "^1.58.0",
+    "prettier": "^3.7.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.50.0",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.0"
+  },
+  "license": "MIT"
+}

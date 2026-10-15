@@ -1,0 +1,21 @@
+{
+  "name": "alfredpet-vscode-owned-fixture",
+  "publisher": "alfredpet",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  }
+}

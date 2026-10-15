@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "AlfredPet Community",
+  "version": "0.1.0",
+  "identifier": "com.alfredpet.public",
+  "build": {
+    "beforeDevCommand": "node scripts/prepare.mjs && npm run dev",
+    "beforeBuildCommand": "node docs/manual/check_bundle.mjs && node scripts/prepare.mjs && npm run build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "pet",
+        "title": "AlfredPet",
+        "url": "index.html?surface=pet",
+        "width": 144,
+        "height": 192,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "resizable": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: http://asset.localhost data: https:; connect-src ipc: http://ipc.localhost; media-src 'self' asset: http://asset.localhost",
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$LOCALAPPDATA/AlfredPetPublic/**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../assets/": "assets/",
+      "../native/": "native/",
+      "../.work/runtime/": "runtime/",
+      "../.work/browser-host/": "sidecars/browser-host/",
+      "../.work/semantic-host/": "sidecars/semantic-host/",
+      "../.work/dictation-host/": "sidecars/dictation/",
+      "../sidecars/vscode-bridge/": "sidecars/vscode-bridge/",
+      "../output/pdf/AlfredPet-Manual-de-uso.pdf": "manual/AlfredPet-Manual-de-uso.pdf"
+    },
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": false,
+        "installerIcon": "icons/icon.ico",
+        "uninstallerIcon": "icons/icon.ico"
+      },
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      }
+    }
+  }
+}

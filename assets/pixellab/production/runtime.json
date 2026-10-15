@@ -1,0 +1,447 @@
+{
+  "pet": {
+    "idle": {
+      "source": "pet/idle.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "hover": {
+      "source": "pet/hover.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "dragging": {
+      "source": "pet/dragging.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "falling": {
+      "source": "pet/falling.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "thinking": {
+      "source": "pet/thinking.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "working": {
+      "source": "pet/working.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "searching_web": {
+      "source": "pet/searching_web.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "looking_at_screen": {
+      "source": "pet/looking_at_screen.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "using_pc": {
+      "source": "pet/using_pc.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "waiting_permission": {
+      "source": "pet/waiting_permission.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 7,
+        "width": 93,
+        "height": 181
+      },
+      "badge": "icons/warning.png"
+    },
+    "waiting_user": {
+      "source": "pet/waiting_user.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    },
+    "success": {
+      "source": "pet/success.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 7,
+        "width": 91,
+        "height": 181
+      },
+      "badge": "icons/success.png"
+    },
+    "error": {
+      "source": "pet/error.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 7,
+        "width": 91,
+        "height": 181
+      },
+      "badge": "icons/error.png"
+    },
+    "privacy": {
+      "source": "pet/privacy.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 6,
+        "width": 90,
+        "height": 182
+      },
+      "badge": "icons/privacy.png"
+    },
+    "dnd": {
+      "source": "pet/dnd.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 8,
+        "width": 90,
+        "height": 180
+      },
+      "badge": "icons/dnd.png"
+    },
+    "sleeping": {
+      "source": "pet/sleeping.png",
+      "width": 144,
+      "height": 192,
+      "baseline": 188,
+      "frames": 3,
+      "durations": [
+        1000,
+        250,
+        250
+      ],
+      "loop": true,
+      "hitRegion": {
+        "x": 39,
+        "y": 28,
+        "width": 67,
+        "height": 160
+      }
+    }
+  },
+  "icons": {
+    "history": "icons/history.png",
+    "commands": "icons/commands.png",
+    "tasks": "icons/tasks.png",
+    "activity": "icons/activity.png",
+    "startup": "icons/startup.png",
+    "dnd": "icons/dnd.png",
+    "calendar": "icons/calendar.png",
+    "mail": "icons/mail.png",
+    "storage": "icons/storage.png",
+    "connection": "icons/connection.png",
+    "warning": "icons/warning.png",
+    "error": "icons/error.png",
+    "success": "icons/success.png",
+    "attachment": "icons/attachment.png",
+    "image": "icons/image.png",
+    "capture": "icons/capture.png",
+    "send": "icons/send.png",
+    "search": "icons/search.png",
+    "add": "icons/add.png",
+    "remove": "icons/remove.png",
+    "close": "icons/close.png",
+    "minimize": "icons/minimize.png",
+    "maximize": "icons/maximize.png",
+    "restore": "icons/restore.png",
+    "back": "icons/back.png",
+    "next": "icons/next.png",
+    "refresh": "icons/refresh.png",
+    "stop": "icons/stop.png",
+    "play": "icons/play.png",
+    "microphone": "icons/microphone.png",
+    "audio": "icons/audio.png",
+    "user": "icons/user.png",
+    "folder": "icons/folder.png",
+    "file": "icons/file.png",
+    "terminal": "icons/terminal.png",
+    "browser": "icons/browser.png",
+    "plugin": "icons/plugin.png",
+    "memory": "icons/memory.png",
+    "security": "icons/security.png",
+    "chat": "icons/chat.png",
+    "settings": "icons/settings.png",
+    "privacy": "icons/privacy.png"
+  },
+  "ui": {
+    "button": {
+      "source": "ui/button.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "card": {
+      "source": "ui/card.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "input": {
+      "source": "ui/input.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "bubble": {
+      "source": "ui/bubble.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "permission": {
+      "source": "ui/permission.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "toggle": {
+      "source": "ui/toggle.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "badge": {
+      "source": "ui/badge.png",
+      "width": 48,
+      "height": 32,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "panel": {
+      "source": "ui/panel.png",
+      "width": 192,
+      "height": 192,
+      "nineSlice": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  }
+}

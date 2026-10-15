@@ -1,0 +1,26 @@
+{
+  "name": "alfredpet-vscode-bridge",
+  "displayName": "AlfredPet Development Bridge",
+  "publisher": "alfredpet",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "main": "./extension.cjs",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": false
+    }
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,2197 @@
+{
+  "product_version": "0.1.0",
+  "edition": "1.17",
+  "updated": "2026-10-15",
+  "updated_display": "15 de octubre de 2026",
+  "code_reference": "Edición pública · Núcleo común validado",
+  "cover_image": "assets/public/pet-reference.png",
+  "covered_modules": [
+    "windows",
+    "files",
+    "terminal",
+    "window",
+    "vision",
+    "gui",
+    "browser",
+    "downloads",
+    "clipboard",
+    "git",
+    "vscode",
+    "database",
+    "notion",
+    "drive",
+    "homeassistant",
+    "rest",
+    "mcp",
+    "documents",
+    "images",
+    "printers",
+    "tasks",
+    "monitoring",
+    "macros",
+    "custom",
+    "skills",
+    "plugin_builder"
+  ],
+  "pages": [
+    {
+      "id": "start",
+      "title": "Empieza en cinco minutos",
+      "subtitle": "El recorrido mínimo para conversar y realizar una primera tarea.",
+      "blocks": [
+        {
+          "type": "small",
+          "text": "Edición pública de desarrollo: se distribuye el código fuente, sin instalador público final. Consulta el README para compilarla. Usa un icono geométrico provisional y un perfil independiente."
+        },
+        {
+          "type": "p",
+          "text": "AlfredPet es un asistente de escritorio para Windows 11 x64. La mascota da acceso al chat, a herramientas del equipo y a tus integraciones. Las conversaciones y ajustes se conservan localmente; las respuestas de IA utilizan el CLI oficial de Claude con una suscripción admitida."
+        },
+        {
+          "type": "p",
+          "text": "El propio manual está disponible en Configuración > General > Ayuda > Manual de uso (PDF), y en el menú de Alfred o de la bandeja. Se abre en el visor de PDF predeterminado de Windows y funciona sin conexión."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Instala AlfredPet y abre la aplicación. Busca el icono de Alfred en la bandeja del sistema si la mascota queda fuera de tu vista.",
+            "En Configuración > Claude, comprueba que aparece «Suscripción validada». Si indica «Ruta bloqueada», completa la configuración del capítulo siguiente.",
+            "En Configuración > General, selecciona una carpeta de trabajo en «Carpetas permitidas» y pulsa «Guardar rutas».",
+            "En Configuración > Módulos, habilita las capacidades que quieras utilizar. Una integración también necesita su conexión.",
+            "Pulsa una vez sobre Alfred para abrir el chat. Escribe una petición y pulsa Enviar o Enter.",
+            "Si aparece «Permiso para actuar», revisa la operación y decide. Comprueba el resultado en el chat y en Actividad."
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Alfred, enumera los archivos de mi carpeta de trabajo y explícame cómo están organizados. Empieza sólo por consultarlos."
+        },
+        {
+          "type": "h",
+          "text": "Tres ideas para orientarte"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Chat: describes el resultado que necesitas.",
+            "Comandos: eliges una herramienta y completas sus parámetros directamente.",
+            "Actividad: revisas lo que se intentó ejecutar y si terminó, falló o se puede deshacer."
+          ]
+        },
+        {
+          "type": "note",
+          "text": "Seleccionar una carpeta concede el ámbito local definido por AlfredPet; no sustituye las confirmaciones de operaciones sensibles. Una tarea de recordatorio tampoco ejecuta automáticamente una petición de chat.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "title": "Instalación, actualización y Claude",
+      "subtitle": "Preparar el equipo y verificar la conexión del asistente.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Preparar la edición pública"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Consulta los requisitos y la compilación en el README de esta edición: Windows, Node, Rust y las herramientas nativas indicadas.",
+            "Prepara las dependencias con `npm ci --ignore-scripts` y ejecuta `npm run tauri -- dev`. No hay una release pública final ni un instalador público para descargar.",
+            "Para una compilación propia empaquetada, cierra la aplicación antes de sustituirla y comprueba después el chat y Configuración > Claude. La aplicación utiliza WebView2 para sus ventanas."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El instalador no se aplica por el hecho de generar una nueva entrega. Debes ejecutarlo. Antes de actualizar datos importantes, utiliza el asistente de copia completa de Configuración > General. Consulta Crear una copia completa y Restaurar y recuperar el perfil."
+        },
+        {
+          "type": "h",
+          "text": "Autenticar Claude"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Instala el CLI oficial de Claude Code siguiendo su guía para Windows. Abre una terminal nueva y comprueba `claude --version`.",
+            "Ejecuta `claude auth login` e inicia sesión con la cuenta de suscripción que usarás en AlfredPet.",
+            "Regresa a Configuración > Claude y pulsa «Diagnóstico». Debe aparecer «Suscripción validada» antes de iniciar un turno."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "AlfredPet valida la autenticación y bloquea rutas de proveedor o facturación por API no admitidas. No necesitas introducir una clave de Anthropic en sus formularios. No copies cookies ni credenciales del navegador."
+        },
+        {
+          "type": "note",
+          "text": "La versión del CLI, los modelos disponibles y las restricciones dependen de tu cuenta. Si el diagnóstico falla, conserva el código de error y revisa la sesión del CLI; no intentes resolverlo pegando secretos en el chat.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "Guía oficial consultada para esta edición: [instalación de Claude Code](https://code.claude.com/docs/en/quickstart)."
+        }
+      ]
+    },
+    {
+      "id": "pet",
+      "title": "La mascota y la navegación",
+      "subtitle": "Acceso rápido sin llenar el escritorio de ventanas.",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Gesto o acceso",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "Clic izquierdo sobre Alfred",
+              "Alterna entre mostrar y ocultar el chat."
+            ],
+            [
+              "Arrastrar y soltar Alfred",
+              "Lo mueve. Al soltarlo, la gravedad lo lleva a una superficie válida."
+            ],
+            [
+              "Clic derecho sobre Alfred",
+              "Abre el menú de accesos."
+            ],
+            [
+              "Icono de la bandeja",
+              "Da acceso al menú aunque el chat esté oculto."
+            ],
+            [
+              "Ctrl + Alt + Espacio",
+              "Abre la paleta de Comandos."
+            ],
+            [
+              "Pestañas de navegación",
+              "Cambian de sección dentro de la ventana principal."
+            ]
+          ],
+          "widths": [
+            1,
+            2
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El menú ofrece Abrir chat, Comandos, Tareas, Actividad, Configuración, Alternar privacidad, Alternar No molestar, Manual de uso (PDF) y Salir. Las pantallas principales comparten ventana; las solicitudes de permiso y la selección de capturas pueden utilizar superficies auxiliares."
+        },
+        {
+          "type": "h",
+          "text": "Posición y tamaño"
+        },
+        {
+          "type": "p",
+          "text": "El chat se coloca junto a la mascota y ajusta su posición al área útil del monitor para respetar la barra de tareas. El diseño habitual del chat es de 720 × 620 píxeles lógicos; se adapta al espacio disponible y al escalado."
+        },
+        {
+          "type": "p",
+          "text": "La mascota intenta conservar su prioridad sobre las ventanas normales y la recupera periódicamente sin quitarles el foco. Windows mantiene aparte el escritorio seguro y algunas aplicaciones a pantalla completa exclusiva."
+        },
+        {
+          "type": "h",
+          "text": "Estados de Alfred"
+        },
+        {
+          "type": "p",
+          "text": "Sus animaciones acompañan actividades como pensar, trabajar, buscar o esperar un permiso. Para conocer el estado concreto, consulta también el indicador del chat y Actividad. Una animación no garantiza por sí sola que una operación externa haya terminado."
+        },
+        {
+          "type": "note",
+          "text": "Ocultar el chat no equivale a salir de AlfredPet. Usa «Salir» para cerrar la aplicación por completo.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "chat",
+      "title": "Conversar con Alfred",
+      "subtitle": "Formato legible, enlaces e imágenes en la conversación.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Elige una conversación o pulsa el botón «Nueva». Selecciona el modelo antes de enviar.",
+            "Escribe tu mensaje. Enter envía y Mayús + Enter añade un salto de línea.",
+            "Durante la respuesta verás «Alfred está trabajando» o el estado de espera. En trabajos con varios pasos aparece «Plan y progreso». «Interrumpir» solicita detener la ejecución."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Tus mensajes llevan tu icono de usuario a la derecha. Los de Alfred aparecen a la izquierda con su icono y fecha. Cada respuesta o avance del mismo turno ocupa una entrada propia; los fragmentos de texto completan esa entrada."
+        },
+        {
+          "type": "p",
+          "text": "El chat sigue las nuevas respuestas hacia abajo. Puedes desplazarte para leer mensajes anteriores. Si una operación necesita permiso o una respuesta tuya, atiende su ventana antes de esperar otro resultado."
+        },
+        {
+          "type": "p",
+          "text": "Las respuestas admiten títulos, negrita, cursiva, listas, citas, tablas y bloques de código. Los bloques anchos se desplazan horizontalmente dentro del mensaje. El formato también se conserva al volver a abrir un chat. Copiar conserva el Markdown; Copiar código copia sólo el bloque."
+        },
+        {
+          "type": "p",
+          "text": "Pulsa un enlace subrayado para abrirlo en el navegador predeterminado de Windows. Se admiten enlaces web HTTP y HTTPS; las rutas de archivos y otros protocolos no se abren desde un mensaje. Si Windows no puede abrirlo, el chat muestra el error."
+        },
+        {
+          "type": "p",
+          "text": "Alfred puede incluir imágenes de recursos registrados y de direcciones HTTPS. Las imágenes externas se cargan desde su servidor, sin enviar la dirección de esta ventana como referencia. Una imagen ausente, bloqueada o eliminada muestra «imagen no disponible». Esto permite mostrar imágenes existentes; no añade por sí solo un generador de imágenes."
+        },
+        {
+          "type": "note",
+          "text": "Interrumpir conserva el texto parcial recibido. No revierte automáticamente efectos de una herramienta que ya se haya ejecutado; consulta Actividad antes de repetirla.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "chat-progress",
+      "title": "Plan y progreso en el chat",
+      "subtitle": "Sigue los pasos y las acciones de cada petición.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Pide un trabajo con varios pasos. Alfred puede publicar un plan; las acciones ejecutadas se registran aunque no haya plan.",
+            "Pulsa «Plan y progreso» para desplegar o plegar la lista situada bajo tu petición. Durante el trabajo aparece abierta; al finalizar se resume.",
+            "Si aparece «Esperando autorización» o «Esperando tu respuesta», pulsa «Revisar solicitud» y atiende la ventana existente. El panel no concede permisos.",
+            "Puedes volver a otra conversación y regresar: el progreso se conserva junto a la petición. Al borrar el chat también se elimina su progreso."
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Parte",
+            "Qué significa"
+          ],
+          "widths": [
+            1,
+            2.4
+          ],
+          "compact": true,
+          "rows": [
+            [
+              "Plan de Alfred",
+              "Pasos que el asistente propone y actualiza: pendiente, en curso, completado, bloqueado u omitido. Son declaraciones de Alfred."
+            ],
+            [
+              "Acciones registradas",
+              "Herramientas observadas por la aplicación con hora y resultado: completado, error, denegado/caducado o interrumpido."
+            ],
+            [
+              "Resumen",
+              "Cuenta acciones completadas; no estima porcentaje del trabajo ni tiempo restante. Un turno terminado puede conservar incidencias o pasos pendientes."
+            ]
+          ]
+        },
+        {
+          "type": "note",
+          "text": "Interrumpir no deshace efectos ya realizados. Si la aplicación se cierra durante un trabajo, lo que estaba en curso reaparece como interrumpido; no se reanuda automáticamente ni se marca completado."
+        },
+        {
+          "type": "small",
+          "text": "Hasta 12 pasos y 200 acciones por turno. Se guardan títulos y estados, no argumentos ni resultados de herramientas en este panel. Las consultas sencillas pueden mostrar solamente el indicador de actividad."
+        }
+      ]
+    },
+    {
+      "id": "chat-tour",
+      "title": "El chat de un vistazo",
+      "subtitle": "Texto con formato en la conversación actual.",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            "Arriba: conversación, modelo, Nueva, Desde aquí y Borrar chat. Mantén el puntero sobre los iconos para ver su función.",
+            "En el centro: usuario a la derecha; cada avance de Alfred a la izquierda, con su propia fecha e icono.",
+            "Abajo: accesos a Skills y plugins, mensaje, Enviar y Adjuntar archivos. Mientras trabaja, aparecen los puntos animados y la opción de interrumpir."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "explain",
+      "title": "Alfred, explícame esto",
+      "subtitle": "Comparte un fragmento de texto o una región con la conversación que tienes abierta.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Texto seleccionado"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Selecciona un fragmento en la aplicación de origen y pulsa Ctrl+Alt+E. Mantén esa aplicación activa hasta que aparezca el chat.",
+            "Revisa el texto en «Explícame esto · vista previa». Para comprobar o cambiar la conversación, pliega ese panel y usa el desplegable del chat; vuelve a abrirlo para continuar.",
+            "Pulsa «Usar en este chat». El contenido se añade al borrador sin borrar lo que ya habías escrito. Puedes editarlo y después pulsar Enviar."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Una región de la pantalla"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Sitúa el puntero sobre el monitor deseado y pulsa Ctrl+Alt+Mayús+E. También puedes abrir «Explícame esto» en el chat y pulsar «Seleccionar región».",
+            "Arrastra para delimitar una zona dentro del área de trabajo de ese monitor. Pulsa «Capturar selección» y atiende el permiso si aparece.",
+            "Revisa la imagen y pulsa «Explicar en el chat». Allí, «Usar en este chat» adjunta esa captura y prepara el mensaje. Enviar solicita la explicación dentro de esa conversación."
+          ]
+        },
+        {
+          "type": "note",
+          "label": "Siempre con revisión",
+          "text": "La vista previa no llama a Claude. «Descartar selección» elimina la propuesta temporal; las capturas ya creadas mantienen su caducidad normal. Si no tienes ninguna conversación, se crea una al pulsar «Usar en este chat». Un chat ocupado debe terminar antes de preparar la selección."
+        },
+        {
+          "type": "small",
+          "text": "El texto requiere el módulo GUI y soporte de selección de la aplicación. Máximo 12 KB; no se lee el documento completo ni se modifica el portapapeles. Los campos de contraseña y las credenciales detectadas se rechazan. Si no hay selección compatible, copia y pega el fragmento o utiliza una región. El modo Privacidad bloquea esta función y descarta la vista previa. Las capturas requieren Visión y sus permisos habituales. Configuración > General muestra si otro programa ocupa un atajo."
+        }
+      ]
+    },
+    {
+      "id": "dictation",
+      "title": "Dictar y revisar antes de enviar",
+      "subtitle": "Habla en español y conserva el control del mensaje.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El botón Dictar del chat utiliza el reconocedor de español de Windows instalado en el equipo y el micrófono predeterminado. AlfredPet no guarda archivos de audio ni utiliza un servicio externo para este dictado. Las respuestas de Alfred siguen siendo escritas."
+        },
+        {
+          "type": "h",
+          "text": "De tu voz a un borrador"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Abre el chat que quieras usar. Puedes conservar el texto que ya tengas escrito en Mensaje.",
+            "Pulsa Dictar y espera a «Escuchando». Habla en español; el indicador permanece visible mientras el micrófono está activo.",
+            "Pulsa Detener y revisar. Al detenerse el reconocimiento aparece el cuadro Revisar dictado.",
+            "Corrige palabras, puntuación o cualquier parte del texto. Pulsa Añadir al mensaje para incorporarlo después del borrador que ya tenías.",
+            "Revisa el mensaje completo y pulsa Enviar. Dictar, detener o añadir al borrador no envía nada a Claude."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Cancelar y proteger la sesión"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Descartar dictado detiene el proceso y elimina la transcripción pendiente; el borrador anterior no cambia.",
+            "Salir del chat, ocultarlo, cambiar de conversación o activar Privacidad cancela el dictado pendiente. No existe escucha permanente ni activación por voz.",
+            "La sesión se detiene como máximo a los dos minutos. El texto está acotado a aproximadamente 12.000 caracteres; si se alcanza el límite se avisa y debes revisar el fragmento recuperado.",
+            "Durante el dictado y su revisión se bloquean el envío y los cambios de conversación desde la barra. Añade o descarta el texto para continuar."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Si no reconoce tu voz"
+        },
+        {
+          "type": "p",
+          "text": "Comprueba el micrófono predeterminado y su permiso para aplicaciones de escritorio en Configuración de Windows > Privacidad y seguridad > Micrófono. Si falta el reconocedor local de español, instala las funciones de voz del idioma desde Hora e idioma. No se descarga ningún modelo ni se cambia la configuración de Windows automáticamente."
+        },
+        {
+          "type": "small",
+          "text": "La disponibilidad del motor se consulta en tu equipo. El inventario del ejecutable y la repetición secuencial de los contratos de detener/cancelar han pasado sin activar audio. La precisión, el micrófono real y sus permisos requieren una prueba de uso; el texto simulado no acredita dictado con voz."
+        }
+      ]
+    },
+    {
+      "id": "attachments",
+      "title": "Capturas y archivos adjuntos",
+      "subtitle": "Selecciona, pega o arrastra; no hace falta escribir rutas absolutas.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Adjuntar al chat"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Abre el chat y selecciona la conversación.",
+            "Pulsa «Adjuntar archivos», arrastra los archivos al chat o pega una captura desde el portapapeles.",
+            "Revisa la lista de adjuntos y cualquier error de importación.",
+            "Escribe lo que quieres que Alfred haga con ellos y pulsa Enviar."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El chat admite hasta cinco archivos y 32 MiB combinados por gesto de importación. El envío de imágenes a Claude tiene un presupuesto adicional de hasta cinco imágenes y 6 MiB combinados. Si recibes un aviso de tamaño, reduce o divide los archivos."
+        },
+        {
+          "type": "h",
+          "text": "Soltar archivos sobre la mascota"
+        },
+        {
+          "type": "p",
+          "text": "Al soltarlos sobre Alfred se abre una revisión de selección. Puedes elegir un chat nuevo o existente y usar «Adjuntar selección» o «Adjuntar y preparar análisis». La segunda opción prepara un borrador: todavía debes pulsar Enviar. Este flujo valida las carpetas permitidas y conserva los archivos originales."
+        },
+        {
+          "type": "h",
+          "text": "Conservación y retirada"
+        },
+        {
+          "type": "p",
+          "text": "AlfredPet crea copias privadas administradas. Los adjuntos vinculados a conversaciones se protegen de la caducidad ordinaria. Retirar un adjunto requiere confirmación; conserva el archivo original. La limpieza de la copia administrada puede quedar pendiente si existe un conflicto."
+        },
+        {
+          "type": "example",
+          "text": "Describe el error que aparece en esta captura y propone pasos para resolverlo. Antes de modificar archivos, explícame qué cambiarías."
+        },
+        {
+          "type": "note",
+          "text": "Adjuntar un archivo no significa que todo su contenido se haya interpretado. Un formato no compatible, un documento cifrado o una imagen demasiado grande produce un límite o diagnóstico. Para operaciones específicas utiliza Documentos e imágenes.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "chat-revisions",
+      "title": "Editar, regenerar y copiar",
+      "subtitle": "Variantes independientes para revisar una petición sin perder el original.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Espera a que termine la respuesta. Envía o vacía el borrador actual antes de editar o regenerar.",
+            "Bajo tu mensaje, pulsa Editar y reenviar y corrige el cuadro Editar mensaje. Bajo una respuesta de Alfred, Regenerar prepara la repetición de la petición que la originó. Mientras revisas la variante, el panel sustituye temporalmente los controles habituales de composición.",
+            "Revisa el aviso y pulsa Crear variante y enviar. Cancelar variante conserva el chat sin crear ni enviar nada. Se utiliza el modelo seleccionado en la barra."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La nueva conversación se llama Edición o Regeneración, seguida del título original. Conserva los mensajes anteriores a la petición elegida, sus fechas y los adjuntos todavía vinculados que ya existían al enviarla. No incluye las respuestas posteriores. Inicia otra sesión de Claude con ese texto visible; no reproduce su estado interno ni sus herramientas anteriores."
+        },
+        {
+          "type": "p",
+          "text": "La variante hereda el proyecto y el ajuste de memoria. Los recuerdos guardados siguen disponibles según la configuración y pueden contener datos aprendidos después. Los planes y acciones históricos quedan en el chat original. Revisa o vuelve a adjuntar los archivos que hayan sido retirados o ya no estén disponibles."
+        },
+        {
+          "type": "p",
+          "text": "Volver al original abre su chat inmediato; el desplegable y el Historial también conservan todas las variantes. Borrar el original no borra las copias. Si falla el inicio del envío, la variante mantiene la petición como borrador para reintentar con Enviar; se recupera al abrirla de nuevo. Las correcciones posteriores del borrador no se guardan automáticamente."
+        },
+        {
+          "type": "h",
+          "text": "Copiar texto o código"
+        },
+        {
+          "type": "p",
+          "text": "Copiar, bajo cada mensaje, copia su texto original con Markdown. Copiar código toma sólo el bloque, con sus espacios y saltos de línea. Copiado confirma el resultado; si Windows bloquea el acceso, selecciona el texto y pulsa Ctrl+C. Copiar nunca ejecuta el contenido."
+        },
+        {
+          "type": "note",
+          "label": "Antes de repetir",
+          "text": "La petición puede ejecutar otra vez sus acciones y consumir uso del modelo. Se aplican tus permisos vigentes, incluidos Permitir siempre. No deshace efectos anteriores. El historial anterior admite hasta 400 mensajes y 192 KB de contexto serializado; si lo supera, se rechaza sin recortarlo."
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "Historial y proyectos",
+      "subtitle": "Separar asuntos, recuperar contexto y borrar una conversación.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Volver a un chat"
+        },
+        {
+          "type": "p",
+          "text": "En Historial encontrarás las conversaciones guardadas, su fecha y el estado de su sesión de Claude. Usa «Abrir chat» para continuar, «Favorito» para marcarla y «Editar título» para renombrarla. El buscador presenta coincidencias con su tipo y fragmento."
+        },
+        {
+          "type": "p",
+          "text": "El desplegable del chat permite cambiar entre conversaciones. «Desde aquí» crea otra conversación enlazada a la original y conserva su resumen disponible; no duplica todos los mensajes ni los adjuntos. Para editar o regenerar un mensaje, utiliza sus botones: crean una variante con el texto anterior y los adjuntos de ese momento, como explica el capítulo previo."
+        },
+        {
+          "type": "h",
+          "text": "Organizar por proyecto"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "En Configuración > Proyectos, introduce el nombre y selecciona la carpeta del proyecto.",
+            "Guarda el proyecto. Si Alfred va a trabajar en esa carpeta, inclúyela también en Carpetas permitidas.",
+            "Abre Comandos y selecciona el proyecto para crear una conversación vinculada a él.",
+            "Al crear una tarea, puedes vincularla al proyecto y a una conversación existente."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Borrar un chat"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Selecciona el chat y pulsa el icono «Borrar chat» de su barra superior.",
+            "Comprueba el título mostrado. Pulsa Cancelar para conservarlo o «Borrar definitivamente» para eliminarlo.",
+            "Si está en ejecución, interrúmpelo y espera a que finalice antes de borrar."
+          ]
+        },
+        {
+          "type": "note",
+          "text": "El borrado local no se puede deshacer. Elimina la conversación, sus mensajes y vínculos a adjuntos. Conserva los archivos originales, los recuerdos guardados por separado y otros chats. Tampoco elimina el historial privado que pueda conservar el CLI de Claude fuera de AlfredPet.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "Para olvidar un dato aprendido, revisa también Configuración > Memoria; borrar el chat de origen no elimina por sí solo ese recuerdo."
+        }
+      ]
+    },
+    {
+      "id": "models",
+      "title": "Modelos y personalidad",
+      "subtitle": "Elegir capacidad y consumo sin perder el contexto del chat.",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Opción",
+            "Orientación que muestra AlfredPet"
+          ],
+          "rows": [
+            [
+              "Automático",
+              "Mantiene la elección de Claude; una sesión reanudada puede conservar su modelo."
+            ],
+            [
+              "Haiku",
+              "Menor consumo habitual para consultas y tareas sencillas."
+            ],
+            [
+              "Sonnet",
+              "Equilibrio de capacidad y consumo para uso habitual."
+            ],
+            [
+              "Opus",
+              "Mayor consumo habitual para problemas complejos."
+            ]
+          ],
+          "widths": [
+            1,
+            3
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Puedes elegir el modelo en la barra del chat o en Configuración > Claude. Ambos controles comparten una preferencia guardada. Afecta a mensajes posteriores y a nuevos análisis automáticos de memoria; no cambia una respuesta que ya está en curso."
+        },
+        {
+          "type": "p",
+          "text": "Las etiquetas son orientativas, no porcentajes de cuota restante. También influyen el historial, las imágenes, la longitud de las respuestas y las herramientas. AlfredPet no muestra un contador exacto de consumo de tu suscripción ni garantiza acceso a cada modelo."
+        },
+        {
+          "type": "h",
+          "text": "Cómo responde Alfred"
+        },
+        {
+          "type": "p",
+          "text": "La personalidad busca cortesía, serenidad, discreción y humor británico moderado. Puede tratarte de «señor» de forma natural y responde en español salvo que le indiques otra cosa. La precisión y las instrucciones concretas tienen prioridad sobre el personaje."
+        },
+        {
+          "type": "example",
+          "text": "Alfred, responde de forma breve y técnica. Dame tres pasos y espera antes de ejecutarlos."
+        },
+        {
+          "type": "note",
+          "text": "Abrir una conversación nueva puede ayudar a separar asuntos y reducir contexto acumulado, pero no reinicia la cuota de la cuenta. Los errores y límites del proveedor se muestran como tales.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "Referencia externa: [selección de modelos](https://code.claude.com/docs/en/model-config) y [uso y límites de Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)."
+        }
+      ]
+    },
+    {
+      "id": "memory",
+      "title": "Memoria global",
+      "subtitle": "Conservar información útil y corregir lo que Alfred ha aprendido.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El historial guarda conversaciones; la memoria guarda datos reutilizables entre ellas. Un recuerdo puede ser explícito, porque lo has pedido, o inferido a partir de evidencia. Se consideran el ámbito global y el proyecto de la conversación."
+        },
+        {
+          "type": "h",
+          "text": "Guardar y revisar"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Puedes pedir «Recuerda que prefiero los resúmenes con tres puntos» o añadir el dato en Configuración > Memoria.",
+            "Usa búsqueda y filtros de tipo u origen para localizarlo.",
+            "Revisa su contenido, confianza, uso y procedencia. Cuando exista una conversación de origen, puedes abrirla.",
+            "Corrige, fija, desactiva o borra el recuerdo según corresponda."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Fijar un recuerdo favorece su selección, pero no hace que aparezca en consultas irrelevantes. Corregir conserva el vínculo con el registro reemplazado. La aplicación intenta evitar duplicados del mismo contenido."
+        },
+        {
+          "type": "h",
+          "text": "Propuestas después de un turno"
+        },
+        {
+          "type": "p",
+          "text": "Tras una respuesta completada, un análisis separado puede preparar resúmenes y candidatos de memoria. Algunas inferencias con evidencia suficiente se aceptan automáticamente; las dudosas aparecen para Aceptar o Rechazar. Una inferencia no sustituye automáticamente otro recuerdo."
+        },
+        {
+          "type": "p",
+          "text": "El análisis usa Claude por suscripción y puede consumir cuota. Si falla, el chat se conserva. Desde el panel de análisis puedes revisar el error y solicitar «Analizar mensajes nuevos» para reintentarlo."
+        },
+        {
+          "type": "note",
+          "text": "Privacidad bloquea recuperación y guardado de memoria y cancela sus trabajos activos. No borra los recuerdos anteriores: desactívalos o elimínalos explícitamente cuando corresponda.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "Exportar memoria produce un JSON local. «Reconstruir índice» reconstruye la búsqueda a partir de los datos guardados; no reescribe su contenido."
+        }
+      ]
+    },
+    {
+      "id": "semantic",
+      "title": "Búsqueda local y semántica",
+      "subtitle": "Buscar por palabras y, opcionalmente, por significado.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "La búsqueda por palabras funciona sin descargar modelos. Historial y Comandos permiten localizar contenido del perfil; el contexto que recibe Claude mantiene los límites de memoria global y proyecto aplicables."
+        },
+        {
+          "type": "h",
+          "text": "Activar la búsqueda semántica"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Abre Configuración > Memoria y localiza el bloque de búsqueda semántica.",
+            "Lee la información de descarga y autorízala si la quieres usar.",
+            "Espera a que finalice. Descargar el modelo no lo activa por sí solo: actívalo después.",
+            "Reconstruye el índice cuando lo necesites y prueba una consulta con palabras relacionadas, no necesariamente idénticas."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El modelo fijado de esta edición ocupa aproximadamente 122 MiB. Sus cálculos se realizan en la CPU del equipo; no se usa una API externa para crear esos vectores. Se indexan recuerdos vigentes y resúmenes aptos de conversaciones, no todos los archivos de tu ordenador."
+        },
+        {
+          "type": "h",
+          "text": "Si una operación falla"
+        },
+        {
+          "type": "p",
+          "text": "El panel permite cancelar, reparar la descarga y reconstruir el índice. Ante un fallo del modelo, la búsqueda por palabras sigue disponible y el diagnóstico indica el problema. Desactivar la función evita su uso; no implica borrar tus recuerdos."
+        },
+        {
+          "type": "example",
+          "text": "Busca lo que acordamos sobre la forma de organizar mis proyectos, aunque no recuerde las palabras exactas."
+        },
+        {
+          "type": "note",
+          "text": "El cálculo semántico local no convierte todo AlfredPet en un asistente sin conexión. Las respuestas, los análisis de memoria y cualquier contexto que se entregue a Claude siguen utilizando su transporte autorizado.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "Si el equipo se ralentiza mientras indexa, cancela o desactiva la función y continúa con la búsqueda normal. La validación de consumo prolongado en tu hardware sigue siendo una comprobación de uso."
+        }
+      ]
+    },
+    {
+      "id": "permissions",
+      "title": "Permisos, privacidad y Actividad",
+      "subtitle": "Entender qué autoriza cada decisión.",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Nivel",
+            "Qué ocurre"
+          ],
+          "rows": [
+            [
+              "L1 · libre",
+              "Consultas acotadas sin una confirmación individual, dentro del ámbito permitido."
+            ],
+            [
+              "L2 · contextual",
+              "Revisión de la acción. Permite una vez, durante la sesión o siempre para el alcance exacto cuando aparece esa opción."
+            ],
+            [
+              "L3 · sensible",
+              "Revisión explícita. Algunas acciones repetibles admiten recordar el alcance; las destructivas y reparaciones predefinidas mantienen confirmación individual."
+            ]
+          ],
+          "widths": [
+            1,
+            2.6
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Cuando aparezca «Permiso para actuar», lee herramienta, parámetros y efecto.",
+            "Elige Denegar, Permitir una vez o la opción de sesión/alcance exacto cuando esté disponible. Consulta el capítulo siguiente antes de recordar un permiso.",
+            "Si los datos han cambiado desde la revisión, vuelve a inspeccionar y solicita una operación nueva."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Desactivar un módulo impide utilizar sus herramientas. Una web, un archivo adjunto, una skill o un resultado no pueden concederse permisos. Sólo la ventana de permisos acepta tu decisión. Código personalizado y MCP externo conservan sus controles particulares."
+        },
+        {
+          "type": "h",
+          "text": "Privacidad y No molestar"
+        },
+        {
+          "type": "p",
+          "text": "Privacidad bloquea capacidades sensibles como capturas, portapapeles, UI Automation y memoria, y revoca operaciones protegidas. No es un modo sin red ni una promesa de que un mensaje que tú envíes no llegue a Claude."
+        },
+        {
+          "type": "p",
+          "text": "No molestar reduce los avisos y pausa las reclamaciones de recordatorios. Puedes alternar ambos desde General o desde el menú de la bandeja."
+        },
+        {
+          "type": "h",
+          "text": "Revisar resultados"
+        },
+        {
+          "type": "p",
+          "text": "Actividad muestra herramienta, riesgo, estado, duración y los parámetros/resultados disponibles con redacción de secretos. «Deshacer» sólo aparece cuando existe una operación inversa registrada. No todas las acciones admiten deshacer."
+        },
+        {
+          "type": "note",
+          "text": "Un timeout o una cancelación posterior al envío puede dejar un resultado externo incierto. Comprueba el destino antes de repetir, especialmente en subidas, impresiones o escrituras.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "remembered-permissions",
+      "title": "Recordar y revocar permisos",
+      "subtitle": "Evitar preguntas repetidas conservando un alcance concreto.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Solicita una operación y revisa sus parámetros en «Permiso para actuar».",
+            "Si aparece, pulsa «Permitir siempre esta acción exacta». La regla se conserva tras cerrar y abrir AlfredPet.",
+            "Abre Configuración > Permisos para consultar las reglas guardadas. Despliega «Ver alcance exacto» para identificar cada una.",
+            "Pulsa «Revocar permiso» para que esa acción vuelva a pedir confirmación."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Qué se recuerda"
+        },
+        {
+          "type": "p",
+          "text": "La herramienta y los parámetros revisados. En Terminal se incluyen el comando o contenido del script, carpeta, motor, entorno, timeout y elevación. El identificador de una ejecución nueva no cambia el permiso. Un comando, destino, motor o privilegio distinto vuelve a pedir revisión."
+        },
+        {
+          "type": "p",
+          "text": "No son reglas del tipo «permitir todo PowerShell» ni comodines para una aplicación. Un script puede consultar archivos externos que cambian: recordar su texto no congela todas sus dependencias ni garantiza que sus efectos sean iguales."
+        },
+        {
+          "type": "h",
+          "text": "Disponibilidad y límites"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Disponible en acciones contextuales y determinadas acciones repetibles de Terminal, ventanas, interfaz y navegador, además de auditoría y operaciones de Defender.",
+            "Borrados destructivos y las acciones predefinidas de SFC/DISM requieren aprobación individual. No hay un permiso global para todas las herramientas.",
+            "Guardar carpetas permitidas o alternar módulos elimina las reglas recordadas. Máximo 200 reglas; revoca las que ya no necesites.",
+            "Revocar afecta a futuras autorizaciones; no deshace ni detiene necesariamente una operación ya enviada.",
+            "Permitir siempre en AlfredPet no recuerda ni evita la elevación UAC de Windows."
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Alfred, ejecuta este mismo comando en la misma carpeta. Si quiero repetirlo, decidiré en tu ventana de permisos si autorizo recordarlo."
+        }
+      ]
+    },
+    {
+      "id": "settings",
+      "title": "Configuración general y audio",
+      "subtitle": "Preferencias del escritorio, rutas y conservación de adjuntos.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Abrir esta guía desde AlfredPet"
+        },
+        {
+          "type": "p",
+          "text": "En el bloque Ayuda pulsa «Manual de uso (PDF)». Windows lo abre con tu visor predeterminado. El PDF está incluido en la instalación; no depende de Internet ni de tener el repositorio. También está en el menú de la mascota y de la bandeja."
+        },
+        {
+          "type": "h",
+          "text": "Carpetas permitidas"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Abre Configuración > General.",
+            "Añade carpetas mediante el selector de Windows. Puedes retirar selecciones individuales.",
+            "Pulsa «Guardar rutas» para aplicar la lista."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La ruta completa se consulta al mantener el puntero sobre una selección. Cancelar un selector conserva su valor; «Quitar» lo vacía. Elegir un destino con «Guardar como» no crea el archivo hasta que ejecutes la operación."
+        },
+        {
+          "type": "p",
+          "text": "Las ubicaciones protegidas, credenciales y enlaces especiales pueden seguir rechazados aunque selecciones una carpeta superior. Autoriza carpetas de trabajo concretas y consulta el error si un archivo queda fuera del ámbito."
+        },
+        {
+          "type": "h",
+          "text": "Audio «Señor»"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Pulsa «Seleccionar archivo de audio» y elige un archivo WAV.",
+            "La selección se guarda al aceptarla. Comprueba el nombre que aparece debajo.",
+            "Usa «Quitar audio» para dejar de utilizarlo."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El sonido sirve para avisos que requieren atención, no para leer respuestas normales. El dictado se inicia desde el chat y requiere revisar el texto antes de enviarlo. AlfredPet no lee las respuestas en voz alta. No molestar y las restricciones de privacidad pueden afectar a los avisos."
+        },
+        {
+          "type": "h",
+          "text": "Inicio y archivos administrados"
+        },
+        {
+          "type": "p",
+          "text": "«Iniciar AlfredPet con Windows» controla el arranque automático. En Datos y diagnósticos puedes ajustar la conservación de capturas y adjuntos: inicialmente 24 horas, cuota de 512 MiB y limpieza al iniciar."
+        },
+        {
+          "type": "p",
+          "text": "El rango de conservación es de 5 a 43.200 minutos y el de cuota de 64 a 2.048 MiB. Los ajustes nuevos se aplican a activos nuevos; los adjuntos vinculados siguen protegidos mientras exista su referencia."
+        },
+        {
+          "type": "note",
+          "text": "La elección y cancelación de los diálogos nativos, incluido el WAV, requieren comprobación manual en tu equipo. No se debe interpretar una prueba del formulario como verificación completa del diálogo de Windows.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "tasks",
+      "title": "Tareas y recordatorios",
+      "subtitle": "Registrar una tarea, asociarla y decidir cuándo debe reaparecer.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Abre Tareas. Introduce título y, si hace falta, descripción.",
+            "Elige fecha, repetición e intervalo. La repetición admite diaria, semanal o mensual y un intervalo de 1 a 365.",
+            "Asocia opcionalmente un proyecto y una conversación existentes. Pulsa Crear y atiende el permiso si se solicita.",
+            "Desde el listado puedes editar, completar, reabrir o borrar y consultar el historial. Abrir su conversación no inicia un turno."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Completar una tarea repetitiva registra la ejecución y programa el siguiente vencimiento futuro. Las fechas atrasadas no generan una ráfaga de tareas antiguas."
+        },
+        {
+          "type": "note",
+          "text": "La repetición mantiene la hora UTC: un cambio de horario de verano puede mover su hora local. Un día 31 mensual utiliza el último día de un mes corto y vuelve al 31 cuando existe.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "AlfredPet debe estar abierto para procesar vencimientos. Privacidad, No molestar o el módulo desactivado los pausan. Revisa el listado al volver: los avisos no garantizan entrega humana ni se ejecutan acciones de IA por el mero vencimiento."
+        }
+      ]
+    },
+    {
+      "id": "task-tour",
+      "title": "El formulario de tareas",
+      "subtitle": "Una referencia visual para completar cada grupo de campos.",
+      "blocks": [
+        {
+          "type": "bullets",
+          "items": [
+            "Título y descripción: qué necesitas recordar. El título es obligatorio.",
+            "Fecha, repetición e intervalo: cuándo vence y si debe repetirse. Despliega «Cómo se repite el recordatorio» para consultar la regla.",
+            "Proyecto y conversación: contexto opcional. «Sin proyecto» o «Sin conversación» mantiene la tarea sin ese vínculo.",
+            "Crear: solicita guardar la tarea; consulta después su estado en el listado."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "commands",
+      "title": "Comandos y macros",
+      "subtitle": "Acciones directas y secuencias reutilizables.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Usar una herramienta sin redactar una conversación"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Abre Comandos o pulsa Ctrl + Alt + Espacio.",
+            "Busca una acción, conversación, proyecto o macro.",
+            "Si eliges una herramienta, completa sus parámetros. Los campos locales de rutas utilizan selectores; los parámetros avanzados pueden requerir JSON.",
+            "Solicita la ejecución, revisa el permiso y consulta el resultado. Esc cancela o cierra la revisión correspondiente."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las acciones rápidas incluyen Capturar región, Tareas e Historial. Elegir un proyecto crea un chat asociado. Si una herramienta no aparece, comprueba su módulo y, cuando corresponda, la conexión."
+        },
+        {
+          "type": "h",
+          "text": "Qué aporta una macro"
+        },
+        {
+          "type": "p",
+          "text": "Una macro reúne pasos conocidos de AlfredPet con parámetros, condiciones sencillas y una estrategia ante errores. Es apropiada para repetir un procedimiento estable. Una skill aporta instrucciones de razonamiento; un plugin añade código."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Pide en el chat una macro con nombre, pasos y parámetros concretos.",
+            "Revisa la definición y aprueba su guardado.",
+            "Selecciónala en Comandos, introduce los parámetros y revisa los pasos resueltos antes de ejecutarla."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La aprobación de la macro no sustituye los permisos de cada paso. Puede detenerse ante un error, una denegación, una revocación o un resultado incierto. Las sugerencias de rollback no se ejecutan automáticamente."
+        },
+        {
+          "type": "example",
+          "text": "Crea una macro que consulte el estado Git de mi proyecto y lea su README. Quiero elegir la carpeta al ejecutarla y que se detenga si falla un paso."
+        },
+        {
+          "type": "note",
+          "text": "Un atajo propio de una macro abre su revisión de parámetros; no ejecuta sus acciones sin revisar. Ctrl + Alt + Espacio está reservado para Comandos.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "routines",
+      "title": "Rutinas con un botón",
+      "subtitle": "Accesos a macros revisadas con valores guardados.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Activa el módulo de macros en Configuración y prepara una macro con los pasos que necesitas. Puedes pedirla desde el chat; revisa y aprueba su definición.",
+            "Abre Comandos (o Ctrl + Alt + Espacio), busca la macro y selecciónala. Revisa sus pasos y rellena los parámetros. Los valores vinculados a campos locales reconocidos usan selectores de archivos o carpetas.",
+            "Escribe el «Nombre de rutina» y pulsa «Guardar como rutina». Se guardan sus valores y la definición revisada; esto no ejecuta acciones. Puedes conservar hasta 12 rutinas.",
+            "En «Rutinas con un botón», pulsa «Ejecutar» en su tarjeta. Revisa la autorización de la macro y los permisos que soliciten sus pasos. Los permisos recordados se reutilizan sólo donde la herramienta lo permita.",
+            "Consulta el estado, las fechas y el número de pasos completados, fallidos u omitidos. Puedes volver a Comandos mientras sigue en curso. «Actualizar rutinas» recarga los accesos y su estado."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Revisar, modificar o quitar"
+        },
+        {
+          "type": "p",
+          "text": "«Valores guardados» permite consultar los parámetros. «Revisar» abre la definición actual para cambiar el nombre o los valores; confirma con «Guardar revisión de rutina». Si la macro cambió, la rutina queda bloqueada hasta revisarla. «Quitar» pide confirmación y elimina sólo el acceso; la macro original y las copias anteriores se conservan."
+        },
+        {
+          "type": "note",
+          "label": "Permisos y errores",
+          "text": "El botón inicia la solicitud, no omite la confirmación obligatoria de la macro ni los permisos de sus pasos. Privacidad, módulos desactivados o cambios en la definición pueden impedirla. Sólo se inicia una rutina a la vez desde este panel. Si queda interrumpida, incompleta o incierta, revisa Actividad antes de repetir: algunos pasos pueden haber terminado y no se deshacen automáticamente."
+        },
+        {
+          "type": "p",
+          "text": "Las rutinas son locales y forman parte de la copia completa. Al restaurar deben revisarse sus valores, referencias, macros y permisos antes de usarlas. No guardes contraseñas o claves en los parámetros. El estado de ejecución sólo dura durante esta sesión; reiniciar no repite ni reanuda rutinas. No hay ejecución programada ni automática al abrir AlfredPet."
+        },
+        {
+          "type": "example",
+          "text": "Guarda dos accesos a la misma macro de lectura, uno para cada proyecto, con nombres como «Revisar proyecto personal» y «Revisar proyecto de trabajo». Cada tarjeta conserva sus propios valores."
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "Crear y mejorar skills",
+      "subtitle": "Instrucciones que Alfred puede reutilizar.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Una skill define cómo abordar una tarea usando herramientas que Alfred ya tiene. No es código ejecutable, no añade permisos y no activa módulos. Sus instrucciones se guardan en el perfil de AlfredPet, separadas de las skills de otros productos."
+        },
+        {
+          "type": "h",
+          "text": "Crear una"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Comprueba que «Skills de Alfred» está habilitado en Configuración > Módulos.",
+            "En el chat abre «Skills y plugins» y pulsa «Nueva skill», o escribe la petición directamente.",
+            "Indica cuándo debe usarse, qué pasos seguir, qué datos pedir y cómo presentar el resultado.",
+            "Revisa la propuesta en la confirmación y aprueba el guardado. Pide después que la use en un caso pequeño."
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Crea una skill llamada «Revisión de proyecto». Debe comprobar el estado del repositorio, identificar sus pruebas y entregarme un resumen de errores, cambios propuestos y asuntos pendientes. No debe publicar nada sin mi petición."
+        },
+        {
+          "type": "h",
+          "text": "Mejorar, desactivar o recuperar"
+        },
+        {
+          "type": "p",
+          "text": "«Mejorar skill» prepara una petición editable. Describe la skill y el cambio que quieres. Claude consulta la versión vigente y propone una revisión; si ha cambiado entretanto, debe volver a leerla antes de guardar."
+        },
+        {
+          "type": "p",
+          "text": "También puedes pedir que enumere, inspeccione, active, desactive o elimine una skill. Las modificaciones requieren aprobación individual. Se conservan hasta diez revisiones anteriores; recuperar un contenido anterior se realiza guardándolo como una revisión nueva."
+        },
+        {
+          "type": "note",
+          "text": "Los accesos del panel preparan un borrador; no lo envían automáticamente ni sustituyen un texto que ya hayas escrito. El catálogo admite hasta 24 skills y 12.000 caracteres de instrucciones por skill.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "plugins",
+      "title": "Crear y mejorar plugins",
+      "subtitle": "Añadir una herramienta con código revisado.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Un plugin incorpora una capacidad que Alfred no tiene mediante sus herramientas actuales. Puede ejecutar código local; por eso la revisión y las pruebas forman parte del flujo. Los permisos declarados no equivalen a un aislamiento completo del sistema operativo."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Activa «Herramientas personalizadas» y «Plugin Builder» en Configuración > Módulos.",
+            "En el chat elige «Nuevo plugin» o explica la función que necesitas: entradas, salida, efectos permitidos, límites y un ejemplo de prueba.",
+            "Revisa el contrato y el código propuesto. Aprueba la creación del borrador cuando estés conforme.",
+            "Solicita o ejecuta sus pruebas desde el flujo de plugins. Revisa los resultados.",
+            "Habilita la versión de forma explícita. Cada uso conserva su permiso correspondiente."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Actualizar y volver atrás"
+        },
+        {
+          "type": "p",
+          "text": "«Mejorar plugin» permite generar una versión superior en otra carpeta administrada. Se conserva el código anterior. La nueva versión queda desactivada y exige pruebas y habilitación nuevas."
+        },
+        {
+          "type": "p",
+          "text": "Desde Configuración > Módulos, el gestor muestra los plugins y sus acciones disponibles. Puedes revisar versiones, probar, habilitar o deshabilitar, actualizar, volver a una versión conservada y retirar el registro. El rollback vuelve a requerir pruebas y habilitación."
+        },
+        {
+          "type": "example",
+          "text": "Crea un plugin que lea un CSV de inventario y devuelva cuántas filas tienen stock cero. No debe modificar el CSV, acceder a la red ni borrar archivos. Incluye ejemplos de entrada válida e inválida."
+        },
+        {
+          "type": "note",
+          "text": "Las credenciales se configuran mediante los campos privados y referencias previstas por el plugin. No las pongas en el código ni en el chat. Una prueba satisfactoria del runner no garantiza el funcionamiento de cualquier servicio externo ni hace confiable cualquier código.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "connections",
+      "title": "Configurar conexiones",
+      "subtitle": "Un flujo común para servicios externos.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Abre Configuración > Conexiones y elige el tipo de integración.",
+            "Introduce un nombre reconocible y adapta la plantilla pública: servidor, recursos permitidos y demás opciones de alcance.",
+            "Usa los selectores disponibles para rutas locales. Los identificadores remotos y opciones estructuradas se editan en su configuración JSON.",
+            "Introduce el token, contraseña o mapa de secretos en «Credencial de conexión», cuando el proveedor lo requiera.",
+            "Pulsa «Guardar conexión». Completa después la autorización, inspección o importación específica que aparezca.",
+            "Haz primero una consulta pequeña y comprueba su resultado."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Para editar una conexión guardada, pulsa «Configurar» en su tarjeta. El campo secreto se vacía por diseño; no muestra el valor almacenado. Cambiar destino, autenticación, ejecutable o referencias puede exigir introducir las credenciales de nuevo."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Dato",
+            "Dónde va"
+          ],
+          "rows": [
+            [
+              "URL, recurso autorizado, modo de lectura",
+              "Configuración pública del perfil."
+            ],
+            [
+              "Token o contraseña",
+              "Campo privado de credencial; se almacena en Windows Credential Manager."
+            ],
+            [
+              "Mapa de secretos con nombre",
+              "Campo privado para perfiles que utilizan secret_ref."
+            ],
+            [
+              "Consentimiento OAuth",
+              "Navegador y controles de autorización del proveedor."
+            ],
+            [
+              "Archivo local, carpeta o ejecutable",
+              "Selector específico del formulario."
+            ]
+          ],
+          "widths": [
+            1,
+            2.3
+          ]
+        },
+        {
+          "type": "note",
+          "text": "Guardar una conexión no garantiza que el servidor esté disponible ni concede recursos que tu cuenta no tenga. Los estados pendientes de credencial o autorización deben resolverse antes de utilizar sus herramientas.",
+          "label": "Ten en cuenta"
+        },
+        {
+          "type": "p",
+          "text": "Si no sabes completar el JSON, puedes pedir ayuda a Alfred con una plantilla ficticia y los nombres de los campos. Introduce los valores privados sólo en los controles de configuración."
+        }
+      ]
+    },
+    {
+      "id": "notion-github",
+      "title": "Notion y GitHub",
+      "subtitle": "Trabajar con recursos explícitamente autorizados.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Notion"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Elige notion en Conexiones. Usa la plantilla y conserva sólo lectura para una primera prueba.",
+            "Sustituye los identificadores de ejemplo por páginas, bases de datos y fuentes de datos autorizadas. Comparte también esos recursos con la integración en Notion.",
+            "Introduce el token en el campo privado y guarda.",
+            "Pide una lectura o búsqueda limitada; habilita escritura sólo si la necesitas y revisa cada acción."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Puede buscar, leer páginas y bloques, consultar bases y fuentes de datos, crear contenido, actualizarlo y añadir bloques dentro de su alcance. Permitir una fuente de datos también requiere permitir su base correspondiente."
+        },
+        {
+          "type": "example",
+          "text": "En la conexión de Notion de mi proyecto, lee la página autorizada y resume sus tareas pendientes. No modifiques nada."
+        },
+        {
+          "type": "h",
+          "text": "GitHub"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Elige git (GitHub) en Conexiones e indica los repositorios permitidos con el formato propietario/repositorio.",
+            "La opción preferente utiliza `gh` autenticado. También puede configurarse un PAT mediante el campo privado del perfil.",
+            "Guarda y solicita una consulta sobre uno de esos repositorios."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las herramientas remotas consultan repositorios, issues, pull requests, Actions y releases. Las operaciones disponibles incluyen crear issues, fusionar PR y publicar releases; exigen revisión y no deben confundirse con simples lecturas."
+        },
+        {
+          "type": "note",
+          "text": "Tener acceso al repositorio local no autoriza por sí solo una operación remota. La cuenta o token deben disponer de los permisos del proveedor y el repositorio debe estar incluido en la conexión.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "drive",
+      "title": "Google Drive",
+      "subtitle": "Autorizar archivos y controlar las transferencias.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "En Conexiones selecciona Drive y configura un cliente OAuth oficial de tipo Desktop. Introduce su ID y los IDs de archivos o carpetas que deseas permitir.",
+            "Mantén sólo lectura para empezar. Si el cliente necesita secreto, usa el modo de Credential Manager e introdúcelo en el campo privado.",
+            "Guarda la configuración antes de autorizar.",
+            "Inicia la autorización desde su panel y completa el consentimiento en el navegador del sistema.",
+            "Vuelve a AlfredPet y comprueba el estado. Prueba listando o consultando un archivo autorizado."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las listas de IDs vacías permiten preparar la autenticación, pero no autorizan operaciones sobre archivos. Los permisos locales sobre carpetas cubren sus hijos directos; no presuponen acceso recursivo a todos sus descendientes."
+        },
+        {
+          "type": "h",
+          "text": "Operaciones disponibles"
+        },
+        {
+          "type": "p",
+          "text": "Puedes buscar, listar, consultar metadatos, descargar, subir archivos, crear carpetas, mover, renombrar y enviar a la papelera dentro del alcance configurado. Una subida requiere un archivo local autorizado. La papelera y otras escrituras mantienen confirmaciones."
+        },
+        {
+          "type": "p",
+          "text": "Las transferencias administradas conservan registros de estado y recuperación. Si se interrumpe una subida o descarga, consulta el registro correspondiente antes de iniciar otra. La recuperación no promete repetir silenciosamente una escritura remota."
+        },
+        {
+          "type": "example",
+          "text": "Consulta los archivos de la carpeta de Drive que he autorizado y descarga el informe que seleccione. Muéstrame antes cuál es y dónde se guardará."
+        },
+        {
+          "type": "note",
+          "text": "Cambiar de cliente o migrar una conexión puede requerir marcar «Reautorizar» y repetir el consentimiento. Un token válido no garantiza acceso a cualquier archivo de la cuenta. La compatibilidad con tu cliente y tus recursos debe comprobarse con una operación real.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "rest-home",
+      "title": "APIs REST y Home Assistant",
+      "subtitle": "Integraciones delimitadas por operaciones y dispositivos.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "APIs REST"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "En Conexiones selecciona REST. Define una URL base terminada en / y añade su host a allowed_hosts.",
+            "Declara las operaciones permitidas con método, ruta, esquemas de entrada/salida y riesgo. Mantén sólo lectura al iniciar.",
+            "Configura la autenticación admitida: none, bearer, basic o header. Para secretos con nombre, usa el mapa del campo privado.",
+            "Guarda el perfil. Si dispones de OpenAPI, utiliza su panel para importar y revisar operaciones antes de aplicarlas."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Una petición selecciona una operación guardada; no obtiene libertad para enviar cualquier URL. Si cambias el destino, la autenticación o las referencias, vuelve a introducir las credenciales requeridas."
+        },
+        {
+          "type": "example",
+          "text": "Consulta la operación de estado de mi API configurada y explícame el resultado, sin hacer cambios."
+        },
+        {
+          "type": "h",
+          "text": "Home Assistant"
+        },
+        {
+          "type": "p",
+          "text": "En Conexiones elige homeassistant, introduce la URL raíz de tu instancia y su token de larga duración en el campo privado. Define el alcance permitido por la plantilla y mantén sólo lectura para empezar. Guarda, habilita el módulo y prueba consultando entidades, estados o servicios."
+        },
+        {
+          "type": "p",
+          "text": "AlfredPet incluye consulta de entidades y estados, catálogo y ejecución de servicios, acciones sobre automatizaciones existentes, capturas de cámara y eventos. Las operaciones críticas requieren confirmación individual."
+        },
+        {
+          "type": "example",
+          "text": "Consulta el estado de las luces permitidas y dime cuáles están encendidas. Espera mi indicación antes de cambiarlas."
+        },
+        {
+          "type": "note",
+          "text": "Un resultado de API no demuestra siempre el efecto físico de un dispositivo. Comprueba el estado posterior y el dispositivo real. Esta guía no certifica tu servidor, sus integraciones o las credenciales de tu cuenta.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "title": "Bases de datos",
+      "subtitle": "Consultar primero y revisar cualquier escritura.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "En Conexiones selecciona database y elige una plantilla: SQLite, MySQL, MariaDB, PostgreSQL o SQL Server.",
+            "Para SQLite utiliza el selector de archivo dentro de una carpeta permitida. Para un servidor completa host, puerto, base, usuario, driver instalado y TLS según la plantilla.",
+            "Conserva read_only activado para empezar. Guarda la contraseña en el campo privado.",
+            "Pide listar tablas o inspeccionar el esquema antes de redactar consultas más amplias.",
+            "Revisa SQL, destino y alcance cuando solicites una escritura, importación o exportación."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La interfaz ofrece plantillas para los motores admitidos por el adaptador. Las conexiones remotas necesitan el controlador correspondiente instalado; elegir su nombre en la configuración no lo instala."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Operación",
+            "Uso"
+          ],
+          "rows": [
+            [
+              "Tablas y esquema",
+              "Descubrir estructura y columnas disponibles."
+            ],
+            [
+              "Consulta y EXPLAIN",
+              "Leer resultados acotados y analizar una consulta."
+            ],
+            [
+              "Execute",
+              "Aplicar SQL de escritura con revisión obligatoria."
+            ],
+            [
+              "Exportar",
+              "Guardar resultados en un archivo nuevo autorizado."
+            ],
+            [
+              "Importar",
+              "Cargar en una tabla revisada con la observación vigente."
+            ]
+          ],
+          "widths": [
+            1,
+            2.4
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La opción TLS verify_full comprueba certificado e identidad del servidor. require cifra el transporte sin ofrecer esa misma comprobación de identidad. Elige la configuración que corresponda a tu servidor."
+        },
+        {
+          "type": "example",
+          "text": "Inspecciona el esquema de mi conexión de pruebas y propón una consulta de los diez registros más recientes. No hagas escrituras."
+        },
+        {
+          "type": "note",
+          "text": "Al cambiar servidor, usuario, driver o TLS puede ser necesario introducir la credencial de nuevo. No uses una base de producción como primera prueba de una importación o cambio de esquema.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "title": "Conectar servidores MCP",
+      "subtitle": "Descubrir herramientas externas y permitir sólo las necesarias.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "MCP es un protocolo de conexión a herramientas, recursos y prompts externos. Un servidor MCP no es una skill de Alfred ni un plugin local creado por Builder."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "En Conexiones elige MCP. Configura un ejecutable y sus argumentos para stdio, o usa «Plantilla MCP HTTP» para un servidor remoto.",
+            "Guarda el perfil con el destino y autenticación correctos. Los elementos empiezan denegados hasta que los permitas.",
+            "En el inspector, consulta salud y descubre herramientas, recursos y prompts; atiende las confirmaciones.",
+            "Revisa los elementos que necesitas, autoriza su alcance y guarda.",
+            "Prueba una llamada pequeña. Si el catálogo cambia, vuelve a inspeccionarlo antes de continuar."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Autenticación"
+        },
+        {
+          "type": "p",
+          "text": "Bearer, cabeceras privadas y variables de entorno utilizan referencias con nombre y un mapa de valores en el campo privado. Cambiar programa, argumentos, destino o referencias exige revisar y, cuando corresponda, proporcionar de nuevo ese mapa."
+        },
+        {
+          "type": "p",
+          "text": "Los perfiles HTTP compatibles con OAuth ofrecen descubrimiento, revisión del emisor y registro, autorización en navegador, estado, cancelación, renovación y recuperación. Utiliza los controles del inspector; no pegues tokens de retorno en una conversación."
+        },
+        {
+          "type": "h",
+          "text": "Notificaciones y suscripciones"
+        },
+        {
+          "type": "p",
+          "text": "El inspector permite seleccionar cambios de catálogo y recursos, iniciar una suscripción, consultar estado, recoger eventos y detenerla. No inicia polling ni reconexiones automáticamente. Los contadores pueden avisar de eventos perdidos o historial incompleto."
+        },
+        {
+          "type": "note",
+          "text": "Una conexión MCP de AlfredPet se configura en AlfredPet. Configurar ese servidor en Codex u otro programa no lo añade automáticamente aquí. Las llamadas externas mantienen aprobación individual.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "files",
+      "title": "Archivos, organización y recuperación",
+      "subtitle": "Actuar sobre copias y destinos claramente identificados.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "El módulo Explorador de archivos permite listar, leer, buscar, escribir, copiar, mover, renombrar, borrar, comparar, localizar duplicados, comprimir y extraer dentro de carpetas autorizadas. Algunas operaciones ofrecen historial y recuperación."
+        },
+        {
+          "type": "h",
+          "text": "Un flujo de organización"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Añade la carpeta en General > Carpetas permitidas.",
+            "En Tareas busca «Organizar archivos», elige la carpeta y define la organización propuesta; también puedes describirla en el chat.",
+            "Revisa el plan y sus destinos antes de aplicarlo.",
+            "Consulta Actividad y, si corresponde, Configuración > Recuperación."
+          ]
+        },
+        {
+          "type": "example",
+          "text": "Examina mi carpeta de trabajo y propón agrupar los PDF en una subcarpeta. Muéstrame primero qué archivos moverías y los conflictos que encuentres."
+        },
+        {
+          "type": "h",
+          "text": "Deshacer y mantener"
+        },
+        {
+          "type": "p",
+          "text": "Los checkpoints permiten deshacer ciertas escrituras y movimientos. Usa el botón de Actividad cuando esté disponible o el panel de Recuperación para consultar operaciones y planes de limpieza. Si el contenido ha cambiado desde entonces, puede requerirse otra revisión."
+        },
+        {
+          "type": "p",
+          "text": "La limpieza y la retención de checkpoints se preparan como planes. Revisa qué datos perderán su recuperación antes de confirmar. No confundas borrar una referencia de adjunto con borrar un archivo original."
+        },
+        {
+          "type": "h",
+          "text": "Compresión y extracción"
+        },
+        {
+          "type": "p",
+          "text": "Selecciona archivo o carpeta y destino. Los ZIP se comprueban para impedir salidas fuera del destino y para detectar tamaños o conflictos. Un archivo bloqueado por otra aplicación puede impedir una operación; consulta su diagnóstico."
+        },
+        {
+          "type": "note",
+          "text": "No existe un deshacer universal. La recuperación depende del tipo de operación, del checkpoint conservado y de que los archivos sigan coincidiendo. Si el desenlace es incierto, inspecciona origen y destino antes de repetir.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "desktop",
+      "title": "Ventanas, visión y control del PC",
+      "subtitle": "Observar el objetivo antes de actuar.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Control de ventanas y Windows"
+        },
+        {
+          "type": "p",
+          "text": "Puedes pedir que enumere ventanas, identifique la activa, la mueva, cambie su estado, la ajuste o la lleve a otro monitor. Configuración > Ventanas permite gestionar diseños y recuperación disponibles."
+        },
+        {
+          "type": "p",
+          "text": "El módulo Windows consulta procesos, servicios, dispositivos, energía y audio. También dispone de operaciones sobre aplicaciones, servicios, tareas programadas y ajustes del sistema, sujetas a sus permisos y a los privilegios disponibles."
+        },
+        {
+          "type": "h",
+          "text": "Capturar y analizar"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Desde Comandos > Capturar región, selecciona el área y revisa la miniatura. Puedes adjuntarla a una conversación nueva o existente.",
+            "Desde el propio chat, pide que analice un monitor o una ventana concreta y atiende la autorización de captura.",
+            "La herramienta devuelve la imagen al turno actual: Alfred la analiza y responde en ese mismo chat, sin crear otra conversación de análisis."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Privacidad y los módulos desactivados bloquean el acceso a capturas. El envío visual admite hasta cinco imágenes y 6 MB combinados por resultado; si se excede, pide una región menor. El OCR es una operación diferenciada."
+        },
+        {
+          "type": "h",
+          "text": "Automatización de interfaz"
+        },
+        {
+          "type": "p",
+          "text": "AlfredPet puede inspeccionar controles con UI Automation, buscar elementos, leer textos y solicitar acciones como pulsar, seleccionar o escribir. Cuando corresponda utiliza ratón y teclado como alternativa; los campos sensibles y las ventanas protegidas pueden bloquearse."
+        },
+        {
+          "type": "example",
+          "text": "Mira la ventana de mi aplicación de pruebas e identifica el botón de guardar. Dime cuál es antes de pulsarlo."
+        },
+        {
+          "type": "note",
+          "text": "No se garantiza control del escritorio seguro, ventanas elevadas o todas las aplicaciones. Una operación sobre el registro, un servicio o un proceso puede tener efectos importantes; revisa el objetivo exacto.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "system-audit",
+      "title": "Equipo y seguridad",
+      "subtitle": "Auditoría de solo lectura y acciones administrativas elegidas por ti.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Activa Windows en Configuración > Módulos. Abre Configuración > Equipo y seguridad.",
+            "Pulsa «Auditar equipo» y revisa la solicitud de Alfred. No inicia un análisis antivirus ni repara archivos.",
+            "Si Windows deniega una consulta necesaria, puedes elegir «Auditar con autorización UAC». Revisa también el aviso de Windows.",
+            "Consulta fecha, origen, estado UAC y «Ver resultados» de cada sección. «No disponible» no significa que esa comprobación haya pasado. Cada auditoría completada se guarda localmente; las anteriores a esta mejora no se recuperan."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Incluye antivirus registrados, estado y detecciones conocidas de Defender, errores de Sistema/Aplicación de las últimas 24 horas, servicios automáticos detenidos, programas de inicio, espacio en discos y determinadas señales de reinicio pendiente. Las listas están acotadas; un servicio detenido o un error no demuestra infección."
+        },
+        {
+          "type": "h",
+          "text": "Acciones administrativas"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Acción",
+            "Efecto"
+          ],
+          "rows": [
+            [
+              "Actualizar firmas",
+              "Solicita actualizar la protección de Microsoft Defender."
+            ],
+            [
+              "Análisis rápido / completo",
+              "Solicita a Defender analizar el equipo. Puede aplicar su política habitual de respuesta y cuarentena."
+            ],
+            [
+              "Comprobar / reparar archivos",
+              "SFC /verifyonly comprueba; /scannow puede reparar archivos de Windows."
+            ],
+            [
+              "Comprobar / reparar imagen",
+              "DISM /CheckHealth consulta el estado registrado; /RestoreHealth puede reparar y descargar componentes. No es un análisis profundo al elegir Comprobar."
+            ]
+          ],
+          "widths": [
+            1,
+            2.3
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Selecciona una operación y pulsa «Revisar y ejecutar». La aplicación permanece sin elevar; Windows autoriza un trabajador temporal. El catálogo no reinicia automáticamente. SFC/DISM requieren aprobación individual. Un fallo de UAC se muestra y no se reintenta solo."
+        },
+        {
+          "type": "note",
+          "label": "Cómo interpretar los resultados",
+          "text": "Sin detecciones no garantiza ausencia de virus o troyanos. Un análisis de Defender ya iniciado puede continuar aunque termine la espera; revisa Seguridad de Windows antes de repetir. AlfredPet no sustituye un antivirus y no desactiva protecciones. La auditoría y Terminal están bloqueados en Privacidad."
+        }
+      ]
+    },
+    {
+      "id": "audit-comparison",
+      "title": "Comparar auditorías guardadas",
+      "subtitle": "Cambios observados, con fechas, origen y límites de cada consulta.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Abre Configuración > Equipo y seguridad > Auditorías guardadas. «Actualizar historial» recarga los informes del perfil sin consultar Windows.",
+            "Elige «Auditoría anterior» y «Auditoría reciente». Deben ser distintas, del mismo origen y con la anterior fechada antes. Las opciones muestran fecha, equipo, identificador corto de origen y estado UAC.",
+            "Pulsa «Comparar auditorías». Revisa el resumen y cada sección: cambios observados, sin cambios, comparación incompleta o datos no comparables. Despliega cada diferencia para ver los valores anteriores y recientes.",
+            "«Ver auditoría reciente» abre el informe seleccionado, con sus secciones originales. «Borrar auditoría reciente» solicita confirmación y borra únicamente ese informe del historial; no modifica las copias anteriores."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Cómo leer las diferencias"
+        },
+        {
+          "type": "p",
+          "text": "La comparación muestra la fuente de cada sección y explica valores distintos, entradas observadas ahora y elementos que no aparecen en la muestra reciente. Por ejemplo, «Protección en tiempo real: Sí -> No» describe el estado comunicado por Defender. No inicia análisis ni reparaciones, no consulta Claude y no consume un turno de chat."
+        },
+        {
+          "type": "p",
+          "text": "Los errores se agrupan por registro, proveedor, identificador y nivel. Las cantidades pertenecen a ventanas móviles de 24 horas, con hasta 30 eventos por registro. Que disminuyan no demuestra que la causa se haya reparado. También están acotados los inventarios: 50 amenazas, 60 servicios y 100 entradas de inicio."
+        },
+        {
+          "type": "note",
+          "label": "Datos incompletos",
+          "text": "Una sección ausente o no disponible no se interpreta como correcta ni genera bajas ficticias. Las estructuras o identidades ambiguas quedan como no comparables. Si cambió la elevación UAC se muestra un aviso: puede cambiar lo que Windows permite observar. Sin cambios ni detecciones no garantiza ausencia de malware."
+        },
+        {
+          "type": "h",
+          "text": "Conservación y privacidad"
+        },
+        {
+          "type": "p",
+          "text": "Se conservan como máximo 20 informes de 512 KiB cada uno; al guardar otro se retira el más antiguo del historial. Puedes leerlos en Privacidad, pero no generar una auditoría nueva. Los datos no se incluyen en el diagnóstico de soporte. Sí entran en la copia completa: al restaurar se conservan las observaciones, pero las nuevas consultas tendrán otro origen y no se comparan con el anterior. El origen distingue perfil y nombre local del equipo; no certifica identidad de hardware."
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "title": "Navegador y descargas",
+      "subtitle": "Investigar páginas y revisar sus acciones.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Lecturas y formularios"
+        },
+        {
+          "type": "p",
+          "text": "El módulo Navegador combina consultas web públicas con automatización del navegador controlado por AlfredPet. Puede abrir páginas, inspeccionar contenido, extraer texto y enlaces, obtener capturas y trabajar con formularios compatibles."
+        },
+        {
+          "type": "p",
+          "text": "Las búsquedas utilizan el proveedor indicado en la petición. La investigación de varias fuentes puede devolver resultados y errores parciales. El texto de una web es contenido externo, no una orden autorizada."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Pide una consulta o abre la página objetivo.",
+            "Antes de escribir o seleccionar, deja que Alfred inspeccione el formulario.",
+            "Revisa la acción y sus permisos. Si la página cambió, debe inspeccionarla de nuevo.",
+            "Comprueba el resultado posterior; seleccionar una opción puede causar efectos incluso sin pulsar Enviar."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Descargas y acciones posteriores"
+        },
+        {
+          "type": "p",
+          "text": "El módulo Descargas lista archivos descargados, calcula su hash, los clasifica, espera a que estén terminados y permite vigilar su carpeta. Los presets de acciones posteriores preparan pasos como copiar o extraer un archivo terminado, con archivo y destinos elegidos mediante selectores. No es un descargador HTTP genérico."
+        },
+        {
+          "type": "p",
+          "text": "Las acciones posteriores necesitan una descarga terminada y un plan revisado. Si falla una transferencia, consulta su estado y el archivo resultante antes de volver a ejecutarla."
+        },
+        {
+          "type": "example",
+          "text": "Consulta estas dos páginas y compara sus requisitos citando las fuentes. No rellenes formularios ni descargues nada todavía."
+        },
+        {
+          "type": "note",
+          "text": "No se da acceso automático a todas las pestañas o sesiones personales del navegador. Contraseñas, controles personalizados, iframes y páginas con cambios continuos pueden quedar fuera del alcance o requerir interacción manual.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Documentos, imágenes e impresión",
+      "subtitle": "Seleccionar una operación y conservar los originales.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Abre Configuración > Documentos e imágenes y elige la operación.",
+            "Selecciona uno o varios archivos según lo que pida el formulario.",
+            "Cuando sea necesario, selecciona otro archivo para comparar o un destino nuevo con Guardar como.",
+            "Completa las opciones específicas, ejecuta y revisa el permiso y el resultado."
+          ]
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Área",
+            "Funciones disponibles"
+          ],
+          "rows": [
+            [
+              "Documentos",
+              "Metadatos, extracción y búsqueda de texto, comparación, páginas PDF renderizadas, separación y combinación de PDF, conversión a TXT/Markdown y texto derivado."
+            ],
+            [
+              "Imágenes",
+              "Metadatos, tamaño, recorte, conversión, optimización, comparación, preparación para visión y hojas de contacto."
+            ],
+            [
+              "Claude",
+              "Resumen de documento y análisis de imagen mediante una solicitud externa revisada."
+            ],
+            [
+              "Impresión",
+              "Consultar impresoras y trabajos, enviar un archivo a una impresora explícita y cancelar un trabajo revisado."
+            ]
+          ],
+          "widths": [
+            1,
+            3.4
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Los derivados se crean en destinos nuevos; no sobrescriben automáticamente los originales. Si cambias de operación, revisa de nuevo el destino y las opciones. Un formato no admitido o PDF cifrado devuelve un diagnóstico."
+        },
+        {
+          "type": "p",
+          "text": "Si pides analizar una imagen o resumir un documento desde el chat, el contenido se entrega al mismo turno y la respuesta llega a esa conversación. Si inicias esas operaciones desde el formulario de Documentos e imágenes, se conserva la creación de una conversación específica de análisis."
+        },
+        {
+          "type": "example",
+          "text": "Combina estos dos PDF en un archivo nuevo, conserva los originales y dime el destino antes de crearlo."
+        },
+        {
+          "type": "note",
+          "text": "La combinación de PDF no certifica conservar firmas, formularios, marcadores o accesibilidad de los originales. «Enviado a imprimir» indica la entrega al controlador, no que el papel haya salido. La impresora y su asociación de impresión deben estar instaladas.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "development",
+      "title": "Terminal, Git y VS Code",
+      "subtitle": "Herramientas de desarrollo con objetivos explícitos.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "PowerShell / Terminal"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Activa el módulo y abre el panel Terminal dentro de Tareas.",
+            "Selecciona la carpeta de trabajo autorizada, un perfil si lo necesitas y el comando.",
+            "Ejecuta, revisa el permiso y sigue stdout/stderr en el panel. Usa Cancelar para solicitar detener el proceso y sus descendientes."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Se utiliza PowerShell 7 cuando está disponible, con alternativa de Windows PowerShell. No se carga automáticamente el perfil global. Los perfiles propios pueden seleccionar shell y script de preparación mediante el selector."
+        },
+        {
+          "type": "p",
+          "text": "El timeout predeterminado es de 30 segundos. Sólo consultas literales muy acotadas pueden ejecutarse sin confirmación. «Ejecutar como administrador (UAC)» utiliza Windows PowerShell sin perfiles propios ni variables personalizadas; revisa la acción en Alfred y acepta el aviso de Windows."
+        },
+        {
+          "type": "h",
+          "text": "Git local"
+        },
+        {
+          "type": "p",
+          "text": "Puedes consultar estado, diferencias e historial y solicitar las operaciones locales admitidas por el catálogo. Autoriza la carpeta del repositorio y revisa los archivos afectados antes de un cambio. Para GitHub se necesita además una conexión remota."
+        },
+        {
+          "type": "h",
+          "text": "VS Code"
+        },
+        {
+          "type": "p",
+          "text": "El módulo descubre proyectos autorizados y abre sesiones propias de una instalación compatible de VS Code. AlfredPet carga su puente en un perfil de editor independiente; no adopta tu sesión habitual. Puedes consultar comandos, tareas y diagnósticos, ejecutar tareas y seguir o cancelar las iniciadas por Alfred. Atiende los avisos de confianza del workspace. Un listado de diagnósticos vacío no demuestra que las pruebas o la compilación hayan pasado."
+        },
+        {
+          "type": "example",
+          "text": "En este repositorio de pruebas, consulta el estado de Git y dime qué pruebas podría ejecutar. No hagas commits ni push todavía."
+        },
+        {
+          "type": "note",
+          "text": "El modo normal usa tus derechos actuales; el modo administrador eleva un proceso temporal para esa operación. Confirmar un comando autoriza sus efectos reales, sin aislamiento del sistema. No pegues credenciales en comandos o perfiles.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "clipboard",
+      "title": "Portapapeles y vigilancias",
+      "subtitle": "Funciones opcionales que conviene activar de forma consciente.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Portapapeles"
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Habilita el módulo y abre Configuración > Portapapeles.",
+            "Solicita leer o transformar el contenido de forma explícita.",
+            "Revisa la vista previa antes de aplicar una transformación o sustituir texto."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las transformaciones incluyen recortar espacios, mayúsculas/minúsculas, normalizar espacios, eliminar líneas duplicadas, ordenar líneas y formatear JSON. Escribir texto reemplaza los demás formatos del portapapeles y no dispone de un deshacer duradero."
+        },
+        {
+          "type": "p",
+          "text": "El historial empieza desactivado. Al activarlo se registran cambios de texto posteriores; no se captura retroactivamente el contenido anterior ni se guardan imágenes automáticamente. Conserva hasta 100 entradas, 2 MiB y siete días. Desactivar no borra inmediatamente entradas previas: usa el borrado explícito."
+        },
+        {
+          "type": "h",
+          "text": "Vigilancias"
+        },
+        {
+          "type": "p",
+          "text": "Desde el bloque Vigilancias de Tareas elige Archivo, Carpeta, Descargas, Puerto, Proceso, Ventana, Página del navegador o Elemento de interfaz. Selecciona archivo/carpeta cuando corresponda. Para otros tipos introduce el identificador o la configuración que solicita el formulario; los objetivos de navegador e interfaz deben estar observados y disponibles."
+        },
+        {
+          "type": "p",
+          "text": "Las comprobaciones periódicas detectan cambios y registran estado y errores en Actividad. Privacidad o desactivar el módulo suspenden las vigilancias correspondientes. El intervalo nominal de 30 segundos puede ampliarse por trabajo de entrada/salida."
+        },
+        {
+          "type": "example",
+          "text": "Vigila esta carpeta autorizada y avísame cuando cambie su contenido. No muevas ni borres archivos."
+        },
+        {
+          "type": "note",
+          "text": "El polling no registra exhaustivamente cada cambio instantáneo. El filtrado de secretos del portapapeles reduce exposición, pero no reconoce todas las contraseñas posibles. La interacción con proveedores reales del portapapeles necesita validación en el equipo.",
+          "label": "Ten en cuenta"
+        }
+      ]
+    },
+    {
+      "id": "backup",
+      "title": "Crear una copia completa",
+      "subtitle": "Un archivo portable del perfil de AlfredPet, con comprobaciones de integridad.",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Abre Configuración > General > Datos y diagnósticos > Copia completa y restauración. La copia incluye conversaciones, mensajes, borradores, adjuntos, recuerdos, tareas, auditorías guardadas, rutinas, preferencias, skills y archivos de plugins. Los plugins registrados fuera del perfil y adjuntos antiguos se incorporan como archivos propios."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Pulsa «Crear copia» y «Guardar copia como…». Elige un destino fuera del perfil; se usa la extensión .alfredbackup. Un archivo existente no se sobrescribe: elige otro nombre.",
+            "Pulsa «Revisar contenido». Comprueba las cantidades del perfil actual. La captura definitiva se realiza al reiniciar; los cambios guardados hasta ese momento entran en la copia.",
+            "Marca la confirmación y pulsa «Reiniciar y crear copia». Termina antes las respuestas, permisos pendientes y el dictado. Alfred se cierra mientras trabaja y vuelve a abrir Configuración.",
+            "Espera a «Operación terminada» y comprueba la ruta del archivo. Si el reinicio no llega a producirse, usa Salir en la bandeja y vuelve a abrir Alfred."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Qué queda fuera"
+        },
+        {
+          "type": "p",
+          "text": "No se exportan las credenciales del Administrador de credenciales de Windows, la sesión externa de Claude, cachés, modelos descargados, registros de soporte ni copias anteriores. Las carpetas de proyectos externos no se copian. El audio WAV seleccionado sí se incluye si está disponible."
+        },
+        {
+          "type": "p",
+          "text": "Límites por copia: 2 GiB de contenido, 512 MiB por archivo y 10 000 archivos. La copia se rechaza si faltan archivos necesarios, hay enlaces/junctions no admitidos o la estructura SQLite no corresponde al esquema actual. Hace falta espacio para el perfil temporal además del archivo final."
+        },
+        {
+          "type": "note",
+          "label": "Datos privados",
+          "text": "La copia no está cifrada: contiene el historial y archivos personales, incluido cualquier secreto que tú hayas escrito en ellos. Guárdala en una unidad protegida y no la compartas como diagnóstico. SHA-256 detecta cambios; no prueba quién creó el archivo."
+        },
+        {
+          "type": "small",
+          "text": "«Crear backup SQLite» sigue disponible como copia de la base de datos. No sustituye a este asistente y sus archivos .db no se importan con «Restaurar copia»."
+        }
+      ]
+    },
+    {
+      "id": "restore",
+      "title": "Restaurar y recuperar el perfil",
+      "subtitle": "Sustitución completa con una copia anterior disponible para volver atrás.",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            "Abre el mismo asistente, pulsa «Restaurar copia» y «Seleccionar copia…». Elige únicamente una copia de confianza creada por AlfredPet.",
+            "Pulsa «Revisar contenido». Se comprueban formato, rutas, tamaños, hashes y SQLite antes de mostrar fecha, cantidad de archivos y registros. Una copia dañada no habilita la confirmación.",
+            "Lee el alcance, marca «Confirmo que quiero sustituir el perfil…» y pulsa «Reiniciar y restaurar». No se mezclan perfiles. Si el archivo cambió después de revisarlo, se rechaza.",
+            "Al arrancar, Alfred prepara los archivos por separado y crea una copia completa del perfil actual. Solo después sustituye el perfil. Si falla o se interrumpe el cambio, conserva o recupera el anterior; no repite la operación por sí solo.",
+            "Revisa «Operación terminada». «Revisar copia anterior» selecciona la copia automática para comprobarla y restaurarla mediante el mismo flujo. No inicia una restauración al pulsarlo."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Revisión después de restaurar"
+        },
+        {
+          "type": "p",
+          "text": "Privacidad queda activada y todos los módulos, plugins, macros y vigilancias quedan desactivados. Se retiran los permisos recordados y las carpetas permitidas, incluidas las rutas de proyectos: vuelve a seleccionarlas. Los plugins vuelven a borrador y deben revisarse y probarse. Revisa cada conexión y vuelve a autorizar sus credenciales; los ajustes de autorización ligados al equipo se descartan. Las rutinas conservan sus valores, pero quedan pendientes de revisión antes de ejecutarlas."
+        },
+        {
+          "type": "p",
+          "text": "Se conserva el historial visible, pero no las sesiones de Claude: las respuestas nuevas no recuperan automáticamente su contexto privado anterior. Se descartan historial del portapapeles, índices semánticos regenerables, deshacer y operaciones de archivos pendientes. La copia requiere el mismo esquema SQLite; no importa perfiles de Codex ni archivos ZIP genéricos."
+        },
+        {
+          "type": "p",
+          "text": "El estado, la copia automática y el perfil anterior quedan en %LOCALAPPDATA%\\AlfredPetPublic-maintenance. Conserva esa carpeta hasta comprobar el resultado; puede ocupar bastante espacio. No acredita recuperación frente a una avería física del disco."
+        },
+        {
+          "type": "h",
+          "text": "Diagnóstico y desinstalación"
+        },
+        {
+          "type": "p",
+          "text": "«Exportar diagnóstico sin secretos» sigue generando un ZIP técnico acotado. Para cerrar usa Salir en la bandeja; para desinstalar, Aplicaciones instaladas de Windows. Desinstalar no equivale a borrar perfiles, copias ni credenciales. Eliminar un chat no elimina sus copias históricas."
+        }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "title": "Resolver problemas frecuentes",
+      "subtitle": "Empieza por el estado y el mensaje de error.",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Síntoma",
+            "Qué comprobar"
+          ],
+          "rows": [
+            [
+              "Claude no responde",
+              "Configuración > Claude > Diagnóstico; autenticación del CLI, red, cuota y permisos pendientes."
+            ],
+            [
+              "Los puntos siguen animados",
+              "Mira la herramienta indicada y la ventana de permisos. Si decides parar, usa Interrumpir y revisa Actividad."
+            ],
+            [
+              "Falta una herramienta",
+              "Módulo habilitado, privacidad, conexión guardada y alcance autorizado."
+            ],
+            [
+              "Archivo fuera de alcance",
+              "Carpeta permitida guardada, destino correcto y ausencia de enlaces o ubicaciones protegidas."
+            ],
+            [
+              "Adjunto rechazado",
+              "Número de archivos, tamaño, formato y presupuesto de imágenes para Claude."
+            ],
+            [
+              "No puede borrar el chat",
+              "Espera al fin de su ejecución o importación; vuelve a seleccionarlo si cambió desde la confirmación."
+            ],
+            [
+              "Tarea sin aviso",
+              "Aplicación abierta, fecha y repetición, No molestar, privacidad y módulo Tareas. Revisa el listado."
+            ],
+            [
+              "No se oye «Señor»",
+              "WAV seleccionado, sonido del equipo y avisos habilitados. No se reproduce en cada respuesta."
+            ],
+            [
+              "Alfred queda detrás",
+              "Escritorio seguro o pantalla exclusiva, instalación antigua o prioridad de ventana. Comprueba que ejecutas la entrega reciente."
+            ],
+            [
+              "Ventana recortada o lenta",
+              "Entrega instalada, DPI/monitor y WebView2. Anota el monitor, escalado y si sucede al cambiar de sección."
+            ],
+            [
+              "Operación rechazada tras aprobar",
+              "El objetivo o su revisión cambió. Vuelve a leerlo y revisa la nueva propuesta."
+            ],
+            [
+              "Servidor o plugin incierto",
+              "Consulta el estado remoto o local antes de repetir. No asumas que un timeout equivale a ningún efecto."
+            ]
+          ],
+          "widths": [
+            1.1,
+            2.4
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Si el problema continúa, exporta el diagnóstico y describe un ejemplo reproducible. Evita compartir credenciales o conversaciones completas cuando no sean necesarias."
+        },
+        {
+          "type": "p",
+          "text": "Si el manual no abre: configura una aplicación predeterminada para PDF en Windows. Si AlfredPet indica que falta o está dañado, vuelve a ejecutar el instalador actualizado. La guía incluida se renueva al instalar una entrega nueva."
+        }
+      ]
+    },
+    {
+      "id": "catalog",
+      "title": "Referencia de los 26 módulos",
+      "subtitle": "Dónde encontrar cada capacidad en este manual.",
+      "blocks": [
+        {
+          "type": "table",
+          "headers": [
+            "Módulo",
+            "Guía principal"
+          ],
+          "rows": [
+            [
+              "Windows",
+              "Ventanas y control del PC; Equipo y seguridad"
+            ],
+            [
+              "Explorador de archivos",
+              "Archivos, organización y recuperación"
+            ],
+            [
+              "PowerShell / Terminal",
+              "Terminal, Git y VS Code"
+            ],
+            [
+              "Control de ventanas",
+              "Ventanas, visión y control del PC"
+            ],
+            [
+              "Visión de escritorio",
+              "Ventanas, visión y control del PC"
+            ],
+            [
+              "Automatización GUI",
+              "Ventanas, visión y control del PC"
+            ],
+            [
+              "Navegador",
+              "Navegador y descargas"
+            ],
+            [
+              "Descargas",
+              "Navegador y descargas"
+            ],
+            [
+              "Portapapeles",
+              "Portapapeles y vigilancias"
+            ],
+            [
+              "Git / GitHub",
+              "Notion y GitHub; Terminal, Git y VS Code"
+            ],
+            [
+              "VS Code / desarrollo",
+              "Terminal, Git y VS Code"
+            ],
+            [
+              "Bases de datos",
+              "Bases de datos"
+            ],
+            [
+              "Notion",
+              "Notion y GitHub"
+            ],
+            [
+              "Google Drive",
+              "Google Drive"
+            ],
+            [
+              "Home Assistant",
+              "APIs REST y Home Assistant"
+            ],
+            [
+              "APIs REST",
+              "APIs REST y Home Assistant"
+            ],
+            [
+              "MCP genérico",
+              "Conectar servidores MCP"
+            ],
+            [
+              "PDF / documentos",
+              "Documentos, imágenes e impresión"
+            ],
+            [
+              "Imágenes",
+              "Documentos, imágenes e impresión"
+            ],
+            [
+              "Impresoras",
+              "Documentos, imágenes e impresión"
+            ],
+            [
+              "Sistema de tareas",
+              "Tareas y recordatorios"
+            ],
+            [
+              "Monitorización",
+              "Portapapeles y vigilancias"
+            ],
+            [
+              "Macros personales",
+              "Comandos y macros"
+            ],
+            [
+              "Herramientas personalizadas",
+              "Crear y mejorar plugins"
+            ],
+            [
+              "Skills de Alfred",
+              "Crear y mejorar skills"
+            ],
+            [
+              "Plugin Builder",
+              "Crear y mejorar plugins"
+            ]
+          ],
+          "widths": [
+            1.25,
+            2
+          ],
+          "compact": true
+        },
+        {
+          "type": "small",
+          "text": "Activa o desactiva los módulos en Configuración > Módulos. El estado o evidencia mostrados no sustituyen configurar y probar tu cuenta, hardware o servidor."
+        }
+      ]
+    },
+    {
+      "id": "maintenance",
+      "title": "Alcance y actualización del manual",
+      "subtitle": "Una guía viva vinculada a la versión real del producto.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Qué acredita esta edición"
+        },
+        {
+          "type": "p",
+          "text": "Edición pública de desarrollo con identidad geométrica provisional y perfil separado. El personaje definitivo sigue pendiente. Las funciones se describen según el código de esta edición."
+        },
+        {
+          "type": "p",
+          "text": "El README describe las comprobaciones de desarrollo. La validación automática no sustituye la aceptación humana ni certifica cuentas, dispositivos o interacciones físicas."
+        },
+        {
+          "type": "h",
+          "text": "Comprobaciones de uso todavía pendientes"
+        },
+        {
+          "type": "bullets",
+          "items": [
+            "Dictado real en español con el micrófono habitual: permisos de Windows, precisión, puntuación y corte efectivo al detener/cancelar.",
+            "Aceptación y rechazo humanos de UAC; efectos elevados de Defender/SFC/DISM sobre un equipo de prueba. No se han ejecutado reparaciones ni análisis antivirus para documentar esta edición.",
+            "Selección y cancelación de archivos/carpetas y WAV en los diálogos nativos del equipo. Copia al portapapeles de Windows en el uso habitual.",
+            "Aceptación visual humana, pantalla física de 10 pulgadas, DPI físicos adicionales y cambios de monitores.",
+            "Consumo de recursos prolongado y compatibilidad real de cada cuenta, impresora, servidor y plugin generado."
+          ]
+        },
+        {
+          "type": "h",
+          "text": "Cómo se mantiene al día"
+        },
+        {
+          "type": "p",
+          "text": "Cada cambio actualiza la fuente, edición y fecha. Se regenera este PDF, se revisan todas las páginas y se comprueba su vigencia con el código y las imágenes. AGENTS.md conserva esta instrucción."
+        },
+        {
+          "type": "p",
+          "text": "Fuente: docs/manual/manual.es.json. Generador: docs/manual/build_manual.py. PDF: output/pdf/AlfredPet-Manual-de-uso.pdf. La opción --check detecta una entrega desactualizada; no redacta automáticamente ni sustituye la revisión editorial."
+        },
+        {
+          "type": "h",
+          "text": "Historial"
+        },
+        {
+          "type": "small",
+          "text": "15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
+        },
+        {
+          "type": "small",
+          "text": "Las funciones propuestas o pendientes deben identificarse como tales. Esta guía pertenece a AlfredPet; las skills, plugins y configuraciones de Codex u otras aplicaciones no se importan automáticamente."
+        }
+      ]
+    }
+  ],
+  "edition_kind": "public"
+}

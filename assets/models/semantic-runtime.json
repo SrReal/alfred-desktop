@@ -1,0 +1,21 @@
+{
+  "version": "1.30.0",
+  "platform": "win32-x64",
+  "files": [
+    {
+      "path": "DirectML.dll",
+      "bytes": 18527584,
+      "sha256": "234e8898778cdec88d3cb0539508273494082812c968699f3de665a018971625"
+    },
+    {
+      "path": "onnxruntime.dll",
+      "bytes": 28754232,
+      "sha256": "508c362f5673483dd3a086379c392795b2e42d10d5e6f3f90ebd7ac21c97af67"
+    },
+    {
+      "path": "onnxruntime_binding.node",
+      "bytes": 298848,
+      "sha256": "ddd428464069b84414d34ec1796c7c2a69c33a976e4b0390692629e394f92fa1"
+    }
+  ]
+}
