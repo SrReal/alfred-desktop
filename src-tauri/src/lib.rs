@@ -1063,7 +1063,7 @@ pub fn run() {
                                 explain::selection(&core, hwnd).await
                             } else if id == region.id() {
                                 explain::region(&core).await
-                            } else if "Ctrl+Alt+Space"
+                            } else if "Ctrl+Alt+Shift+Space"
                                 .parse::<tauri_plugin_global_shortcut::Shortcut>()
                                 .is_ok_and(|s| s.id() == id)
                             {
@@ -1103,7 +1103,7 @@ pub fn run() {
                 .lock()
                 .map_err(|_| std::io::Error::other("APP_LOCK"))? = Some(app.handle().clone());
             app.manage(c.clone());
-            app.global_shortcut().register("Ctrl+Alt+Space")?;
+            app.global_shortcut().register("Ctrl+Alt+Shift+Space")?;
             for shortcut in [explain::TEXT_SHORTCUT, explain::REGION_SHORTCUT] {
                 let registered = app.global_shortcut().register(shortcut).is_ok();
                 c.store

@@ -1,6 +1,6 @@
 {
   "product_version": "0.1.0",
-  "edition": "1.19",
+  "edition": "1.20",
   "updated": "2026-10-16",
   "updated_display": "16 de octubre de 2026",
   "code_reference": "Edición pública · Núcleo común validado",
@@ -41,7 +41,7 @@
       "blocks": [
         {
           "type": "small",
-          "text": "Edición pública de desarrollo: código fuente sin instalador público final. Consulta el README para compilarla. El personaje original de PixelLab tiene 16 animaciones; su cara identifica la app, la bandeja y el chat. Usa un perfil independiente."
+          "text": "Edición pública de desarrollo: instalador por usuario de AlfredPet Community, con ejecutable y perfil propios. El personaje PixelLab tiene 16 animaciones y su cara identifica la app, la bandeja y el chat. Esta compilación no tiene firma digital."
         },
         {
           "type": "p",
@@ -97,9 +97,10 @@
         {
           "type": "steps",
           "items": [
-            "Consulta los requisitos y la compilación en el README de esta edición: Windows, Node, Rust y las herramientas nativas indicadas.",
-            "Prepara las dependencias con `npm ci --ignore-scripts` y ejecuta `npm run tauri -- dev`. No hay una release pública final ni un instalador público para descargar.",
-            "Para una compilación propia empaquetada, cierra la aplicación antes de sustituirla y comprueba después el chat y Configuración > Claude. La aplicación utiliza WebView2 para sus ventanas."
+            "Comprueba el origen y la huella SHA-256 del instalador público Windows x64 de la entrega. Su nombre identifica AlfredPet Community; esta compilación no tiene firma digital.",
+            "Ejecuta el instalador para tu usuario. Usa su carpeta propia: se rechaza una carpeta que contenga AlfredPet.exe. WebView2 es necesario; el instalador descarga el bootstrapper si falta.",
+            "Abre AlfredPet Community desde su acceso directo. Guarda sus ajustes en %LOCALAPPDATA%\\AlfredPetPublic; configura Claude y tus conexiones en esta edición. Las credenciales nativas tienen un espacio público independiente.",
+            "Para actualizar o quitar la edición pública, utiliza su instalador o su entrada AlfredPet Community en Aplicaciones de Windows. Los datos del perfil pueden conservarse tras desinstalar; no reutilices la carpeta de otra edición. El README explica cómo compilar el paquete desde el código fuente."
           ]
         },
         {
@@ -323,7 +324,7 @@
         {
           "type": "steps",
           "items": [
-            "Selecciona un fragmento en la aplicación de origen y pulsa Ctrl+Alt+E. Mantén esa aplicación activa hasta que aparezca el chat.",
+            "Selecciona un fragmento en la aplicación de origen y pulsa Ctrl+Alt+U. Mantén esa aplicación activa hasta que aparezca el chat.",
             "Revisa el texto en «Explícame esto · vista previa». Para comprobar o cambiar la conversación, pliega ese panel y usa el desplegable del chat; vuelve a abrirlo para continuar.",
             "Pulsa «Usar en este chat». El contenido se añade al borrador sin borrar lo que ya habías escrito. Puedes editarlo y después pulsar Enviar."
           ]
@@ -335,7 +336,7 @@
         {
           "type": "steps",
           "items": [
-            "Sitúa el puntero sobre el monitor deseado y pulsa Ctrl+Alt+Mayús+E. También puedes abrir «Explícame esto» en el chat y pulsar «Seleccionar región».",
+            "Sitúa el puntero sobre el monitor deseado y pulsa Ctrl+Alt+Mayús+U. También puedes abrir «Explícame esto» en el chat y pulsar «Seleccionar región».",
             "Arrastra para delimitar una zona dentro del área de trabajo de ese monitor. Pulsa «Capturar selección» y atiende el permiso si aparece.",
             "Revisa la imagen y pulsa «Explicar en el chat». Allí, «Usar en este chat» adjunta esa captura y prepara el mensaje. Enviar solicita la explicación dentro de esa conversación."
           ]
@@ -2146,7 +2147,7 @@
         },
         {
           "type": "p",
-          "text": "Edición pública con personaje PixelLab: 16 animaciones, iconos y avatares; perfil propio. Código fuente sin instalador público final."
+          "text": "Edición pública con personaje PixelLab, instalador por usuario, ejecutable, perfil, credenciales y atajos propios. El paquete de desarrollo no tiene firma digital."
         },
         {
           "type": "p",
@@ -2179,16 +2180,23 @@
           "text": "Fuente: docs/manual/manual.es.json. Generador: docs/manual/build_manual.py. PDF: output/pdf/AlfredPet-Manual-de-uso.pdf. --check verifica vigencia; la revisión visual es obligatoria."
         },
         {
-          "type": "h",
-          "text": "Historial"
-        },
-        {
-          "type": "small",
-          "text": "16/10/2026 · 1.19. Animaciones e iconos PixelLab de la edición pública.\n16/10/2026 · 1.18. README público con personaje PixelLab; uso sin cambios.\n15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
-        },
-        {
           "type": "small",
           "text": "Las funciones propuestas o pendientes deben identificarse como tales. Esta guía pertenece a AlfredPet; las skills, plugins y configuraciones de Codex u otras aplicaciones no se importan automáticamente."
+        }
+      ]
+    },
+    {
+      "id": "manual-history",
+      "title": "Historial de ediciones",
+      "subtitle": "Cambios documentados sin alterar los resultados ni los límites anteriores.",
+      "blocks": [
+        {
+          "type": "h",
+          "text": "Evolución del manual"
+        },
+        {
+          "type": "small",
+          "text": "16/10/2026 · 1.20. Instalador público independiente; atajos y credenciales propios.\n16/10/2026 · 1.19. Animaciones e iconos PixelLab de la edición pública.\n16/10/2026 · 1.18. README público con personaje PixelLab; uso sin cambios.\n15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
         }
       ]
     }

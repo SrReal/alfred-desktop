@@ -161,14 +161,14 @@ fn native_namespace_denies_legacy_alias_and_noncanonical_targets(domain: Domain)
     .unwrap();
     let mut native = win::Native;
     for bad in [
-        format!("alfredpet.connection.{}", b.connection),
+        format!("alfredpet.public.connection.{}", b.connection),
         b.main().to_ascii_uppercase(),
         format!("{}.v.{}.p.32", b.main(), Uuid::new_v4()),
         format!("{}.v.{}.p.0", b.main(), Uuid::new_v4()),
         format!("{}.v.{}.p.00.extra", b.main(), Uuid::new_v4()),
         format!("{}.v.{}.p.-1", b.main(), Uuid::new_v4()),
-        "alfredpet.drive.credentials.00000000-0000-0000-0000-000000000000".into(),
-        "alfredpet.drive.credentials.../another".into(),
+        "alfredpet.public.drive.credentials.00000000-0000-0000-0000-000000000000".into(),
+        "alfredpet.public.drive.credentials.../another".into(),
     ] {
         assert!(native.read(&bad).is_err());
         assert!(native.write(&bad, b"owned fictional bytes").is_err());

@@ -10,7 +10,7 @@ use tauri_plugin_global_shortcut::{GlobalShortcutExt, Shortcut, ShortcutState};
 fn parsed(text: &str) -> Result<Shortcut, String> {
     let shortcut: Shortcut = text.parse().map_err(|_| "MACRO_SHORTCUT_INVALID")?;
     let reserved = [
-        "Ctrl+Alt+Space",
+        "Ctrl+Alt+Shift+Space",
         crate::explain::TEXT_SHORTCUT,
         crate::explain::REGION_SHORTCUT,
     ];
@@ -196,15 +196,15 @@ mod tests {
     #[test]
     fn reserved_and_typing_bindings_cannot_be_registered() {
         assert_eq!(
-            validate("Ctrl+Alt+Space").unwrap_err(),
+            validate("Ctrl+Alt+Shift+Space").unwrap_err(),
             "MACRO_SHORTCUT_RESERVED"
         );
         assert_eq!(
             validate("KeyA").unwrap_err(),
             "MACRO_SHORTCUT_MODIFIER_REQUIRED"
         );
-        assert!(validate("Ctrl+Alt+E").is_err());
-        assert!(validate("Ctrl+Alt+Shift+E").is_err());
+        assert!(validate("Ctrl+Alt+U").is_err());
+        assert!(validate("Ctrl+Alt+Shift+U").is_err());
         assert!(validate("Ctrl+Alt+KeyM").is_ok());
         assert!(validate("nonsense++garbage").is_err());
     }

@@ -102,7 +102,7 @@ pub(crate) async fn write(
 
 #[cfg(windows)]
 fn target(id: &str) -> Result<Vec<u16>, String> {
-    Ok(format!("alfredpet.{}", mcp_credentials::alias(id)?)
+    Ok(format!("alfredpet.public.{}", mcp_credentials::alias(id)?)
         .encode_utf16()
         .chain(Some(0))
         .collect())
@@ -138,7 +138,7 @@ fn read_now(id: &str) -> Result<String, String> {
         || credential.CredentialBlob.is_null()
         || credential.TargetName.is_null()
         || unsafe { credential.TargetName.to_string() }.map_err(|_| "MCP_NATIVE_FORMAT")?
-            != format!("alfredpet.{}", mcp_credentials::alias(id)?)
+            != format!("alfredpet.public.{}", mcp_credentials::alias(id)?)
     {
         return Err("MCP_NATIVE_FORMAT".into());
     }

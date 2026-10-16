@@ -3,8 +3,8 @@ use crate::{runtime::Core, storage};
 use serde_json::{json, Value};
 use std::sync::Arc;
 
-pub const TEXT_SHORTCUT: &str = "Ctrl+Alt+E";
-pub const REGION_SHORTCUT: &str = "Ctrl+Alt+Shift+E";
+pub const TEXT_SHORTCUT: &str = "Ctrl+Alt+U";
+pub const REGION_SHORTCUT: &str = "Ctrl+Alt+Shift+U";
 
 fn allowed(c: &Core) -> Result<(), String> {
     if c.store.setting("privacy") == true {

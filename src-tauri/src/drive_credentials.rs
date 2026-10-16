@@ -64,8 +64,8 @@ pub(crate) enum Domain {
 impl Domain {
     fn prefix(self) -> &'static str {
         match self {
-            Self::Drive => "alfredpet.drive.credentials.",
-            Self::McpOauth => "alfredpet.mcp.oauth.credentials.",
+            Self::Drive => "alfredpet.public.drive.credentials.",
+            Self::McpOauth => "alfredpet.public.mcp.oauth.credentials.",
         }
     }
     fn manifest_magic(self) -> &'static [u8; 8] {

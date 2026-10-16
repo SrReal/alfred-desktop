@@ -298,7 +298,7 @@ async fn private_native_credential_echo_is_rejected_before_catalog_change_or_pub
     };
     let f = Fixture::new().await;
     let (wire, server) = wire_fixture(&f, "private_event").await;
-    let alias: Vec<u16> = format!("alfredpet.{}", credentials::alias(&f.id).unwrap())
+    let alias: Vec<u16> = format!("alfredpet.public.{}", credentials::alias(&f.id).unwrap())
         .encode_utf16()
         .chain(Some(0))
         .collect();

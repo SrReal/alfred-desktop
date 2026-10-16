@@ -661,7 +661,7 @@ async fn owned_native_credential_manager_pat_roundtrip_and_cleanup() {
     }
     let f = Fixture::new().await;
     let fictional = "owned_fixture_pat";
-    let target = format!("alfredpet.connection.{}", f.id);
+    let target = format!("alfredpet.public.connection.{}", f.id);
     let mut credential = OwnedCredential {
         target: target.encode_utf16().chain(Some(0)).collect(),
         bytes: fictional

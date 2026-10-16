@@ -58,12 +58,21 @@
         "installMode": "currentUser",
         "displayLanguageSelector": false,
         "installerIcon": "icons/icon.ico",
-        "uninstallerIcon": "icons/icon.ico"
+        "uninstallerIcon": "icons/icon.ico",
+        "languages": [
+          "Spanish",
+          "English"
+        ],
+        "installerHooks": "public-installer-hooks.nsh"
       },
       "webviewInstallMode": {
         "type": "downloadBootstrapper",
         "silent": true
       }
-    }
-  }
+    },
+    "publisher": "SrReal",
+    "copyright": "Copyright 2026 SrReal. Third-party assets retain their own terms.",
+    "licenseFile": "../assets/licenses/AlfredPet-Community-Distribution.txt"
+  },
+  "mainBinaryName": "AlfredPet-Community"
 }

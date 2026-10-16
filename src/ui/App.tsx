@@ -1497,11 +1497,11 @@ function Settings() {
             Exportar diagnóstico sin secretos
           </button>
           <p>
-            Atajos: Ctrl+Alt+Space (comandos), Ctrl+Alt+E (explicar texto
-            seleccionado), Ctrl+Alt+Mayús+E (región). Búsqueda FTS5 activa.
+            Atajos: Ctrl+Alt+Shift+Space (comandos), Ctrl+Alt+U (explicar texto
+            seleccionado), Ctrl+Alt+Mayús+U (región). Búsqueda FTS5 activa.
             Semántica local pendiente de modelo opt-in.
           </p>
-          {["Ctrl+Alt+E", "Ctrl+Alt+Shift+E"]
+          {["Ctrl+Alt+U", "Ctrl+Alt+Shift+U"]
             .filter((key) => config[`shortcut.${key}`] === false)
             .map((key) => (
               <p role="alert" key={key}>

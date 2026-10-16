@@ -1011,7 +1011,7 @@ async fn homeassistant_native_fictional_credential_save_read_rotation_revokes_pr
     };
     let f = Fixture::new(false).await;
     let raw = record(&f.core, &f.id).unwrap();
-    let target = format!("alfredpet.connection.{}", f.id);
+    let target = format!("alfredpet.public.connection.{}", f.id);
     let name: Vec<u16> = target.encode_utf16().chain(Some(0)).collect();
     let mut ptr = std::ptr::null_mut::<CREDENTIALW>();
     // Never overwrite or delete a preexisting native credential, even for a

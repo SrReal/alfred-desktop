@@ -5,7 +5,7 @@ use sha2::{Digest, Sha256};
 use std::{collections::BTreeMap, sync::Arc};
 fn prefix(c: &Core, id: &str, version: &str) -> String {
     format!(
-        "alfredpet.custom.{:x}.",
+        "alfredpet.public.custom.{:x}.",
         Sha256::digest(
             json!({"root":c.root,"id":id,"version":version})
                 .to_string()
@@ -237,7 +237,7 @@ mod tests {
     use super::*;
     #[test]
     fn owned_native_utf16_roundtrip_and_exact_target_namespace() {
-        let target = format!("alfredpet.custom.owned-fixture.{}", storage::id());
+        let target = format!("alfredpet.public.custom.owned-fixture.{}", storage::id());
         let value = "fictional-value-ñ-日本";
         write(&target, value).unwrap();
         assert_eq!(read(&target).unwrap(), value);

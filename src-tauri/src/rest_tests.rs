@@ -615,7 +615,7 @@ async fn rest_actor_native_owned_secrets_auth_rotation_and_publication_failure()
         },
     };
     let f = Fixture::new(false).await;
-    let name: Vec<u16> = format!("alfredpet.{}", credentials::alias(&f.id).unwrap())
+    let name: Vec<u16> = format!("alfredpet.public.{}", credentials::alias(&f.id).unwrap())
         .encode_utf16()
         .chain(Some(0))
         .collect();

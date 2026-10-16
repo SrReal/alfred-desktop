@@ -24,7 +24,7 @@ fn drive_bytes_and_targets_retain_the_existing_binary_contract() {
     let p = part(&b, &main, 0, b"owned fictional bytes");
     assert_eq!(
         b.main(),
-        format!("alfredpet.drive.credentials.{}", b.connection)
+        format!("alfredpet.public.drive.credentials.{}", b.connection)
     );
     assert_eq!(&main.bytes()[..8], b"APDRV1M\0");
     assert_eq!(&p.bytes()[..8], b"APDRV1P\0");

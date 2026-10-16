@@ -120,8 +120,8 @@ export function ChatExplain({
       {open && (
         <section className="explain-preview" aria-label="Explicar selección">
           <p>
-            Texto: <kbd>Ctrl+Alt+E</kbd> en la aplicación de origen. Región:{" "}
-            <kbd>Ctrl+Alt+Mayús+E</kbd> sobre el monitor deseado.
+            Texto: <kbd>Ctrl+Alt+U</kbd> en la aplicación de origen. Región:{" "}
+            <kbd>Ctrl+Alt+Mayús+U</kbd> sobre el monitor deseado.
           </p>
           {preview?.notice && (
             <p role="status">{notices[preview.notice] ?? preview.notice}</p>

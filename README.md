@@ -16,8 +16,9 @@ saludo, arrastre, caída, pensamiento, trabajo, búsqueda, observación, uso del
 equipo, esperas, éxito, error, privacidad, no molestar y descanso. La app y la
 bandeja muestran su cara; el chat utiliza su retrato y una brújula para el usuario.
 Puedes abrir [la galería local](docs/character-preview.html) después de clonar
-el repositorio para revisar los estados y tamaños. Este repositorio no ofrece
-un instalador público oficial.
+el repositorio para revisar los estados y tamaños. El instalador público de
+desarrollo tiene ejecutable y perfil propios; esta compilación no está firmada
+digitalmente. No hay una GitHub Release binaria para descargar por ahora.
 
 ## Capacidades
 
@@ -29,6 +30,12 @@ un instalador público oficial.
 - Conexiones GitHub, Notion, Drive, REST, bases de datos, Home Assistant y MCP.
 - Skills y plugins con revisión, pruebas, activación y permisos propios.
 - Copia y recuperación del perfil y auditoría de acciones.
+
+El instalador utiliza `AlfredPet-Community.exe`, el nombre AlfredPet Community
+y el perfil `%LOCALAPPDATA%\AlfredPetPublic`. Rechaza una carpeta que contenga
+`AlfredPet.exe`. Las credenciales nativas usan el prefijo `alfredpet.public.`.
+Los atajos públicos son Ctrl+Alt+Mayús+Espacio (comandos), Ctrl+Alt+U (texto)
+y Ctrl+Alt+Mayús+U (región).
 
 Los 26 módulos tienen límites y requisitos propios. Consulta el
 [manual completo](output/pdf/AlfredPet-Manual-de-uso.pdf). El acceso de Claude usa
@@ -44,6 +51,8 @@ Tools, WebView2 y Python con `reportlab`, `pypdf` y `Pillow`.
 npm ci --ignore-scripts
 node scripts/prepare.mjs
 npm run tauri -- dev
+# Instalador Windows x64:
+npm run tauri -- build --bundles nsis -- --locked
 ```
 
 La versión y huella del runtime Node están fijadas en `scripts/prepare.mjs`.
@@ -84,6 +93,9 @@ El repositorio recibe snapshots verificados del núcleo común. Puedes proponer
 correcciones mediante issues o pull requests; los cambios se revisan e integran
 en el núcleo antes de sincronizarlos. No se importan datos ni historiales de
 desarrollo personales.
+
+El instalador incluye [avisos de distribución](assets/licenses/AlfredPet-Community-Distribution.txt),
+notices de dependencias Rust/web y fuentes originales de las dependencias MPL.
 
 Código propio y recursos geométricos originales bajo [MIT](LICENSE), copyright
 2026 SrReal. El personaje, sus animaciones e iconos derivados de PixelLab tienen

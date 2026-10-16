@@ -760,7 +760,7 @@ async fn native_owned_envelope_auth_redaction_rotation_and_ready_cas_failure() {
         },
     };
     let f = Fixture::new().await;
-    let alias: Vec<u16> = format!("alfredpet.{}", credentials::alias(&f.id).unwrap())
+    let alias: Vec<u16> = format!("alfredpet.public.{}", credentials::alias(&f.id).unwrap())
         .encode_utf16()
         .chain(Some(0))
         .collect();

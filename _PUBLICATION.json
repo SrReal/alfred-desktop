@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "edition": "public",
-  "generation": 99,
-  "treeSha256": "e9175bd557e3c5090f9a3cdf330be499fba4e0727f93b90348ef99a404b6f319",
+  "generation": 101,
+  "treeSha256": "19c3a2d604c8883ca2900c9a1e3a6c4141b10da1ffc89af4b61b4559952807fc",
   "files": [
     {
       "path": ".gitignore",
@@ -22,7 +22,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "6e06c62d81734851be94e1729aa9e1ae3ce02872cadd33edf420255137b7fa9e"
+      "sha256": "ef0ac5b02dfda424f5944b980efe5dff37d5fbfed00a54ec7e5f41b63c8c3061"
     },
     {
       "path": "assets/audio/attention-test.wav",
@@ -133,6 +133,10 @@
       "sha256": "606c682c1b39f6fdcb65d379a90d2ec30dcead49882e8fe6893303a02e3d2a03"
     },
     {
+      "path": "assets/licenses/AlfredPet-Community-Distribution.txt",
+      "sha256": "e96da0424047ba87bdb9f560a939d6be3f00b89c19d1d08c3337a71ddc600286"
+    },
+    {
       "path": "assets/licenses/DirectML-1.15.4-LICENSE-CODE.txt",
       "sha256": "903df5512f7d02609fed0c780a9b704f5a3eeb6e4d84ebe42a29845c81899a3c"
     },
@@ -161,8 +165,44 @@
       "sha256": "387af261e027006786fc78bf40ff42535ecdff9708d07a78ca68772530c3ca2f"
     },
     {
+      "path": "assets/licenses/ThirdParty-Rust.txt",
+      "sha256": "f6a3a3d0260c3d62a7e562eb5442828c8d5a59f7193a7e348f6fa3e1fd6661fa"
+    },
+    {
+      "path": "assets/licenses/ThirdParty-Web.txt",
+      "sha256": "c165c4e724898304fb612237378b52df02dec76049576afeed43168354a91f26"
+    },
+    {
       "path": "assets/licenses/Tokenizers-js-0.2.0-LICENSE.txt",
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "assets/licenses/distribution-inventory.json",
+      "sha256": "83bdfd48d3454310a4a3b37887b44c4a5865633a6e8894ffa942a2f610ef71a1"
+    },
+    {
+      "path": "assets/licenses/source/README.txt",
+      "sha256": "d24fcbb8af487780193f6a39329d6df2a4bc3dcd574b39f055a74efbab0e9e5d"
+    },
+    {
+      "path": "assets/licenses/source/cssparser-0.37.0.crate",
+      "sha256": "8c9cdaae01d5ed7882b04d795e7f752f46ff52d2fa3b50a20d28c464510bba98"
+    },
+    {
+      "path": "assets/licenses/source/cssparser-macros-0.7.1.crate",
+      "sha256": "d045de693cb712d0b22c6a64be5b953f67b3ce00ab5ad3dd5d8b441886ab8e1a"
+    },
+    {
+      "path": "assets/licenses/source/dtoa-short-0.3.5.crate",
+      "sha256": "cd1511a7b6a56299bd043a9c167a6d2bfb37bf84a6dfceaba651168adfb43c87"
+    },
+    {
+      "path": "assets/licenses/source/option-ext-0.2.0.crate",
+      "sha256": "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
+    },
+    {
+      "path": "assets/licenses/source/selectors-0.38.0.crate",
+      "sha256": "8adfa1c298912827b8a28b223b3b874357397ae706e6190acd9bf28cee99114d"
     },
     {
       "path": "assets/models/semantic-model.json",
@@ -466,11 +506,11 @@
     },
     {
       "path": "docs/manual/manual.es.json",
-      "sha256": "4ec538f442c17e0262ded8c13c8b304ef8973018f64181d215c6acaec6bd83cf"
+      "sha256": "758e232247958a3a465118e9f8042ca56816b395540ba2ad10a2a3586f9cd916"
     },
     {
       "path": "docs/manual/verification.json",
-      "sha256": "fc5e2d69d892ec9e8460057d117ae1dccfe165bd1efaa4dccc89d5e5b10c0fb7"
+      "sha256": "aa24d8b6dd3abc13112b74ba06a6e8e4216c33269752041959620c0e004ae29d"
     },
     {
       "path": "eslint.config.js",
@@ -510,11 +550,11 @@
     },
     {
       "path": "native/windows.ps1",
-      "sha256": "dc63f5552370717728352b03d8764a59dff9601044a0af1457dd8c482a49b8de"
+      "sha256": "7210322a7814b2ecbb56987c8f5460a8f6378d6b74bd0a4016c0e5ede26d3880"
     },
     {
       "path": "output/pdf/AlfredPet-Manual-de-uso.pdf",
-      "sha256": "6097eda3479f48f2a0e640cbf2e722512acfbec409461f9fc387d88a9cf35a7c"
+      "sha256": "f2a95358f4c0a82f8dafa749a6a1cb1ae13d05ea48082f214c5d2fdf3623194e"
     },
     {
       "path": "package-lock.json",
@@ -643,6 +683,10 @@
     {
       "path": "src-tauri/migrations/013_chat_progress.sql",
       "sha256": "5a782d27df06f6da37eeca7adea211e918253df93265bbdc754732aad1da588d"
+    },
+    {
+      "path": "src-tauri/public-installer-hooks.nsh",
+      "sha256": "cac40390aec750ca6b6ed00ebb370c348bbbad2a3240f5e6f933e585dd207726"
     },
     {
       "path": "src-tauri/schemas/memory-analysis.json",
@@ -794,11 +838,11 @@
     },
     {
       "path": "src-tauri/src/drive_credentials.rs",
-      "sha256": "e0fbd649d026526fcf612673149ca52ac0b91cc0aecb62827329998dab72be7a"
+      "sha256": "0647f2f234a2f173d4c91c6299a2b7a64174ac64f0a7f376162d119b289f4bd5"
     },
     {
       "path": "src-tauri/src/drive_credentials_tests.rs",
-      "sha256": "19d00f6bae4c6a902752ae3ba476b79db3062d3447889653c6cdb440b24c71bb"
+      "sha256": "1f865c5eb854869d2e730c5f31040f787a5aa92fb8d2e43c317909d0cc29092a"
     },
     {
       "path": "src-tauri/src/drive_download.rs",
@@ -838,7 +882,7 @@
     },
     {
       "path": "src-tauri/src/explain.rs",
-      "sha256": "62ec6c0f85a11f10b86df5247ed919ebeb442a88bb0ea69d633737a629457ed6"
+      "sha256": "99511aa10812e56e9ff183f4d5bacf0d66535ba869997772f4979eb6024ff711"
     },
     {
       "path": "src-tauri/src/file_cleanup.rs",
@@ -918,7 +962,7 @@
     },
     {
       "path": "src-tauri/src/github_tests.rs",
-      "sha256": "0858280cdf05544ee93d0d8b8031196538f2cc706338d7f0102c53cd9f21b2ba"
+      "sha256": "f3537b677d72da52056e4aeca7b787c0331f74e126434b96e5d8556829dd5e33"
     },
     {
       "path": "src-tauri/src/gui.rs",
@@ -942,7 +986,7 @@
     },
     {
       "path": "src-tauri/src/homeassistant_tests.rs",
-      "sha256": "b0c8afada35526f28a4ad3c7fefc8b930219eef7104e04e34fdd9460e5ff9a70"
+      "sha256": "4a1d1bd2a186e7cdf2389c8dc3e3ff04045d59d9ae580f3b79894784c3b8738c"
     },
     {
       "path": "src-tauri/src/homeassistant_ws.rs",
@@ -962,7 +1006,7 @@
     },
     {
       "path": "src-tauri/src/lib.rs",
-      "sha256": "cf5e0694a0bf55bf9e3e718ebb9fc70caefbaf5147910f27ee0bf964e5511c42"
+      "sha256": "cd8a3515a290e5483989dc4f21f403c7d9a3b2fd293635739a5a818f5d13dc5a"
     },
     {
       "path": "src-tauri/src/macro_contracts.rs",
@@ -974,7 +1018,7 @@
     },
     {
       "path": "src-tauri/src/macro_shortcuts.rs",
-      "sha256": "6abc3e0f20ecd3c855cc8f0e5935c063b54e18028d59965ed4ac867a7061953b"
+      "sha256": "df0929450e803900ead589484e1dbe62703e8cc9f30f907c1ca23c3ab630a830"
     },
     {
       "path": "src-tauri/src/macros.rs",
@@ -1058,7 +1102,7 @@
     },
     {
       "path": "src-tauri/src/mcp_listen_contracts.rs",
-      "sha256": "761e12eb6f090703338526d909b097e51fa511d7413b69e5b2b649757cdbac5a"
+      "sha256": "a330267bcd34993b0e90d289fc7a1284764f4f178336cc79fcae3e402480ab7c"
     },
     {
       "path": "src-tauri/src/mcp_listen_transport.rs",
@@ -1066,7 +1110,7 @@
     },
     {
       "path": "src-tauri/src/mcp_native.rs",
-      "sha256": "2b38ac5bafac167156065807f60689612346488925cdda8ddf37a6578a316315"
+      "sha256": "a1bdc24b73f08d190916e884339b164c80c2fbd29e45d2300d859cdcdb735d9d"
     },
     {
       "path": "src-tauri/src/mcp_oauth.rs",
@@ -1082,7 +1126,7 @@
     },
     {
       "path": "src-tauri/src/mcp_oauth_vault_tests.rs",
-      "sha256": "60fee1349cf55fadaefa2db203c50eef3e7dfbd0e2e9d48cc4a8c51a32e012b6"
+      "sha256": "eeb3592ba0a986efc3b4df2c0b79a518845757dbcd70bd619886593247cd307b"
     },
     {
       "path": "src-tauri/src/mcp_profile.rs",
@@ -1134,7 +1178,7 @@
     },
     {
       "path": "src-tauri/src/mcp_tests.rs",
-      "sha256": "06159d1d864b01ad9ca104fea805d26a470f34fef695c215c3394d2a5c34a1f5"
+      "sha256": "21758308686e9f2e46bec9cbad7eae388ea8ed6582d8a0ec9b69394e9b7270b6"
     },
     {
       "path": "src-tauri/src/mcp_transport.rs",
@@ -1230,7 +1274,7 @@
     },
     {
       "path": "src-tauri/src/plugin_secrets.rs",
-      "sha256": "43b378a4ef35a9e83f69f36478176bff7f7a0e2f7f3d9904e825b842f5f89858"
+      "sha256": "d379f675accb7ed1110f9a91bfb6fdae1504043ab5f9cc7aeeadcc8c9b2799e2"
     },
     {
       "path": "src-tauri/src/plugins.rs",
@@ -1294,7 +1338,7 @@
     },
     {
       "path": "src-tauri/src/rest_tests.rs",
-      "sha256": "b5334c5d3ab9b3ebf1755d663f86ee24ed69867c044589b6e80d677af8b94143"
+      "sha256": "79084c12d007e51382bf75dc345537303dc43eb44445156a0a15e304d28dc498"
     },
     {
       "path": "src-tauri/src/routines.rs",
@@ -1406,7 +1450,7 @@
     },
     {
       "path": "src-tauri/tauri.conf.json",
-      "sha256": "ae8b24dde1ee0ea1b5fb0f2024d8d601b3ddad6d95fcc303cbadb88ac30c5601"
+      "sha256": "151cb0d02023ffd2de1195dd473eb16431265d3969c851d6e53e30305101871a"
     },
     {
       "path": "src-tauri/tests/rest-profile-contract.rs",
@@ -1446,7 +1490,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "5c697fb130eeecbbc9f5b15b9c45ec5b56e03bfd3c2a6ce7a9fdbffdca25b772"
+      "sha256": "287b9a3c90145f0e409b2bef4f476be356ed201f1654ec54ae9c36925b2656b0"
     },
     {
       "path": "src/ui/AuditHistory.tsx",
@@ -1466,7 +1510,7 @@
     },
     {
       "path": "src/ui/ChatExplain.tsx",
-      "sha256": "70effc70a7bccde6a77bd31be28aa1e31aa63f22648d5636fe1db81a711166ba"
+      "sha256": "64eb1ca25ee9ccb2add98b1731b3d0d0ae84bc5b063d24c0d2c6c937d2c908e3"
     },
     {
       "path": "src/ui/ChatFiles.tsx",
