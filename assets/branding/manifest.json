@@ -1,9 +1,24 @@
 {
-  "name": "Original geometric development identity",
-  "generator": "tools/build_public_assets.py; geometric primitives only, no private reference image",
+  "name": "PixelLab original public concierge",
+  "generator": "tools/build_character.py; offline technical packaging, no new artwork",
+  "provenance": "assets/character-source/provenance.json",
+  "licenseNotice": "assets/character-source/NOTICE.md",
+  "portraitPadding": 4,
+  "iconResampling": "nearest-neighbor",
+  "icoSizes": [
+    16,
+    24,
+    32,
+    48,
+    64,
+    128,
+    256
+  ],
   "files": {
-    "src-tauri/icons/icon.png": "3c11df41e26401956b80de6d88d08a4793bea57d8019575126173ac51f35eadc",
-    "src-tauri/icons/icon.ico": "8c6dd6aa34813e812b7bd7e37ca424cd1f70b69830f5b7c4e480943659dac091",
-    "src-tauri/icons/tray.png": "6cbabce8576db32a0f5fbe5f47ae272eccb285f28236736395fb2d10706b3e5d"
+    "src-tauri/icons/icon.ico": "eb263b8004a4f38e191e262f09ace95b50607e5e9feba390297d70ff6b5ff612",
+    "src-tauri/icons/icon.png": "2e4ccbff7c9cd6efa30a115b7c7bf958315c8e11af95c51bf33f2dda8c065506",
+    "src-tauri/icons/tray.png": "53a0577154db7ccaea5e4bf1756f4b0950f504a37f5971e7d9d69c6e57470fb3",
+    "assets/branding/assistant-avatar.png": "19a422e3e619caac71faad797df31c38a07bdb4db68eb18f0fc35d52c3e18d1e",
+    "assets/branding/user-avatar.png": "72d57e57ce7d175d9ac57dfb1cd2ebaa061bccc4587fa5ecd6aa07ddbae48258"
   }
 }

@@ -1,0 +1,450 @@
+{
+  "schema": 1,
+  "provider": "PixelLab",
+  "created": "2026-10-16",
+  "edition": "public",
+  "reference": {
+    "path": "assets/character-preview/pet-idle.png",
+    "sha256": "1349821faad8b79ec9de30b0b0f917696cc1b151627e79b76c0fd4bd7edaf7dc",
+    "generationProvenance": "assets/character-preview/provenance.json"
+  },
+  "animations": {
+    "idle": {
+      "tool": "animate_image",
+      "jobId": "304a1dd2-2743-4b43-a7f1-08898cabe3b2",
+      "assetId": "d97cbecb-a493-5700-b823-6bbd080885cd",
+      "seed": 16102601,
+      "generatedFrames": 4,
+      "request": {
+        "action": "Seamless idle loop. Stand on exactly the same spot, gently breathe, blink once and give a very subtle head nod, then return to the identical starting pose. Feet stay planted on the same baseline; camera locked. Preserve the same silver-haired bearded concierge, glasses, teal waistcoat, pixel detail, scale and transparent canvas. No added background or text.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102601
+      },
+      "rawFrameSha256": [
+        "d002c46f620c997e54768f0e54b0f99137ebebb58a81e6f1744120dee896dda8",
+        "4d50a35c4e2c3bbf73f12620b6cddfbae4f23d731fe459c0cba3e3ee155eb415",
+        "1238624bc8f2b627d4bde3b1499e3be5f44a3d79abae00176283ceeae91deea6",
+        "cc32ea4e4cb5d3de74dddb6d3fc7608298859eeed8ca120e45001c90d120cec0",
+        "216d3b9e80f804755307e0b260f8c78de4c42fbe15865f80073580b0329782ec"
+      ]
+    },
+    "hover": {
+      "tool": "animate_image",
+      "jobId": "55b91116-ac25-4984-b4f7-3988cfd163d7",
+      "assetId": "b335564f-a3cd-50b4-80bc-61bd80066c2b",
+      "seed": 16102602,
+      "generatedFrames": 4,
+      "request": {
+        "action": "A short friendly hover greeting: turn the head very slightly toward the viewer, smile and raise one hand in a small welcoming wave, lower it and return to the exact original pose. Feet remain planted; camera fixed; no walking, no zoom. Preserve identity, outfit, size, crisp pixel art and transparency.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102602
+      },
+      "rawFrameSha256": [
+        "db40a067d814bdc5bd4a1ba6110aab277f88574b6e8710624a1485e59d7d865e",
+        "bf1a690456f3c697e446dd65d9bd395fac631b31f40cbdaa2b865102f0e05e80",
+        "6639f1ef526e4bfef32b5c8aea7dc36d17b8456f54abc4d7cbac59e2e25a4d0d",
+        "10f243edc51f093d9e64ba9427f7812009c6d79ce28e21482544bbf1fb174062",
+        "006287d340a15cf0ce77a61f3ea97350f35fdc9c16dd83399fbfa6916b104b52"
+      ]
+    },
+    "dragging": {
+      "tool": "animate_image",
+      "jobId": "8554b2b1-c90f-42d9-b501-52af9371d65a",
+      "assetId": "feb46aef-7056-5dcf-8cce-2c9ec0fa68cf",
+      "seed": 16102603,
+      "generatedFrames": 4,
+      "request": {
+        "action": "Suspended while being dragged: briefly bend the knees and sway the legs and forearms for balance, without travelling across the canvas. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102603
+      },
+      "rawFrameSha256": [
+        "93c3c1d18be66848fb77e7738c7e7aaff9cbab68feded35eee3cc45b859b1cd4",
+        "bdf2096af74e065330dde7af636cedcd4768f8fa347776c16ff43801fa364381",
+        "07ddcbc0150d3e212e7ffbcf1db12231afa453aae4fb3f0db30ea539b4d2fbe2",
+        "7cc262ef97907e072ca076e8125182c106e16fc8ff66a486e2a7d835da90129b",
+        "ef3a4d9324ad2ccc2760227f47dabf6f4504a65eb0eb0e92d2c6176927d5bef2"
+      ]
+    },
+    "falling": {
+      "tool": "animate_image",
+      "jobId": "d9c5cd7f-43fd-431e-bc80-951c81c9d77a",
+      "assetId": "3d35d7ae-8bb6-5183-b45f-9b348be73ce4",
+      "seed": 16102604,
+      "generatedFrames": 4,
+      "request": {
+        "action": "A brief startled falling reaction: raise both forearms and bend the knees slightly, coat and hair flutter, then recover the standing pose. Animate the reaction in place, not vertical travel. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102604
+      },
+      "rawFrameSha256": [
+        "b26b67a0d88370acfac4fb1fd43b3458965534ac5c304df448a71e3c42e406d9",
+        "14239b0c64f968880ab6e270cf299399eaf5e130b61e54d9c2e508f842c81496",
+        "9e8c776dc4f0d1b48954c6293a7d1abf5a26b6d5a560c5ec0d38df183ed3cda5",
+        "f7910250e481bbf52fba7c45f084790311afef56370a3b526c6fe2aaa571ff39",
+        "ac32ff8acf1bcce7cbc67d60ba13fca54ed915e5495e300cf5060e6d4813bd9d"
+      ]
+    },
+    "thinking": {
+      "tool": "animate_image",
+      "jobId": "661e076b-1604-4dc3-8b72-8a2706b76f6c",
+      "assetId": "ac8d971b-4e5d-5510-b523-30edcacb6aa3",
+      "seed": 16102605,
+      "generatedFrames": 8,
+      "request": {
+        "action": "Think carefully: bring one hand to the chin, tilt the head thoughtfully, glance up, and lower the hand. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 8,
+        "no_background": true,
+        "seed": 16102605
+      },
+      "rawFrameSha256": [
+        "b779fc3d36b32174b93d400613c5c8b789ab95b1cc3313f82dd3fc700912aa33",
+        "912739963b9456d36cc644395d5991affbf5e6301d48e850a5f1cfd59545c733",
+        "8f76c1ad0b18a220e12b651189ddfe45254a81dee6fceb4dbc9fde5ea006005f",
+        "520c5f6d710ad2f749d237e442dd989f941a2b0db3d3550ef2e84f48688768e6",
+        "6dc989a21ac74a98200474a2f0f827a64057357ecff10327d301f675c1991d2c",
+        "092b6bf229164662b1d1f4e2a5645f9f9a9fd33a8c3ab4e4ce21f88596f9a73e",
+        "d963dad016bc57204191b7e55655cd8580963f682bdebe8f6ba1308605a072aa",
+        "ec35bec3d9f3a6c058a489d534bc17fa928ad0124c47c13aaddd7cccb7700fd2",
+        "cf9d91c3d0e0dc328ac47314651e23a552aa1f76ee7a03bacdceeee79c8ddeac"
+      ]
+    },
+    "working": {
+      "tool": "animate_image",
+      "jobId": "9ebdeb27-b56f-406f-9c5c-3a18070b2bbc",
+      "assetId": "42ec5cad-7eb1-532b-8568-c58898c66154",
+      "seed": 16102606,
+      "generatedFrames": 8,
+      "request": {
+        "action": "Work attentively: bring out a small notebook at waist level, jot a note with one hand, look up and put it away. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 8,
+        "no_background": true,
+        "seed": 16102606
+      },
+      "rawFrameSha256": [
+        "beaa8ea530597acb0a3ef4ea1a714f0b70cec7feb665be55e6f34294d123e796",
+        "cdca8973d8384fbe9fcc51b5721fca1752ef6615b076b3a684112c5e450182cd",
+        "77d65d3f54ea37c31b2d3c92b1180bf3c99f86d90c24d486c981f2c21bfa7472",
+        "6baaca7e46edab653148ccad2e2fbf38be8e1b71182fdcaf0fa350fe8d4d57a5",
+        "b0a351053e2058dc7445d0d1a0529671eca7eaaa85da3c38c2e9e9d8a9797bbb",
+        "0f56b27ec3fa36fd28cf2366f71d4cea976f7b8cac6d1691a52e1257d7027239",
+        "742a55bcfd84157b6f6127e665cb3914b634e88cca346728d4e7a56f6dcb1200",
+        "a0b04f136f53692c6c6f0a059bc2a6723935a1cb2f743d22fbfd49776c342b29",
+        "876345541c97f96a09bc5e8c835aef7d63ece2fd06d75e475758a9d25c9cf894"
+      ]
+    },
+    "searching_web": {
+      "tool": "animate_image",
+      "jobId": "93e5360a-cf6b-4464-a379-8b976a21fbc4",
+      "assetId": "36961485-5e16-5880-9c3f-bd6a04628ae7",
+      "seed": 16102607,
+      "generatedFrames": 8,
+      "request": {
+        "action": "Search carefully: lift a small magnifying glass, scan it gently from left to right at chest level, look through it, then lower it. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 8,
+        "no_background": true,
+        "seed": 16102607
+      },
+      "rawFrameSha256": [
+        "e0b5d2c2ee1ea9603368edfe75d4260f7ff1ce1b2b69a2945452a23c439bf3a1",
+        "44069615fa1a826ee698751f8a3b0e52c980c46fd0c8244c885037adb83208d9",
+        "623eef2e7e3adca73859c44f403332c9b44ddf7efe90d775228905ba4e900915",
+        "4502bca1151beeafbaa2aadfb2793a3585b5c58ade9f384d76b43b85e02d0870",
+        "e47ea559362cabdd78e9a4086f84e642da3e6ca3df1cf3726c98d2e99b2ca6b1",
+        "4180a7b67d4669cdd6ef46b71dd6fa30e8eb3b6ec47d374fd571d84d64ebe6f9",
+        "2e9fba703471722192914251ea8df7c8b4be2b0f5e8922465dcf776db8d682df",
+        "9e60a7850ca6e8fc67aae2fe4d843bee39bb11a8167247a5d63048ce552f9216",
+        "ac26082b533c9396f6dbeb66c5e70af2f06432ac81671874e40958a97a8961f5"
+      ]
+    },
+    "looking_at_screen": {
+      "tool": "animate_image",
+      "jobId": "47370bce-ee45-4220-bc6f-b7e9665c2184",
+      "assetId": "c7d8f979-144b-5475-9721-61b89f23cd82",
+      "seed": 16102608,
+      "generatedFrames": 4,
+      "request": {
+        "action": "Inspect a screen attentively: lean forward very slightly and turn the head a little left then right, then straighten. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102608
+      },
+      "rawFrameSha256": [
+        "664851092ca0d04d594bb00ee5d9e8ef3a5ecd5747c20f99dfde3d9d85f1c0e3",
+        "bdedd1948a7cc1a764e79cfd45f6404031dee320c1ffa3b6e1dacac1fdc6c83b",
+        "950a6af8d82b6a78e32ff3cf9bf24451dc7c55d4ee4fdbcc9fda044b974cc44b",
+        "39cd87628a33a00ade5418efab0418eee552047e3621e663bd0f282d0369f449",
+        "20cadf6b2da28d2dab7897ad546e8273544eb4fb6e340eaffec2f5048cfebf18"
+      ]
+    },
+    "using_pc": {
+      "tool": "animate_image",
+      "jobId": "77b405cf-62ec-4452-923c-542acf362890",
+      "assetId": "1da05d68-4775-5457-bbfe-4a8434874de3",
+      "seed": 16102609,
+      "generatedFrames": 8,
+      "request": {
+        "action": "Use a compact tablet held at waist level: tap it a few times, briefly glance at the viewer, then put it away. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 8,
+        "no_background": true,
+        "seed": 16102609
+      },
+      "rawFrameSha256": [
+        "4cf1ceae1de1b62984e4b05298115a1206dcbbfe26a64da3b17f47d5847decd1",
+        "a9abadf63e66052903d26df08e7211fc38419cb56ed4ed021978442347f9031e",
+        "ac22cabf25e6837e18e08b1b8b5fc086f99728450c85be5cdfd61577f7888e62",
+        "6ee228f138c79c60adf19ceb2f8d6919e6b4888002170a803ecf999fb91dc780",
+        "7c41d32f5a9c184e6abe1bf2da497dccdbe43c821b5a9ef87d872d11bc236516",
+        "ee2aaf126474ed4eecb0fd46e375bc82a1db27a310b7682790472e196392f1bd",
+        "2f09d516820605f71c7e96bf277284f6d416c06c1af4ba9f21dc01bf5cf690bf",
+        "f04e2437de61872adbb01997d471fc77b31db973bf46d61030e6fa2c67269e9c",
+        "7efce2f2ac1fae85de4552b81fed7e3df7b1af20c9b24828dc0cc128265ef944"
+      ]
+    },
+    "waiting_permission": {
+      "tool": "animate_image",
+      "jobId": "c2f334c7-a9ff-4fbb-8b87-8f3d38f984f6",
+      "assetId": "2d80668f-abb4-5abb-912b-a037992c3753",
+      "seed": 16102610,
+      "generatedFrames": 8,
+      "request": {
+        "action": "Politely request permission: extend one open palm toward the viewer at chest height, pause with an inquisitive head tilt, then lower the hand. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 8,
+        "no_background": true,
+        "seed": 16102610
+      },
+      "rawFrameSha256": [
+        "35ca3d18fbd9ce4c91f0c3af77f3d483779d05fa6f69b9b7f8396f9244810555",
+        "7002630f70b136f630953986dddfd3a1b22dca969526a493e09ae8a9cfa6c749",
+        "22627bf4b81a9c5075151ae237e34b533891672f1a6c4a1aa114e0ecd9ef059c",
+        "3cfedbd36318187fc91f3169adb20ba652053c4a3e5028f278d2f5661f1a6959",
+        "203f2416f8422949e57ed949c567d1606dbf97db6999db9c044ff70a0aa2a602",
+        "a2f47d29990d21a40e9cd7e776213cd76a9882f03ce784fe8f327ae17efb8b80",
+        "dc979e1a2c7f787ba3395869b91bd1643d71ce62fe3964279f7a41ffc6b89afd",
+        "9fb791fe136fd8bd7d46e30dbccff8029abee8ca43c9fa6cee8928cdf3b33b26",
+        "ee8003effd3bb027f8478896193098aaf3bc9461234237b0eb2ffabe7c36633b"
+      ]
+    },
+    "waiting_user": {
+      "tool": "animate_image",
+      "jobId": "b5ed7442-3b2c-40cf-98f6-efb80ddc898c",
+      "assetId": "0a473616-308d-5fcc-b4ef-2ae159c2098f",
+      "seed": 16102611,
+      "generatedFrames": 4,
+      "request": {
+        "action": "Wait patiently for the user: fold the hands gently in front, give a small attentive nod and relax. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102611
+      },
+      "rawFrameSha256": [
+        "87aece2877c4df51f5b597d0e5c2849d813cef3e12184767051ef3f76584bd83",
+        "6637c0441961f02456821ea69b63852cee190a8058c5fbe6dfa503b995efb85a",
+        "b516f0676cd96af2963b69959ecee095096f535e188e87a4d5f99aedcc2ef361",
+        "3f694c5dd3774345cbe2e6319620a45e2243698454c69714a5675ad4cf0cf032",
+        "886c889da62e1d013d8c3c38238c66f8f5bc33f32f9949d22212b528fa2b332b"
+      ]
+    },
+    "success": {
+      "tool": "animate_image",
+      "jobId": "971ebdd9-f42f-47a5-8c39-231d73f28ab3",
+      "assetId": "695ec543-1adf-5c49-b18a-921151e15f16",
+      "seed": 16102612,
+      "generatedFrames": 4,
+      "request": {
+        "action": "Celebrate a completed task courteously: give a clear thumbs-up and a small satisfied nod, then relax. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102612
+      },
+      "rawFrameSha256": [
+        "de21050ae42e85970cccec2c2bb584e178d80823c84bf6ac4c04c8616987a9b3",
+        "24f395f04f76ca36560bbd3cdb0b9eba593cfced4babe0507245ca653dd94413",
+        "0542afa85e2ceb635605defced187ff440236332f9e2f2f04e8288e573010fe6",
+        "7d7db207c56e09598a0e40e9d93134652e450b113c7fbbde25bde9ffd194568e",
+        "1a45afa7e0e22a9461be37e707aea6e26116851bd5786f5a862f7d8bdc1b4307"
+      ]
+    },
+    "error": {
+      "tool": "animate_image",
+      "jobId": "597db425-25a4-43df-b566-bf87ecce94a8",
+      "assetId": "641137e9-ec64-58db-8c6e-266b55d5590d",
+      "seed": 16102613,
+      "generatedFrames": 4,
+      "request": {
+        "action": "React politely to an error: a small apologetic head shake, turn one palm upward briefly, and recover a composed expression. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102613
+      },
+      "rawFrameSha256": [
+        "bb4cf02b29571b51892578a447a176e611ac7fe62ad1e462c7c9003c12d0cbfb",
+        "7c078b6ff4b16165e6d8ba7e808e04190607df1a4cb1d78bec19fa5b4141cdd0",
+        "100e3b09b889ff94cbae017fb58c1a8c1b3d6f41e776d4455b9b6f518334b3cb",
+        "a0709675f246c717d02c12e0300ae3cb5c1eb1c991502b4c6b09f489f887ca64",
+        "e25a566f8ac19df3c0a65195ae27d86824fe66780fcdad38d2269bd689ffc69a"
+      ]
+    },
+    "privacy": {
+      "tool": "animate_image",
+      "jobId": "68ac521d-e96e-4ec7-b2e5-2ccc8fc3f3f0",
+      "assetId": "67cb17c0-4b04-5ee6-a40a-36126b15d55c",
+      "seed": 16102614,
+      "generatedFrames": 8,
+      "request": {
+        "action": "Protect privacy: bring both hands together at chest level in a reassuring protective gesture, nod, then lower the hands. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 8,
+        "no_background": true,
+        "seed": 16102614
+      },
+      "rawFrameSha256": [
+        "d3e05d68d07c05dd14cc0be705342fed84c142b4da36af5dcb7886b16e8c1716",
+        "4e39d406b79b433abe334b64d363c79f4bc53f9e67b39271d4cd56e69af448bf",
+        "4e57bdd3a3fe0835295a5f72418b5d784fdf64bdc5d3daf539e9528d2679f8ad",
+        "59c2956ff1a2c1a1779da64ecf31789b4f31f92512d27263e5649ec10035dc1d",
+        "d68adafe7924425dbc57cec4023ddb6e7318a075b73b3c1327807170f3a5a764",
+        "78eedd7f03bd50fcc1c3e3d11280e137b7a0975d4b8a6c05e41874dfeadd4b56",
+        "fe2d4901945aa60d54278b9817fb1318f84da85d329b88e988ecae6a22abeb8c",
+        "e44181aedf4a71dc576b3511cba1eee19665f45362569f10054a1b74b0334f03",
+        "c9b5345c1a91be11e39d6d656444f239aff28dd9d1a20a1e2388f6ed2c97e8b5"
+      ]
+    },
+    "dnd": {
+      "tool": "animate_image",
+      "jobId": "e600791a-a373-4901-a0c8-e0f3e92ab853",
+      "assetId": "fd7438b5-4b49-55db-b04b-493d7fdbca0f",
+      "seed": 16102615,
+      "generatedFrames": 4,
+      "request": {
+        "action": "Quiet do-not-disturb gesture: raise one palm gently while the other stays still, give a subtle calm nod, then lower it. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102615
+      },
+      "rawFrameSha256": [
+        "6672e682347b9a82da11a9db50341b7c9524542b647e03fe46e0ed5cc0057135",
+        "d73815494053b5702758bb5ed2529bca96c19034bff5d6cf92b6e37003f58992",
+        "393894f49aef7380b65203197f655b180ef608fe3aabf7f137de21cae642757d",
+        "3d93be489380b086d7738b290b1762bf32beda8b05e56f80fb6e6c19d32f5b68",
+        "535c728c37e64784e874b477ae9f547ca47dd46ce3a4062b8290f528df5dff9b"
+      ]
+    },
+    "sleeping": {
+      "tool": "animate_image",
+      "jobId": "7db7973b-3aed-4e7a-a616-7f4a57c09f3d",
+      "assetId": "e6ffd7f1-4596-5a5c-a64f-cbddff8afa96",
+      "seed": 16102616,
+      "generatedFrames": 4,
+      "request": {
+        "action": "A gentle sleepy loop: slowly close the eyes and lower the head slightly with soft breathing, then lift it back to rest. Keep the same full-body silver-haired bearded concierge, glasses, clothing and pixel detail. Camera locked, no zoom, no background, text or extra people. Remain within the canvas and keep the feet at their original vertical position. Return to the exact original rest pose.",
+        "first_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "last_frame_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+        "frame_count": 4,
+        "no_background": true,
+        "seed": 16102616
+      },
+      "rawFrameSha256": [
+        "7a098f0149a944f102b2b6a3a2fe7607b09fc45898e8cad5659317ddf0b327e2",
+        "e1df5157da2d4a94b250a2a9869545cf8b735bf2970f64382843cb0cfe0b96d8",
+        "da08d864961f284241bb8a4dd9d69aa486b34830a04122c74cb93f8d8e471b2a",
+        "dc0713cbad88626d8dd1a015765afa6a34280ea06c9591f792cb8eeb84248b56",
+        "d87eb629a9876efd42bf5681f5913795c84e01f5df255d97f05f3ff9e463638f"
+      ]
+    }
+  },
+  "portrait": {
+    "tool": "create_portrait_character",
+    "jobId": "9b94f09a-81c1-4ec1-b0c1-c38b49615dc8",
+    "request": {
+      "direction": "character_to_portrait",
+      "image_url": "https://raw.githubusercontent.com/SrReal/alfred-desktop/2dc5ec6c7fcd04ae90aa282e34228558a0dbb959/assets/character-preview/pet-idle.png",
+      "result_size": 64,
+      "view": "side",
+      "seed": 16102617
+    }
+  },
+  "userCompass": {
+    "tool": "create_image_pro_flash",
+    "jobId": "19e9147a-8343-449b-9517-44e71e7d363c",
+    "assetId": "ad6e6009-7fc1-58b9-938b-e5dd76f71a33",
+    "seed": 15102602,
+    "generated": "2026-10-15"
+  },
+  "technicalPackaging": {
+    "generator": "tools/build_character.py",
+    "canvas": [
+      144,
+      192
+    ],
+    "baseline": 188,
+    "translation": [
+      0,
+      10
+    ],
+    "preserveAllGeneratedFrames": true,
+    "appendExactRestFrame": true,
+    "badgePosition": [
+      108,
+      4
+    ],
+    "portraitPadding": 4,
+    "iconFilter": "nearest-neighbor",
+    "artisticRedrawing": false
+  },
+  "license": "AI-generated images excluded from code MIT grant; see assets/character-source/NOTICE.md",
+  "sourceFiles": {
+    "assets/character-source/dnd.png": "b05c0add39cf7b9dbc13ee6184732967816362efdc4938e7e92f9398be266a5b",
+    "assets/character-source/dragging.png": "f98f3df8c0786efc9d3712f5424fa645d4f528090b1d9464e347e6ffcbfe74be",
+    "assets/character-source/error.png": "7e68d0af11f89e19744af7923dc8fb9319b7bab89b9e0de2528e637b08f7c406",
+    "assets/character-source/falling.png": "fabb243e7743aa082de40969c35fe1d0acfa1d5a43b40b9654f94f2916b27785",
+    "assets/character-source/hover.png": "d901a57cadd8158755c8b98520092f27819bffe4a80c0d7043cf297584efabad",
+    "assets/character-source/idle.png": "c0ce85c9e4f305e7741909eb79321e1315d50fd413d3507109c762c839d930d0",
+    "assets/character-source/looking_at_screen.png": "fb2eb70a5fc3e7dc6a5578ce04912ac30aa1b06d6cc0f7c51bbcbacdabd380a1",
+    "assets/character-source/portrait.png": "e7cddda05f187689721ab83c643c6a68f3f51fee009c06dd9f1ea90d2c41950f",
+    "assets/character-source/privacy.png": "ddf84cb157208dfcc9e4136ef9e7a08334920434d5b638e9f36addc5f59a9cc2",
+    "assets/character-source/searching_web.png": "ee96582cb8fa5110a4e18b493fe4fa7a647e5279ed3f95a02334cdc283cf6571",
+    "assets/character-source/sleeping.png": "8d288b7612251786f4f0ccd8aead0be4f9db267b89e213c88e8581a93d01e4ff",
+    "assets/character-source/success.png": "2906e907b5f48003a2d0036e98867ec157f2a79081b1c36b1a74b453d4de0ccb",
+    "assets/character-source/thinking.png": "5b2e236a8c0fa3b14e722aeb8ae2ca43e81e1278f538a400f9b39385d94849c3",
+    "assets/character-source/user-compass.png": "569b8de688c801e80506dbba18a558e9b6df0c052100aa09bb4d1f56b404671a",
+    "assets/character-source/using_pc.png": "a4b14a249bfd5b3c9077ae80e0cb84275fc6dfc03ed95d0611f363b6ae7d9f3b",
+    "assets/character-source/waiting_permission.png": "536c5944d7fe3e4d9a6536dd6d4af05ee78400deb7b8aada19d5f098d7d1b035",
+    "assets/character-source/waiting_user.png": "a24d5ec5e570c14647be58060017ce659fc09a60954fb9fc7085c06454778060",
+    "assets/character-source/working.png": "606c682c1b39f6fdcb65d379a90d2ec30dcead49882e8fe6893303a02e3d2a03",
+    "assets/character-preview/pet-idle.png": "1349821faad8b79ec9de30b0b0f917696cc1b151627e79b76c0fd4bd7edaf7dc"
+  }
+}

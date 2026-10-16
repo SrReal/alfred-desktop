@@ -1,6 +1,6 @@
 // Public edition identity. No private avatar resources are imported.
 import userAvatar from "../assets/branding/user-avatar.png";
-import assistantAvatar from "../src-tauri/icons/tray.png";
+import assistantAvatar from "../assets/branding/assistant-avatar.png";
 
 export const identity = {
   edition: "public",

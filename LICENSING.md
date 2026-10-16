@@ -10,14 +10,15 @@ Las dependencias, runtimes y modelos conservan sus condiciones y avisos. Véase
 licencias de terceros ni otorga derechos sobre marcas ajenas. Los pesos de los
 modelos no se distribuyen en este repositorio.
 
-El marcador geométrico es provisional y reproducible a partir de primitivas;
-su procedencia está en [assets/public](assets/public/README.md). El manual
+Los iconos genéricos y paneles geométricos son reproducibles a partir de
+primitivas; su procedencia está en [assets/public](assets/public/README.md). El manual
 público utiliza las fuentes estándar de PDF y no incorpora archivos de fuentes
 de Windows. Las capturas y otros recursos no incluidos en el árbol público no
 forman parte de esta distribución.
 
-La vista previa `assets/character-preview/pet-idle.png`, generada con PixelLab,
-está excluida de la concesión MIT del código y del pack geométrico. Se acompaña
-de [su aviso de condiciones](assets/character-preview/NOTICE.md), el prompt,
-la semilla y la huella del archivo original. No se incluyen pesos de modelos
-ni se presenta esta imagen estática como una animación integrada.
+El personaje, las 16 animaciones, el retrato, la brújula de usuario y los
+iconos derivados de PixelLab están excluidos de la concesión MIT del código y
+del pack geométrico. Sus [avisos](assets/character-source/NOTICE.md), prompts,
+semillas, identificadores y huellas acompañan a los archivos. El empaquetado
+técnico es reproducible sin contactar con PixelLab. No se incluyen pesos de
+modelos. La vista previa original se conserva sin alterar sus píxeles.

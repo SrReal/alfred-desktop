@@ -4,17 +4,20 @@ Asistente de escritorio para Windows 11 x64 con chat de Claude, memoria local,
 herramientas y autorizaciones revisables. El frontend utiliza React y Tauri 2;
 el núcleo de Rust comprueba los permisos antes de ejecutar acciones.
 
-**Edición pública de desarrollo.** Esta es la vista previa del personaje original
-generado con PixelLab para la edición pública:
+**Edición pública de desarrollo.** El personaje original de PixelLab ya está
+integrado en la mascota, los avatares y los iconos de esta edición:
 
 <img src="assets/character-preview/pet-idle.png" alt="Personaje original generado con PixelLab para AlfredPet Community" width="288" height="384">
 
 La imagen conserva los píxeles originales de PixelLab; su
 [procedencia y condiciones](assets/character-preview/NOTICE.md) están incluidas.
-La integración del personaje en las 16 animaciones, avatares e iconos sigue
-pendiente. La aplicación de desarrollo utiliza todavía el marcador geométrico
-con pulso y distintivos de estado. Este repositorio no ofrece un instalador
-público oficial.
+La mascota utiliza 16 animaciones con 120 fotogramas a 144 x 192 px: reposo,
+saludo, arrastre, caída, pensamiento, trabajo, búsqueda, observación, uso del
+equipo, esperas, éxito, error, privacidad, no molestar y descanso. La app y la
+bandeja muestran su cara; el chat utiliza su retrato y una brújula para el usuario.
+Puedes abrir [la galería local](docs/character-preview.html) después de clonar
+el repositorio para revisar los estados y tamaños. Este repositorio no ofrece
+un instalador público oficial.
 
 ## Capacidades
 
@@ -60,6 +63,7 @@ cargo test --manifest-path src-tauri/Cargo.toml --locked --lib --tests
 python docs/manual/build_manual.py --check
 node docs/manual/check_bundle.mjs
 python tools/check_publication.py --history
+python tools/build_character.py --check
 ```
 
 Las comprobaciones automáticas no acreditan por sí solas micrófono, UAC,
@@ -82,7 +86,7 @@ en el núcleo antes de sincronizarlos. No se importan datos ni historiales de
 desarrollo personales.
 
 Código propio y recursos geométricos originales bajo [MIT](LICENSE), copyright
-2026 SrReal. La imagen de PixelLab tiene sus
-[condiciones propias](assets/character-preview/NOTICE.md) y está excluida de esa
+2026 SrReal. El personaje, sus animaciones e iconos derivados de PixelLab tienen
+[condiciones propias](assets/character-source/NOTICE.md) y están excluidos de esa
 concesión MIT. Las dependencias conservan sus [avisos](assets/licenses/README.md)
 y condiciones. Consulta [LICENSING.md](LICENSING.md).

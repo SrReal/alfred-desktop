@@ -1,84 +1,84 @@
-// Generated from the original geometric public development pack.
+// Packaged from the approved public PixelLab sources by tools/build_character.py.
 pub const SPRITES: &[(&str, &[u8], usize)] = &[
     (
         "idle",
         include_bytes!("../../assets/pixellab/production/pet/idle.png"),
-        3,
+        6,
     ),
     (
         "hover",
         include_bytes!("../../assets/pixellab/production/pet/hover.png"),
-        3,
+        6,
     ),
     (
         "dragging",
         include_bytes!("../../assets/pixellab/production/pet/dragging.png"),
-        3,
+        6,
     ),
     (
         "falling",
         include_bytes!("../../assets/pixellab/production/pet/falling.png"),
-        3,
+        6,
     ),
     (
         "thinking",
         include_bytes!("../../assets/pixellab/production/pet/thinking.png"),
-        3,
+        10,
     ),
     (
         "working",
         include_bytes!("../../assets/pixellab/production/pet/working.png"),
-        3,
+        10,
     ),
     (
         "searching_web",
         include_bytes!("../../assets/pixellab/production/pet/searching_web.png"),
-        3,
+        10,
     ),
     (
         "looking_at_screen",
         include_bytes!("../../assets/pixellab/production/pet/looking_at_screen.png"),
-        3,
+        6,
     ),
     (
         "using_pc",
         include_bytes!("../../assets/pixellab/production/pet/using_pc.png"),
-        3,
+        10,
     ),
     (
         "waiting_permission",
         include_bytes!("../../assets/pixellab/production/pet/waiting_permission.png"),
-        3,
+        10,
     ),
     (
         "waiting_user",
         include_bytes!("../../assets/pixellab/production/pet/waiting_user.png"),
-        3,
+        6,
     ),
     (
         "success",
         include_bytes!("../../assets/pixellab/production/pet/success.png"),
-        3,
+        6,
     ),
     (
         "error",
         include_bytes!("../../assets/pixellab/production/pet/error.png"),
-        3,
+        6,
     ),
     (
         "privacy",
         include_bytes!("../../assets/pixellab/production/pet/privacy.png"),
-        3,
+        10,
     ),
     (
         "dnd",
         include_bytes!("../../assets/pixellab/production/pet/dnd.png"),
-        3,
+        6,
     ),
     (
         "sleeping",
         include_bytes!("../../assets/pixellab/production/pet/sleeping.png"),
-        3,
+        6,
     ),
 ];
 #[cfg(test)]
