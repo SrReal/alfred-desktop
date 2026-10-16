@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "edition": "public",
-  "generation": 101,
-  "treeSha256": "19c3a2d604c8883ca2900c9a1e3a6c4141b10da1ffc89af4b61b4559952807fc",
+  "generation": 102,
+  "treeSha256": "842c22028c1b3f585f03944a71090431a53dc4bddb8e29ed8e893ee2dd24b9bb",
   "files": [
     {
       "path": ".gitignore",
@@ -22,7 +22,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "ef0ac5b02dfda424f5944b980efe5dff37d5fbfed00a54ec7e5f41b63c8c3061"
+      "sha256": "ad34c5c203a191fefc1d898ca4523ebf22d3ecea3b35d87e44d7157157ba0d7c"
     },
     {
       "path": "assets/audio/attention-test.wav",
@@ -506,11 +506,11 @@
     },
     {
       "path": "docs/manual/manual.es.json",
-      "sha256": "758e232247958a3a465118e9f8042ca56816b395540ba2ad10a2a3586f9cd916"
+      "sha256": "bbd4ced4a8ce850b5326a5a7a3c359a79eb65c8cda2887ffebcc3918c18cf76d"
     },
     {
       "path": "docs/manual/verification.json",
-      "sha256": "aa24d8b6dd3abc13112b74ba06a6e8e4216c33269752041959620c0e004ae29d"
+      "sha256": "f7466830ac9a940fcbd89f7f9657afea4be4966f82cac426bc47817000c2da74"
     },
     {
       "path": "eslint.config.js",
@@ -554,7 +554,7 @@
     },
     {
       "path": "output/pdf/AlfredPet-Manual-de-uso.pdf",
-      "sha256": "f2a95358f4c0a82f8dafa749a6a1cb1ae13d05ea48082f214c5d2fdf3623194e"
+      "sha256": "5e08471b34e855a105fe8ea268dc68e1f66a125dea7a1a9889b45b2b94b2017c"
     },
     {
       "path": "package-lock.json",

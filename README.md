@@ -1,5 +1,10 @@
 # AlfredPet Community
 
+[![Descargar AlfredPet Community 0.1.0 para Windows x64](https://img.shields.io/badge/Descargar_instalador-Windows_x64-2ea44f?style=for-the-badge)](https://github.com/SrReal/alfred-desktop/releases/download/v0.1.0/AlfredPet-Community_0.1.0_x64-setup.exe)
+
+Versión preliminar **0.1.0** para Windows 11 x64. Instalador sin firma digital.
+[Notas de versión, manual y SHA-256](https://github.com/SrReal/alfred-desktop/releases/tag/v0.1.0).
+
 Asistente de escritorio para Windows 11 x64 con chat de Claude, memoria local,
 herramientas y autorizaciones revisables. El frontend utiliza React y Tauri 2;
 el núcleo de Rust comprueba los permisos antes de ejecutar acciones.
@@ -17,8 +22,8 @@ equipo, esperas, éxito, error, privacidad, no molestar y descanso. La app y la
 bandeja muestran su cara; el chat utiliza su retrato y una brújula para el usuario.
 Puedes abrir [la galería local](docs/character-preview.html) después de clonar
 el repositorio para revisar los estados y tamaños. El instalador público de
-desarrollo tiene ejecutable y perfil propios; esta compilación no está firmada
-digitalmente. No hay una GitHub Release binaria para descargar por ahora.
+desarrollo tiene ejecutable y perfil propios. Descárgalo con el botón superior
+o consulta [todas las versiones publicadas](https://github.com/SrReal/alfred-desktop/releases).
 
 ## Capacidades
 
