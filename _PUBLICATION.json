@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "edition": "public",
-  "generation": 97,
-  "treeSha256": "adf43af48815a1a27ce7f5b45829b4834eecc9879f13f7f162aaf0ac584acc17",
+  "generation": 98,
+  "treeSha256": "0b837d1103209994b09bf0023597e56283a5470b4b03878344b03c99f28d7fe9",
   "files": [
     {
       "path": ".gitignore",
@@ -18,11 +18,11 @@
     },
     {
       "path": "LICENSING.md",
-      "sha256": "6d17ac9c1aab0a3084079c8f8bafaa98908611a8fc81992bedcc677c2d66a75b"
+      "sha256": "f88fae6e5707477771d0c2b67eaf6cb8af3857dd284c18f4087590cb7d14454f"
     },
     {
       "path": "README.md",
-      "sha256": "6cec3b57bb5d5c70fe9e8c78ce1b1597aabef1c1123f5c9bee2994cb146f7d16"
+      "sha256": "e4d0d67956212189b1d8acc430ea56ad894326d1479c7c446d0eae66ab8dea22"
     },
     {
       "path": "assets/audio/attention-test.wav",
@@ -35,6 +35,18 @@
     {
       "path": "assets/branding/user-avatar.png",
       "sha256": "db04505db078dd0a80e5e4fe69c8ecaaac9acbea84b1aafd0655ac040e4a4861"
+    },
+    {
+      "path": "assets/character-preview/NOTICE.md",
+      "sha256": "7ababc0fdfc9a8cb3224b6deb4867a5283fe5b6c6bb3ba8a906ee00eb4312874"
+    },
+    {
+      "path": "assets/character-preview/pet-idle.png",
+      "sha256": "1349821faad8b79ec9de30b0b0f917696cc1b151627e79b76c0fd4bd7edaf7dc"
+    },
+    {
+      "path": "assets/character-preview/provenance.json",
+      "sha256": "129c56d3af70b91ad731b74921c1835fb18b518fa0814433c41acd42f9d75bdd"
     },
     {
       "path": "assets/licenses/DirectML-1.15.4-LICENSE-CODE.txt",
@@ -370,11 +382,11 @@
     },
     {
       "path": "docs/manual/manual.es.json",
-      "sha256": "0c80d67e6e46a448c595f92fcc608a9a6e196007d1ed92279cdd461f5b1db62a"
+      "sha256": "fc9402c471009c560359a8818c3ab5eaf9e13145c195f28ecd6b6d4bd4e544c2"
     },
     {
       "path": "docs/manual/verification.json",
-      "sha256": "6380a980d63eb98b9140b30bce102adefb05a1728ab9450a68f7c6fbd0ea44a9"
+      "sha256": "b79837fc75a20049f3cbd9ab7b9a9b99f7d3022c1c1556e72c6ccf5ed1759f6a"
     },
     {
       "path": "eslint.config.js",
@@ -418,7 +430,7 @@
     },
     {
       "path": "output/pdf/AlfredPet-Manual-de-uso.pdf",
-      "sha256": "a604719bc58206d53597f9e3ecbbdf2469c8569527dc969d869711c4dc5d88fe"
+      "sha256": "cbcbb529fd86708f0868cb745bb8af7bd7ee25284e399666e0540c8f2ae06be5"
     },
     {
       "path": "package-lock.json",

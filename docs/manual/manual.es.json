@@ -1,10 +1,10 @@
 {
   "product_version": "0.1.0",
-  "edition": "1.17",
-  "updated": "2026-10-15",
-  "updated_display": "15 de octubre de 2026",
+  "edition": "1.18",
+  "updated": "2026-10-16",
+  "updated_display": "16 de octubre de 2026",
   "code_reference": "Edición pública · Núcleo común validado",
-  "cover_image": "assets/public/pet-reference.png",
+  "cover_image": "assets/character-preview/pet-idle.png",
   "covered_modules": [
     "windows",
     "files",
@@ -2172,11 +2172,11 @@
         },
         {
           "type": "p",
-          "text": "Cada cambio actualiza la fuente, edición y fecha. Se regenera este PDF, se revisan todas las páginas y se comprueba su vigencia con el código y las imágenes. AGENTS.md conserva esta instrucción."
+          "text": "Cada cambio actualiza fuente, edición y fecha; regenera el PDF, revisa todas sus páginas y comprueba las huellas de código e imágenes. AGENTS.md conserva esta instrucción."
         },
         {
           "type": "p",
-          "text": "Fuente: docs/manual/manual.es.json. Generador: docs/manual/build_manual.py. PDF: output/pdf/AlfredPet-Manual-de-uso.pdf. La opción --check detecta una entrega desactualizada; no redacta automáticamente ni sustituye la revisión editorial."
+          "text": "Fuente: docs/manual/manual.es.json. Generador: docs/manual/build_manual.py. PDF: output/pdf/AlfredPet-Manual-de-uso.pdf. --check verifica vigencia; no redacta ni sustituye la revisión visual."
         },
         {
           "type": "h",
@@ -2184,7 +2184,7 @@
         },
         {
           "type": "small",
-          "text": "15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
+          "text": "16/10/2026 · 1.18. README público con personaje PixelLab; uso sin cambios.\n15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
         },
         {
           "type": "small",

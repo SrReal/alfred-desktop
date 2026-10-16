@@ -1,0 +1,44 @@
+{
+  "status": "README_PREVIEW_ONLY",
+  "published": "2026-10-16",
+  "activeInApplication": false,
+  "animationFrames": 1,
+  "provider": "PixelLab",
+  "referenceImagesSent": 0,
+  "tool": "create_image_pro_flash",
+  "request": {
+    "description": "Original full-body desktop companion character, a warm and dignified middle-aged household concierge and technology librarian. Abundant wavy silver hair swept to one side, round brass-rim spectacles, a neatly trimmed full silver beard, kind expressive eyes. Distinctive teal-green waistcoat with brass buttons over a cream long-sleeve shirt, narrow burgundy neck scarf, navy trousers and polished brown shoes. Upright relaxed standing pose with hands behind his back, front view, feet on one common horizontal baseline. A slightly larger readable face for a 192px desktop pet, around 5 heads tall, complete body and both shoes visible. Refined pixel art with crisp deliberate single-pixel clusters, restrained 20-color palette, clear outer silhouette and selective shading, no blur or antialiasing. Centered on transparent 144x192 canvas, character around 166px high with transparent margins. Entirely new character identity, no existing fictional character or celebrity, no bald head, no pencil moustache, no black tuxedo, no bowtie, no cape, no bat shapes, no logos or text, no scenery, no ground shadow.",
+    "width": 144,
+    "height": 192,
+    "no_background": true,
+    "seed": 15102601
+  },
+  "assetId": "d03bbd52-9a34-5cf1-a2e5-ffbacad1aa1e",
+  "file": "pet-idle.png",
+  "sha256": "1349821faad8b79ec9de30b0b0f917696cc1b151627e79b76c0fd4bd7edaf7dc",
+  "measurements": {
+    "canvas": [
+      144,
+      192
+    ],
+    "bbox": [
+      36,
+      14,
+      98,
+      178
+    ],
+    "visibleHeight": 164,
+    "alphaLevels": [
+      0,
+      255
+    ]
+  },
+  "imageBytes": "Unmodified original provider output; no regeneration or image processing.",
+  "rights": {
+    "notice": "NOTICE.md",
+    "coveredByRepositoryMIT": false,
+    "terms": "https://www.pixellab.ai/termsofservice",
+    "providerLinkedLicense": "https://github.com/CompVis/stable-diffusion/blob/main/LICENSE",
+    "checked": "2026-10-16"
+  }
+}

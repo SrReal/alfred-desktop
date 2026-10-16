@@ -4,11 +4,17 @@ Asistente de escritorio para Windows 11 x64 con chat de Claude, memoria local,
 herramientas y autorizaciones revisables. El frontend utiliza React y Tauri 2;
 el núcleo de Rust comprueba los permisos antes de ejecutar acciones.
 
-**Edición pública de desarrollo.** Incluye un marcador geométrico original con
-pulso y distintivos de estado. El personaje definitivo sigue pendiente de
-revisión; este repositorio no ofrece todavía un instalador público oficial.
+**Edición pública de desarrollo.** Esta es la vista previa del personaje original
+generado con PixelLab para la edición pública:
 
-![Marcador de desarrollo original](assets/public/pet-reference.png)
+<img src="assets/character-preview/pet-idle.png" alt="Personaje original generado con PixelLab para AlfredPet Community" width="288" height="384">
+
+La imagen conserva los píxeles originales de PixelLab; su
+[procedencia y condiciones](assets/character-preview/NOTICE.md) están incluidas.
+La integración del personaje en las 16 animaciones, avatares e iconos sigue
+pendiente. La aplicación de desarrollo utiliza todavía el marcador geométrico
+con pulso y distintivos de estado. Este repositorio no ofrece un instalador
+público oficial.
 
 ## Capacidades
 
@@ -76,5 +82,7 @@ en el núcleo antes de sincronizarlos. No se importan datos ni historiales de
 desarrollo personales.
 
 Código propio y recursos geométricos originales bajo [MIT](LICENSE), copyright
-2026 SrReal. Las dependencias conservan sus [avisos](assets/licenses/README.md)
+2026 SrReal. La imagen de PixelLab tiene sus
+[condiciones propias](assets/character-preview/NOTICE.md) y está excluida de esa
+concesión MIT. Las dependencias conservan sus [avisos](assets/licenses/README.md)
 y condiciones. Consulta [LICENSING.md](LICENSING.md).
