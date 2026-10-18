@@ -18,12 +18,14 @@ export function ChatFiles({
   onBusy,
   onError,
   children,
+  actions,
 }: {
   busy: boolean;
   conversation: () => Promise<string>;
   onBusy: (busy: boolean) => void;
   onError: (error: string) => void;
   children: ReactNode;
+  actions?: ReactNode;
 }) {
   const picker = useRef<HTMLInputElement>(null);
   const importing = useRef(false);
@@ -124,11 +126,15 @@ export function ChatFiles({
           <PixelIcon name="attachment" />{" "}
           {pending ? "Adjuntando…" : "Adjuntar archivos"}
         </button>
-        <span>
+        <span
+          className="file-help"
+          title="Arrastra archivos o pega una captura · hasta 32 MiB"
+        >
           {over
             ? "Suelta los archivos aquí"
             : "Arrastra archivos o pega una captura · hasta 32 MiB"}
         </span>
+        {actions}
       </div>
       {notice && (
         <p className="file-notice" role="status">

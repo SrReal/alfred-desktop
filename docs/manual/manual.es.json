@@ -1,8 +1,8 @@
 {
   "product_version": "0.1.0",
-  "edition": "1.21",
-  "updated": "2026-10-16",
-  "updated_display": "16 de octubre de 2026",
+  "edition": "1.22",
+  "updated": "2026-10-18",
+  "updated_display": "18 de octubre de 2026",
   "code_reference": "Edición pública · Núcleo común validado",
   "cover_image": "assets/character-preview/pet-idle.png",
   "covered_modules": [
@@ -307,7 +307,7 @@
           "items": [
             "Arriba: conversación, modelo, Nueva, Desde aquí y Borrar chat. Mantén el puntero sobre los iconos para ver su función.",
             "En el centro: usuario a la derecha; cada avance de Alfred a la izquierda, con su propia fecha e icono.",
-            "Abajo: accesos a Skills y plugins, mensaje, Enviar y Adjuntar archivos. Mientras trabaja, aparecen los puntos animados y la opción de interrumpir."
+            "Abajo: mensaje y Enviar. En la fila inferior, Adjuntar archivos queda a la izquierda; los iconos de plugin (Skills y plugins), captura (Explícame esto) y micrófono (Dictar) están a la derecha. Mantén el puntero sobre cada icono para ver su nombre. Mientras trabaja, aparecen los puntos animados y la opción de interrumpir."
           ]
         }
       ]
@@ -325,7 +325,7 @@
           "type": "steps",
           "items": [
             "Selecciona un fragmento en la aplicación de origen y pulsa Ctrl+Alt+U. Mantén esa aplicación activa hasta que aparezca el chat.",
-            "Revisa el texto en «Explícame esto · vista previa». Para comprobar o cambiar la conversación, pliega ese panel y usa el desplegable del chat; vuelve a abrirlo para continuar.",
+            "Revisa el texto en la vista previa de «Explícame esto». El botón con icono de captura está abajo a la derecha, junto a Skills y plugins y Dictar; un punto indica que hay una vista previa pendiente. Para cambiar la conversación, pliega ese panel y usa el desplegable del chat; vuelve a abrirlo para continuar.",
             "Pulsa «Usar en este chat». El contenido se añade al borrador sin borrar lo que ya habías escrito. Puedes editarlo y después pulsar Enviar."
           ]
         },
@@ -369,7 +369,7 @@
           "type": "steps",
           "items": [
             "Abre el chat que quieras usar. Puedes conservar el texto que ya tengas escrito en Mensaje.",
-            "Pulsa Dictar y espera a «Escuchando». Habla en español; el indicador permanece visible mientras el micrófono está activo.",
+            "Pulsa el icono de micrófono «Dictar», abajo a la derecha, y espera a «Escuchando». Habla en español; el indicador permanece visible mientras el micrófono está activo.",
             "Pulsa Detener y revisar. Al detenerse el reconocimiento aparece el cuadro Revisar dictado.",
             "Corrige palabras, puntuación o cualquier parte del texto. Pulsa Añadir al mensaje para incorporarlo después del borrador que ya tenías.",
             "Revisa el mensaje completo y pulsa Enviar. Dictar, detener o añadir al borrador no envía nada a Claude."
@@ -1043,7 +1043,7 @@
           "type": "steps",
           "items": [
             "Comprueba que «Skills de Alfred» está habilitado en Configuración > Módulos.",
-            "En el chat abre «Skills y plugins» y pulsa «Nueva skill», o escribe la petición directamente.",
+            "En el chat pulsa el icono de plugin «Skills y plugins», abajo a la derecha, y elige «Nueva skill», o escribe la petición directamente.",
             "Indica cuándo debe usarse, qué pasos seguir, qué datos pedir y cómo presentar el resultado.",
             "Revisa la propuesta en la confirmación y aprueba el guardado. Pide después que la use en un caso pequeño."
           ]
@@ -2196,7 +2196,7 @@
         },
         {
           "type": "small",
-          "text": "16/10/2026 · 1.21. Botón de descarga en el README público; uso sin cambios. El instalador publicado 0.1.0 conserva el manual 1.20.\n16/10/2026 · 1.20. Instalador público independiente; atajos y credenciales propios.\n16/10/2026 · 1.19. Animaciones e iconos PixelLab de la edición pública.\n16/10/2026 · 1.18. README público con personaje PixelLab; uso sin cambios.\n15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
+          "text": "18/10/2026 · 1.22. Skills, captura y dictado como iconos a la derecha de Adjuntar archivos; nombres accesibles, vista previa y paneles conservados.\n16/10/2026 · 1.21. Botón de descarga en el README público; uso sin cambios. El instalador publicado 0.1.0 conserva el manual 1.20.\n16/10/2026 · 1.20. Instalador público independiente; atajos y credenciales propios.\n16/10/2026 · 1.19. Animaciones e iconos PixelLab de la edición pública.\n16/10/2026 · 1.18. README público con personaje PixelLab; uso sin cambios.\n15/10/2026 · 1.17. Ediciones separadas; huellas portables y sincronización común.\n15/10/2026 · 1.16. MIT y propuesta visual original; publicación pendiente.\n15/10/2026 · 1.15. README e historial saneados para publicación.\n15/10/2026 · 1.14. Validación tras reinicio y pruebas de foco coordinadas.\n14/10/2026 · 1.13. Dictado y vigilancias nativas; validación de auxiliares.\n14/10/2026 · 1.12. Recuperación de ventanas con auxiliar nativo y validación.\n14/10/2026 · 1.11. Regresión de escritorio y actualización de perfiles.\n14/10/2026 · 1.10. Rutinas con parámetros guardados y permisos de macros.\n14/10/2026 · 1.9. Historial y comparación de auditorías con fecha y origen.\n14/10/2026 · 1.8. Copia completa, restauración y recuperación al reiniciar.\n13/10/2026 · 1.7. Editar, regenerar y copiar; original conservado.\n13/10/2026 · 1.6. Dictado local revisable, sin respuestas habladas.\n13/10/2026 · 1.5. Explicar texto o región en el mismo chat.\n13/10/2026 · 1.4. Plan, progreso, esperas e historial por petición.\n13/10/2026 · 1.3. Markdown, enlaces, imágenes y visión en el chat actual.\n13/10/2026 · 1.2. Administración UAC, permisos y Equipo y seguridad.\n13/10/2026 · 1.1. Apertura del manual desde la app y control de vigencia.\n13/10/2026 · 1.0. Primer manual completo de los 26 módulos."
         }
       ]
     }

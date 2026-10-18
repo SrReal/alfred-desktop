@@ -723,6 +723,60 @@ function Chat({ active }: { active: boolean }) {
       conversation={() => Promise.resolve(selected || create())}
       onBusy={setAttaching}
       onError={setError}
+      actions={
+        !revision && (
+          <div className="chat-context-actions">
+            <ChatCapabilities
+              busy={
+                !!run ||
+                sending ||
+                deleting ||
+                dictating ||
+                !!revision ||
+                !!draft.trim()
+              }
+              onDraft={setDraft}
+            />
+            <ChatExplain
+              active={active}
+              busy={
+                !!run ||
+                sending ||
+                deleting ||
+                attaching ||
+                dictating ||
+                !!deleteTarget ||
+                !!revision
+              }
+              conversation={() => Promise.resolve(selected || create())}
+              onBusy={setAttaching}
+              onDraft={(text) =>
+                setDraft((previous) =>
+                  [previous.trim(), text].filter(Boolean).join("\n\n"),
+                )
+              }
+            />
+            <ChatDictation
+              active={active}
+              conversationId={selected}
+              busy={
+                !!run ||
+                sending ||
+                deleting ||
+                attaching ||
+                !!deleteTarget ||
+                !!revision
+              }
+              onBusy={setDictating}
+              onDraft={(text) =>
+                setDraft((previous) =>
+                  [previous, text].filter(Boolean).join("\n\n"),
+                )
+              }
+            />
+          </div>
+        )
+      }
     >
       <section className="chat">
         <PetDrop
@@ -908,56 +962,6 @@ function Chat({ active }: { active: boolean }) {
               conversationId={selected}
               busy={!!run || attaching || dictating || sending || !!revision}
             />
-            <ChatCapabilities
-              busy={
-                !!run ||
-                sending ||
-                deleting ||
-                dictating ||
-                !!revision ||
-                !!draft.trim()
-              }
-              onDraft={setDraft}
-            />
-            <div className="chat-context-actions">
-              <ChatExplain
-                active={active}
-                busy={
-                  !!run ||
-                  sending ||
-                  deleting ||
-                  attaching ||
-                  dictating ||
-                  !!deleteTarget ||
-                  !!revision
-                }
-                conversation={() => Promise.resolve(selected || create())}
-                onBusy={setAttaching}
-                onDraft={(text) =>
-                  setDraft((previous) =>
-                    [previous.trim(), text].filter(Boolean).join("\n\n"),
-                  )
-                }
-              />
-              <ChatDictation
-                active={active}
-                conversationId={selected}
-                busy={
-                  !!run ||
-                  sending ||
-                  deleting ||
-                  attaching ||
-                  !!deleteTarget ||
-                  !!revision
-                }
-                onBusy={setDictating}
-                onDraft={(text) =>
-                  setDraft((previous) =>
-                    [previous, text].filter(Boolean).join("\n\n"),
-                  )
-                }
-              />
-            </div>
             <div className="composer">
               <textarea
                 aria-label="Mensaje"

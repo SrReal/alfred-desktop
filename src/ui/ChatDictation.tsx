@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { on, request } from "../api";
+import { PixelIcon } from "./PixelIcon";
 
 type Session = {
   id: string;
@@ -168,11 +169,14 @@ export function ChatDictation({
   return (
     <div className="chat-dictation">
       <button
+        type="button"
+        className="chat-tool-button"
+        aria-label="Dictar"
         disabled={!active || busy || working || !!session}
         onClick={() => void action("start")}
         title="Dictar en español con el micrófono predeterminado. Revisar antes de enviar."
       >
-        Dictar
+        <PixelIcon name="microphone" />
       </button>
       {(session || problem) && (
         <section className="dictation-panel" aria-label="Dictado">

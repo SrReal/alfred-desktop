@@ -11,8 +11,15 @@ export function ChatCapabilities({
   const [open, setOpen] = useState(false);
   return (
     <div className="chat-capabilities">
-      <button type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-        <PixelIcon name="plugin" /> Skills y plugins
+      <button
+        type="button"
+        className="chat-tool-button"
+        aria-label="Skills y plugins"
+        title="Skills y plugins"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
+        <PixelIcon name="plugin" />
       </button>
       {open && (
         <div className="capabilities-panel">

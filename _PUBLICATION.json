@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "edition": "public",
-  "generation": 102,
-  "treeSha256": "842c22028c1b3f585f03944a71090431a53dc4bddb8e29ed8e893ee2dd24b9bb",
+  "generation": 103,
+  "treeSha256": "c1311ec1549c2e98e5c1083bc39a8f40c15afb24ffde2ca89bf74c3156efd040",
   "files": [
     {
       "path": ".gitignore",
@@ -506,11 +506,11 @@
     },
     {
       "path": "docs/manual/manual.es.json",
-      "sha256": "bbd4ced4a8ce850b5326a5a7a3c359a79eb65c8cda2887ffebcc3918c18cf76d"
+      "sha256": "f5f05088cd3e8215a25d64ae9b2a06b1136813547f956fd52ef285ae3a42c3f3"
     },
     {
       "path": "docs/manual/verification.json",
-      "sha256": "f7466830ac9a940fcbd89f7f9657afea4be4966f82cac426bc47817000c2da74"
+      "sha256": "e84febb3536d8ab197a13eba8d5823149ec06f9e19ce7ccb8adc2249e06e3189"
     },
     {
       "path": "eslint.config.js",
@@ -554,7 +554,7 @@
     },
     {
       "path": "output/pdf/AlfredPet-Manual-de-uso.pdf",
-      "sha256": "5e08471b34e855a105fe8ea268dc68e1f66a125dea7a1a9889b45b2b94b2017c"
+      "sha256": "6fbf8e473b547e09d1d01750dae07a3840877d5c463504f7dd39ad39fb581281"
     },
     {
       "path": "package-lock.json",
@@ -1482,7 +1482,7 @@
     },
     {
       "path": "src/theme.css",
-      "sha256": "5e44e655ac841591bd0eb4102fc5e55ba3eaadc8bd56d90ceb4871b53d3472b9"
+      "sha256": "071bbaeb0b3726a118db164792c707bf272de7d0196471d66e8648f055e3f595"
     },
     {
       "path": "src/types.ts",
@@ -1490,7 +1490,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "287b9a3c90145f0e409b2bef4f476be356ed201f1654ec54ae9c36925b2656b0"
+      "sha256": "317af954f1ac08806c7281e551cfa16f9e23ed1df93241554d40d606deaf6cc9"
     },
     {
       "path": "src/ui/AuditHistory.tsx",
@@ -1498,7 +1498,7 @@
     },
     {
       "path": "src/ui/ChatCapabilities.tsx",
-      "sha256": "d51af652023d04e461be493f6499cb353ac7a2353020e266d335b125fff2a337"
+      "sha256": "5b71c1a148430761a1710c1d67fd4596b167bb73035698565c8a7378499f6c7f"
     },
     {
       "path": "src/ui/ChatCopyButton.tsx",
@@ -1506,15 +1506,15 @@
     },
     {
       "path": "src/ui/ChatDictation.tsx",
-      "sha256": "de41ae73821ecf2c259364508f71cfb0e6e05735c901bbaf7206bc42e08fedae"
+      "sha256": "e778d24a3a43b50b938fffdefcf3947939396b94131977d257b0ba8126020710"
     },
     {
       "path": "src/ui/ChatExplain.tsx",
-      "sha256": "64eb1ca25ee9ccb2add98b1731b3d0d0ae84bc5b063d24c0d2c6c937d2c908e3"
+      "sha256": "acf1039cb7106ed1de8e1565ef1c9f8d40bf0c171d43f31ae740728b8e336434"
     },
     {
       "path": "src/ui/ChatFiles.tsx",
-      "sha256": "54c2852d2c4cca9737ec76302c026cd17372a02f37f27afadfe5c7dd5943958e"
+      "sha256": "6cfa839cd981d455c6144aa31f9b8fe080c0d6b27afca00f39ef794fcca4abc9"
     },
     {
       "path": "src/ui/ChatMessageContent.tsx",

@@ -978,12 +978,22 @@ code {
   border-radius: var(--radius);
 }
 .file-actions {
+  position: relative;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
 }
-.file-actions span,
+.file-actions > button {
+  flex-shrink: 0;
+}
+.file-help {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.file-help,
 .file-notice {
   color: var(--muted);
   font-size: 12px;
@@ -1368,14 +1378,40 @@ code {
 }
 
 .chat-context-actions {
-  position: relative;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
+  margin-left: auto;
 }
+.chat-context-actions > .chat-capabilities,
 .chat-context-actions > .chat-explain,
 .chat-context-actions > .chat-dictation {
   position: static;
+}
+.app .chat-context-actions .chat-tool-button {
+  position: relative;
+  width: var(--control-height);
+  height: var(--control-height);
+  padding: 0;
+  flex-shrink: 0;
+}
+.chat-context-actions .chat-tool-button[aria-expanded="true"] {
+  background: #21394a;
+  box-shadow: inset 0 -2px var(--accent);
+}
+.chat-tool-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+@media (max-width: 520px) {
+  .file-help {
+    display: none;
+  }
 }
 
 .chat-revision-content {

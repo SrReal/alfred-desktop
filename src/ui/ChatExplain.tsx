@@ -113,9 +113,18 @@ export function ChatExplain({
   }
   return (
     <div className="chat-explain">
-      <button type="button" aria-expanded={open} onClick={() => setOpen(!open)}>
-        <PixelIcon name="capture" /> Explícame esto
-        {preview ? " · vista previa" : ""}
+      <button
+        type="button"
+        className="chat-tool-button"
+        aria-label={
+          preview ? "Explícame esto · vista previa" : "Explícame esto"
+        }
+        title={preview ? "Explícame esto · vista previa" : "Explícame esto"}
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+      >
+        <PixelIcon name="capture" />
+        {preview && <span className="chat-tool-indicator" aria-hidden="true" />}
       </button>
       {open && (
         <section className="explain-preview" aria-label="Explicar selección">
