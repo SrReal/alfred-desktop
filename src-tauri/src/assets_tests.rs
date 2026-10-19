@@ -119,6 +119,127 @@ fn owned(c: &Core, class: &str) -> (Record, PathBuf) {
     (r, path)
 }
 #[tokio::test]
+async fn image_viewer_returns_verified_original_and_respects_privacy_and_file_identity() {
+    let f = Fixture::new();
+    let (record, path) = owned(&f.core, "attachment");
+    let image = ui(&f.core, "image", &json!({"id":record.id}))
+        .await
+        .unwrap();
+    assert_eq!(
+        image["data_url"],
+        format!(
+            "data:image/png;base64,{}",
+            base64::engine::general_purpose::STANDARD.encode(png())
+        )
+    );
+    f.core.store.set_setting("privacy", &json!(true)).unwrap();
+    assert_eq!(
+        ui(&f.core, "image", &json!({"id":record.id}))
+            .await
+            .unwrap_err(),
+        "PRIVACY_DENIED"
+    );
+    f.core.store.set_setting("privacy", &json!(false)).unwrap();
+    std::fs::write(&path, b"replaced image").unwrap();
+    assert!(ui(&f.core, "image", &json!({"id":record.id}))
+        .await
+        .is_err());
+    f.finish();
+}
+#[tokio::test]
+async fn outgoing_images_wait_for_preview_and_keep_new_previews_queued_until_transfer_finishes() {
+    let f = Fixture::new();
+    let conversation = f.conversation();
+    let (record, _) = owned(&f.core, "attachment");
+    attach(
+        &f.core,
+        &json!({"conversation_id":conversation,"asset_id":record.id}),
+    )
+    .await
+    .unwrap();
+    let action = ACTIONS.lock().await;
+    let preview_profile = Profile::get(&f.core, false).unwrap();
+    let c = f.core.clone();
+    let id = conversation.clone();
+    let mut send = tokio::spawn(async move {
+        let (action, images) = verified_images_for_turn(&c, &id).await?;
+        images.check()?;
+        let count = images.iter().count();
+        drop(images);
+        drop(action);
+        Ok::<_, String>(count)
+    });
+    assert!(tokio::time::timeout(Duration::from_millis(50), &mut send)
+        .await
+        .is_err());
+    drop(preview_profile);
+    drop(action);
+    assert_eq!(send.await.unwrap().unwrap(), 1);
+    let (action, images) = verified_images_for_turn(&f.core, &conversation)
+        .await
+        .unwrap();
+    let c = f.core.clone();
+    let id = record.id;
+    let mut preview = tokio::spawn(async move { ui(&c, "image", &json!({"id":id})).await });
+    assert!(
+        tokio::time::timeout(Duration::from_millis(50), &mut preview)
+            .await
+            .is_err()
+    );
+    images.check().unwrap();
+    drop(images);
+    drop(action);
+    assert!(preview.await.unwrap().unwrap()["data_url"].is_string());
+    f.finish();
+}
+#[tokio::test]
+async fn legacy_attachment_presentation_finds_its_message_but_leaves_unsent_files_pending() {
+    let f = Fixture::new();
+    let conversation = f.conversation();
+    let (record, _) = owned(&f.core, "attachment");
+    attach(
+        &f.core,
+        &json!({"conversation_id":conversation,"asset_id":record.id}),
+    )
+    .await
+    .unwrap();
+    let message = storage::id();
+    f.core
+        .store
+        .execute(
+            "INSERT INTO messages VALUES(?,?,'user','With image','complete',?)",
+            &[json!(message), json!(conversation), json!(storage::now())],
+        )
+        .unwrap();
+    let linked = attachments(&f.core, &conversation).unwrap();
+    assert_eq!(linked[0]["message_id"], message);
+    assert!(f
+        .core
+        .store
+        .query(
+            "SELECT message_id FROM attachments WHERE conversation_id=?",
+            &[json!(conversation)]
+        )
+        .unwrap()[0]["message_id"]
+        .is_null());
+    let (pending, _) = owned(&f.core, "attachment");
+    attach(
+        &f.core,
+        &json!({"conversation_id":conversation,"asset_id":pending.id}),
+    )
+    .await
+    .unwrap();
+    let linked = attachments(&f.core, &conversation).unwrap();
+    assert!(linked
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|row| row["asset_id"] == pending.id)
+        .unwrap()["message_id"]
+        .is_null());
+    f.finish();
+}
+#[tokio::test]
 async fn private_assets_expire_after_restart_but_attached_and_unregistered_files_survive() {
     let f = Fixture::new();
     let conversation = f.conversation();

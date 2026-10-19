@@ -4,6 +4,8 @@ import {
   AssetSettings,
   CaptureAsset,
   ConversationAttachments,
+  ChatAssetImage,
+  useConversationAttachments,
 } from "../src/ui/ManagedAssets";
 const mock = vi.hoisted(() => ({ request: vi.fn(), on: vi.fn() }));
 vi.mock("../src/api", () => mock);
@@ -21,6 +23,12 @@ const asset = {
 };
 let events: Record<string, (() => void)[]>;
 beforeEach(() => {
+  HTMLDialogElement.prototype.showModal = function () {
+    this.setAttribute("open", "");
+  };
+  HTMLDialogElement.prototype.close = function () {
+    this.removeAttribute("open");
+  };
   events = {};
   mock.request.mockReset();
   mock.on.mockReset();
@@ -121,7 +129,17 @@ test("removing a legacy attachment is explicit and reports preservation of its o
     }
     return {};
   });
-  render(<ConversationAttachments conversationId="conversation-1" />);
+  function PendingAttachments() {
+    const data = useConversationAttachments("conversation-1");
+    return (
+      <ConversationAttachments
+        conversationId="conversation-1"
+        rows={data.rows}
+        onChanged={data.reload}
+      />
+    );
+  }
+  render(<PendingAttachments />);
   expect(await screen.findByText("legacy.png · 1.0 KiB")).toBeInTheDocument();
   expect(mock.request).not.toHaveBeenCalledWith(
     "attachments.remove",
@@ -175,6 +193,56 @@ test("retention validates bounds and cleanup runs only after an explicit request
   expect(await screen.findByRole("status")).toHaveTextContent(
     "2 activos caducados eliminados",
   );
+});
+test("image click loads the verified original, supports actual size and closes without retaining bytes", async () => {
+  const original = "data:image/png;base64,b3JpZ2luYWw=";
+  mock.request.mockImplementation(async (operation) =>
+    operation === "assets.image" ? { data_url: original } : asset,
+  );
+  render(<ChatAssetImage id={asset.id} alt="Captura enviada" />);
+  expect(mock.request).not.toHaveBeenCalledWith(
+    "assets.image",
+    expect.anything(),
+  );
+  fireEvent.click(
+    await screen.findByRole("button", { name: "Ver imagen: Captura" }),
+  );
+  const viewer = await screen.findByRole("dialog");
+  await vi.waitFor(() =>
+    expect(viewer.querySelector("img")).toHaveAttribute("src", original),
+  );
+  expect(mock.request).toHaveBeenCalledWith("assets.image", { id: asset.id });
+  fireEvent.click(screen.getByRole("button", { name: "Tamaño real" }));
+  expect(viewer.querySelector(".original-size")).toBeInTheDocument();
+  fireEvent(viewer, new Event("cancel", { cancelable: true }));
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  expect(
+    document.querySelector(`img[src="${original}"]`),
+  ).not.toBeInTheDocument();
+});
+test("revocation discards an open image and a late original response", async () => {
+  let late: ((value: unknown) => void) | undefined;
+  mock.request.mockImplementation(async (operation) =>
+    operation === "assets.image"
+      ? new Promise((resolve) => {
+          late = resolve;
+        })
+      : asset,
+  );
+  render(<ChatAssetImage id={asset.id} alt="Captura" />);
+  fireEvent.click(
+    await screen.findByRole("button", { name: "Ver imagen: Captura" }),
+  );
+  expect(await screen.findByRole("dialog")).toBeInTheDocument();
+  mock.request.mockRejectedValue(new Error("PRIVACY_DENIED"));
+  await act(async () => {
+    events["alfredpet:settings"].forEach((callback) => callback());
+  });
+  await act(async () => {
+    late?.({ data_url: "data:image/png;base64,c2VjcmV0" });
+  });
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  expect(screen.queryByRole("img")).not.toBeInTheDocument();
 });
 test("a denied delete preserves the capture and reports the permission failure", async () => {
   const deleted = vi.fn();

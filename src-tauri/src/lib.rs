@@ -890,6 +890,10 @@ async fn request(
             crate::pet_drop::dispatch(c,&operation,&input).await
         },
         "assets.get" => crate::assets::ui(c,"get",&input).await,
+        "assets.image" => {
+            if !["chat", "history"].contains(&caller_surface(c, &window)?.as_str()) { return Err("CHAT_WINDOW_REQUIRED".into()); }
+            crate::assets::ui(c,"image",&input).await
+        },
         "assets.delete" => crate::assets::ui(c,"delete",&input).await,
         "attachments.import" => {
             if caller_surface(c,&window)? != "chat" { return Err("CHAT_WINDOW_REQUIRED".into()); }

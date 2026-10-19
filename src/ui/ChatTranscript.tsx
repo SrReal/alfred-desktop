@@ -3,11 +3,13 @@ import { ChatProgress, type ChatRun } from "./ChatProgress";
 import { ChatCopyButton } from "./ChatCopyButton";
 import type { Revision } from "./ChatRevision";
 import { ChatMessageContent } from "./ChatMessageContent";
-import type { Message } from "../types";
+import type { Attachment, Message } from "../types";
+import { ConversationAttachments } from "./ManagedAssets";
 import { identity } from "../identity";
 
 const noReplies: Message[] = [];
 const noProgress: ChatRun[] = [];
+const noAttachments: Attachment[] = [];
 
 function Avatar({ role }: { role: string }) {
   const user = role === "user";
@@ -31,6 +33,8 @@ export function ChatTranscript({
   progress = noProgress,
   actionsDisabled = false,
   onRevise,
+  attachments = noAttachments,
+  onAttachmentsChanged,
 }: {
   conversationId: string;
   messages: Message[] | null;
@@ -40,6 +44,8 @@ export function ChatTranscript({
   progress?: ChatRun[];
   actionsDisabled?: boolean;
   onRevise?: (revision: Revision) => void;
+  attachments?: Attachment[];
+  onAttachmentsChanged?: () => void;
 }) {
   const viewport = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
@@ -50,7 +56,15 @@ export function ChatTranscript({
     following.current = true;
     const node = viewport.current;
     if (node) node.scrollTop = node.scrollHeight;
-  }, [conversationId, messages, stream, pendingText, replies, progress]);
+  }, [
+    conversationId,
+    messages,
+    stream,
+    pendingText,
+    replies,
+    progress,
+    attachments,
+  ]);
 
   useEffect(() => {
     const node = viewport.current;
@@ -91,7 +105,11 @@ export function ChatTranscript({
           ),
           ...replies.filter((r) => !messages?.some((m) => m.id === r.id)),
         ]
-          .filter((message) => message.content_text)
+          .filter(
+            (message) =>
+              message.content_text ||
+              attachments.some((row) => row.message_id === message.id),
+          )
           .map((message) => (
             <Fragment key={message.id}>
               <article className={`message ${message.role}`}>
@@ -114,6 +132,17 @@ export function ChatTranscript({
                   {message.status === "error" && " · error"}
                 </div>
                 <ChatMessageContent text={message.content_text} />
+                {attachments.some((row) => row.message_id === message.id) && (
+                  <ConversationAttachments
+                    sent
+                    conversationId={conversationId}
+                    rows={attachments.filter(
+                      (row) => row.message_id === message.id,
+                    )}
+                    busy={actionsDisabled}
+                    onChanged={() => onAttachmentsChanged?.()}
+                  />
+                )}
                 <div className="message-actions">
                   <ChatCopyButton text={message.content_text} />
                   {onRevise && ["user", "assistant"].includes(message.role) && (

@@ -51,6 +51,54 @@ fn revise(mode: &str, message: &str, expected: &str, text: &str) -> Revision {
     serde_json::from_value(json!({"conversation_id":"c","message_id":message,"expected_text":expected,"mode":mode,"text":text})).unwrap()
 }
 #[test]
+fn send_atomically_links_new_files_and_recovers_old_links_without_rebinding_previous_turns() {
+    let s = store();
+    s.execute(
+        "UPDATE messages SET created_at='2000-01-01T00:00:0'||created_at||'Z'",
+        &[],
+    )
+    .unwrap();
+    s.execute(
+        "UPDATE attachments SET created_at='2000-01-01T00:00:0'||created_at||'Z'",
+        &[],
+    )
+    .unwrap();
+    s.execute("INSERT INTO attachments(id,conversation_id,path,mime,sha256,size,created_at) VALUES('pending','c','new.png','image/png','hash',1,'2000-01-01T00:00:07Z'),('foreign','other','other.png','image/png','hash',1,'2000-01-01T00:00:07Z')", &[]).unwrap();
+    record_user_message(&s, "c", "sent", "Nuevo mensaje").unwrap();
+    let rows = s
+        .query("SELECT id,message_id FROM attachments ORDER BY id", &[])
+        .unwrap();
+    for (id, expected) in [
+        ("early", Some("u2")),
+        ("late", Some("u3")),
+        ("pending", Some("sent")),
+        ("foreign", None),
+    ] {
+        let row = rows
+            .as_array()
+            .unwrap()
+            .iter()
+            .find(|row| row["id"] == id)
+            .unwrap();
+        assert_eq!(row["message_id"].as_str(), expected);
+    }
+    record_user_message(&s, "c", "another", "Siguiente").unwrap();
+    assert_eq!(
+        s.query("SELECT message_id FROM attachments WHERE id='pending'", &[])
+            .unwrap()[0]["message_id"],
+        "sent"
+    );
+    assert!(record_user_message(&s, "c", "sent", "Duplicado").is_err());
+    assert_eq!(
+        s.query(
+            "SELECT count(*) AS n FROM messages WHERE content_text='Duplicado'",
+            &[]
+        )
+        .unwrap()[0]["n"],
+        0
+    );
+}
+#[test]
 fn edit_copies_exact_prefix_and_old_attachments_without_parent_session_or_future_summary() {
     let s = store();
     let original = s

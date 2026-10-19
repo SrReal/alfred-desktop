@@ -55,6 +55,7 @@ import {
   AssetSettings,
   CaptureAsset,
   ConversationAttachments,
+  useConversationAttachments,
 } from "./ManagedAssets";
 import type {
   Activity,
@@ -449,6 +450,7 @@ function Chat({ active }: { active: boolean }) {
     "alfredpet:conversations",
   );
   const [selected, setSelected] = useState("");
+  const attachments = useConversationAttachments(selected);
   const progress = useChatProgress(selected);
   const activeProgress = progress.runs.find((r) => r.status === "running");
   const [draft, setDraft] = useState("");
@@ -468,6 +470,8 @@ function Chat({ active }: { active: boolean }) {
   });
   const reloadMessages = useRef(messages.reload);
   reloadMessages.current = messages.reload;
+  const reloadAttachments = useRef(attachments.reload);
+  reloadAttachments.current = attachments.reload;
   const selectedRef = useRef(selected);
   selectedRef.current = selected;
   useEffect(() => {
@@ -651,6 +655,7 @@ function Chat({ active }: { active: boolean }) {
       setDraft("");
       if (!finishedRuns.current.has(result.run_id)) setRun(result.run_id);
       await reloadMessages.current();
+      reloadAttachments.current();
     } catch (e) {
       setError(errorText(e));
     } finally {
@@ -698,6 +703,7 @@ function Chat({ active }: { active: boolean }) {
       setDraft("");
       if (!finishedRuns.current.has(result.run_id)) setRun(result.run_id);
       await reloadMessages.current();
+      reloadAttachments.current();
     } catch (e) {
       setError(errorText(e));
     } finally {
@@ -920,6 +926,7 @@ function Chat({ active }: { active: boolean }) {
           }
         />
         <ErrorNotice text={progress.error} />
+        <ErrorNotice text={attachments.error} />
         {parent && (
           <div className="chat-branch-origin">
             Variante ·{" "}
@@ -932,6 +939,8 @@ function Chat({ active }: { active: boolean }) {
           </div>
         )}
         <ChatTranscript
+          attachments={attachments.rows}
+          onAttachmentsChanged={attachments.reload}
           actionsDisabled={revisionBusy || !!revision || !!draft.trim()}
           onRevise={setRevision}
           progress={progress.runs}
@@ -960,6 +969,8 @@ function Chat({ active }: { active: boolean }) {
           <>
             <ConversationAttachments
               conversationId={selected}
+              rows={attachments.rows.filter((row) => !row.message_id)}
+              onChanged={attachments.reload}
               busy={!!run || attaching || dictating || sending || !!revision}
             />
             <div className="composer">

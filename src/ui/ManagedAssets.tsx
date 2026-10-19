@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { on, request } from "../api";
-import type { Json } from "../types";
+import type { Attachment, Json } from "../types";
 
 type Asset = {
   id: string;
@@ -14,13 +15,6 @@ type Asset = {
   reference_count: number;
   thumbnail_data_url?: string;
   error?: string;
-};
-type Attachment = {
-  id: string;
-  asset_id: string | null;
-  path: string;
-  size: number;
-  metadata_json: string;
 };
 const errorText = (e: unknown) => (e instanceof Error ? e.message : String(e));
 const tools = <T,>(tool: string, input: Json = {}) =>
@@ -77,13 +71,121 @@ function useAsset(id: string) {
 
 export function ChatAssetImage({ id, alt }: { id: string; alt: string }) {
   const { asset, error } = useAsset(id);
+  const [open, setOpen] = useState(false);
+  const [full, setFull] = useState("");
+  const [failure, setFailure] = useState("");
+  const [originalSize, setOriginalSize] = useState(false);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const generation = useRef(0);
+  const titleId = useId();
+  const close = useCallback(() => {
+    generation.current++;
+    dialog.current?.close();
+    setOpen(false);
+    setFull("");
+    setFailure("");
+    setOriginalSize(false);
+  }, []);
+  useAssetEvents(close);
+  useEffect(() => {
+    close();
+    return () => {
+      generation.current++;
+    };
+  }, [id, close]);
+  useEffect(() => {
+    if (open) dialog.current?.showModal();
+  }, [open]);
+  async function expand() {
+    const current = ++generation.current;
+    setOpen(true);
+    setFull("");
+    setFailure("");
+    try {
+      const image = await request<{ data_url: string }>("assets.image", { id });
+      if (current !== generation.current) return;
+      if (
+        !/^data:image\/(png|jpeg|gif|webp);base64,[A-Za-z0-9+/]+=*$/.test(
+          image.data_url,
+        )
+      )
+        throw new Error("Imagen no disponible.");
+      setFull(image.data_url);
+    } catch (e) {
+      if (current === generation.current) setFailure(errorText(e));
+    }
+  }
   const src = asset?.thumbnail_data_url;
   return src && /^data:image\/png;base64,[A-Za-z0-9+/]+=*$/.test(src) ? (
-    <img
-      className="chat-image"
-      src={src}
-      alt={alt || asset?.label || "Imagen de Alfred"}
-    />
+    <>
+      <button
+        type="button"
+        className="image-preview-button"
+        aria-label={`Ver imagen: ${asset?.label || alt}`}
+        title="Abrir imagen"
+        aria-haspopup="dialog"
+        onClick={() => void expand()}
+      >
+        <img
+          className="chat-image"
+          src={src}
+          alt={alt || asset?.label || "Imagen de Alfred"}
+        />
+      </button>
+      {open &&
+        createPortal(
+          <dialog
+            ref={dialog}
+            className="image-viewer"
+            aria-labelledby={titleId}
+            onCancel={(e) => {
+              e.preventDefault();
+              close();
+            }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) close();
+            }}
+          >
+            <div className="image-viewer-shell">
+              <header>
+                <strong id={titleId}>
+                  {asset?.label || alt || "Imagen adjunta"}
+                </strong>
+                {full && (
+                  <button
+                    type="button"
+                    onClick={() => setOriginalSize((value) => !value)}
+                  >
+                    {originalSize ? "Ajustar" : "Tamaño real"}
+                  </button>
+                )}
+                <button type="button" autoFocus onClick={close}>
+                  Cerrar imagen
+                </button>
+              </header>
+              <div
+                className={`image-viewer-content${originalSize ? " original-size" : ""}`}
+              >
+                {failure ? (
+                  <p role="alert">{failure}</p>
+                ) : full ? (
+                  <img
+                    src={full}
+                    alt={alt || asset?.label || "Imagen adjunta"}
+                    onError={() => {
+                      setFull("");
+                      setFailure("No se pudo mostrar la imagen.");
+                    }}
+                  />
+                ) : (
+                  <p role="status">Cargando imagen…</p>
+                )}
+              </div>
+            </div>
+          </dialog>,
+          document.body,
+        )}
+    </>
   ) : (
     <span className="chat-image-unavailable">
       {alt || "Imagen"} · {error ? "imagen no disponible" : "cargando imagen…"}
@@ -215,8 +317,7 @@ export function CaptureAsset({
 }
 
 function AttachmentPreview({ id }: { id: string }) {
-  const { asset } = useAsset(id);
-  return asset ? <Thumbnail asset={asset} /> : null;
+  return <ChatAssetImage id={id} alt="Imagen adjunta" />;
 }
 function attachmentLabel(row: Attachment) {
   try {
@@ -227,17 +328,10 @@ function attachmentLabel(row: Attachment) {
   }
   return row.path.split(/[\\/]/).pop() || "Adjunto";
 }
-export function ConversationAttachments({
-  conversationId,
-  busy = false,
-}: {
-  conversationId: string;
-  busy?: boolean;
-}) {
+export function useConversationAttachments(conversationId: string) {
   const [rows, setRows] = useState<Attachment[]>([]);
+  const [loadedConversation, setLoadedConversation] = useState("");
   const [error, setError] = useState("");
-  const [removing, setRemoving] = useState(false);
-  const [notice, setNotice] = useState("");
   const generation = useRef(0);
   const refresh = useCallback(() => {
     const current = ++generation.current;
@@ -249,6 +343,7 @@ export function ConversationAttachments({
       .then((data) => {
         if (current === generation.current) {
           setRows(data);
+          setLoadedConversation(conversationId);
           setError("");
         }
       })
@@ -257,7 +352,6 @@ export function ConversationAttachments({
       });
   }, [conversationId]);
   useEffect(() => {
-    setNotice("");
     setError("");
     refresh();
     return () => {
@@ -265,6 +359,32 @@ export function ConversationAttachments({
     };
   }, [refresh]);
   useAssetEvents(refresh);
+  return {
+    rows: loadedConversation === conversationId ? rows : [],
+    error,
+    reload: refresh,
+  };
+}
+export function ConversationAttachments({
+  conversationId,
+  rows,
+  busy = false,
+  onChanged,
+  sent = false,
+}: {
+  conversationId: string;
+  rows: Attachment[];
+  busy?: boolean;
+  onChanged: () => void;
+  sent?: boolean;
+}) {
+  const [error, setError] = useState("");
+  const [removing, setRemoving] = useState(false);
+  const [notice, setNotice] = useState("");
+  useEffect(() => {
+    setError("");
+    setNotice("");
+  }, [conversationId]);
   async function remove(row: Attachment) {
     setRemoving(true);
     setError("");
@@ -281,7 +401,7 @@ export function ConversationAttachments({
             ? "Adjunto retirado. Su archivo original se conserva."
             : "Adjunto retirado de la conversación.",
       );
-      refresh();
+      onChanged();
     } catch (e) {
       setError(errorText(e));
     } finally {
@@ -290,21 +410,28 @@ export function ConversationAttachments({
   }
   return (
     <div
-      className="conversation-attachments"
-      aria-label="Adjuntos de conversación"
+      className={sent ? "message-attachments" : "conversation-attachments"}
+      aria-label={
+        sent
+          ? "Adjuntos enviados con el mensaje"
+          : "Adjuntos pendientes de enviar"
+      }
     >
       {error && <p role="alert">{error}</p>}
       {notice && <p role="status">{notice}</p>}
+      {!sent && rows.length > 0 && <small>Pendientes de enviar</small>}
       {rows.map((row) => (
-        <article className="card" key={row.id}>
-          {row.asset_id && <AttachmentPreview id={row.asset_id} />}
+        <div className="attachment-card" key={row.id}>
+          {row.asset_id && row.mime?.startsWith("image/") && (
+            <AttachmentPreview id={row.asset_id} />
+          )}
           <span>
             {attachmentLabel(row)} · {(row.size / 1024).toFixed(1)} KiB
           </span>
           <button disabled={busy || removing} onClick={() => void remove(row)}>
             Retirar de conversación
           </button>
-        </article>
+        </div>
       ))}
     </div>
   );

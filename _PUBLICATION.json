@@ -1,8 +1,8 @@
 {
   "schema": 2,
   "edition": "public",
-  "generation": 103,
-  "treeSha256": "c1311ec1549c2e98e5c1083bc39a8f40c15afb24ffde2ca89bf74c3156efd040",
+  "generation": 105,
+  "treeSha256": "4f6f1e782cf9586090e95c39edf92f4cb26f5e9fb0e34a7ea91fba077b3c27a2",
   "files": [
     {
       "path": ".gitignore",
@@ -506,11 +506,11 @@
     },
     {
       "path": "docs/manual/manual.es.json",
-      "sha256": "f5f05088cd3e8215a25d64ae9b2a06b1136813547f956fd52ef285ae3a42c3f3"
+      "sha256": "22bf24a371439be623d3938d59bfc1f8ec44d76b8010d7e61d25ee060da854a5"
     },
     {
       "path": "docs/manual/verification.json",
-      "sha256": "e84febb3536d8ab197a13eba8d5823149ec06f9e19ce7ccb8adc2249e06e3189"
+      "sha256": "537b552da066a5c7f55cea1c1a89773e023269a99b01a109558ef2fdde14083c"
     },
     {
       "path": "eslint.config.js",
@@ -554,7 +554,7 @@
     },
     {
       "path": "output/pdf/AlfredPet-Manual-de-uso.pdf",
-      "sha256": "6fbf8e473b547e09d1d01750dae07a3840877d5c463504f7dd39ad39fb581281"
+      "sha256": "efe5eca5230ee9be906527aa1649b2cfbaf303e5cef1fadab9b6147fc3014624"
     },
     {
       "path": "package-lock.json",
@@ -702,11 +702,11 @@
     },
     {
       "path": "src-tauri/src/assets.rs",
-      "sha256": "b08728769ba63ae7a1214455dae26b2edb46971a679a00cb7acaf2782c96df38"
+      "sha256": "bb20eec1bad37e75a79984fe3b6588f41b557f9d7a26191a6fea8f33b7b8814a"
     },
     {
       "path": "src-tauri/src/assets_tests.rs",
-      "sha256": "30f2bdd1506cf9e8ba337a2bb87274daf4558202480a4ce59e4b598fa5416a0d"
+      "sha256": "ec4af4cd354335286095b8b8b3da9da21aa55532c6fc3a2517fa2e6957040806"
     },
     {
       "path": "src-tauri/src/audio.rs",
@@ -742,11 +742,11 @@
     },
     {
       "path": "src-tauri/src/chat_history.rs",
-      "sha256": "2c05d4d60514eb8fffeb10de959fcb138d0ac5107081bf8bd80d760355ef03f8"
+      "sha256": "6529e5fafaacf1d423667c288f642a5a966a5e9eae6fd59dcfedcd37bbab1e8b"
     },
     {
       "path": "src-tauri/src/chat_history_tests.rs",
-      "sha256": "92d5b503f3c448491ca462176f69fe0569d57e699cee267c47308e283861a3f9"
+      "sha256": "505a748520df69bb2e98e11b2be08b77f19851697856f3bfb1a9745192c13ddf"
     },
     {
       "path": "src-tauri/src/chat_links.rs",
@@ -762,7 +762,7 @@
     },
     {
       "path": "src-tauri/src/claude.rs",
-      "sha256": "b1a84d191a1c7c81e672265cfa112c7c44cf17a8f683526b0c63faa6696f2021"
+      "sha256": "9fffe370d9cf50aa00a2f08e8542f1f15cb69c8bd0f75b461050c4e4f1411463"
     },
     {
       "path": "src-tauri/src/claude_model.rs",
@@ -1006,7 +1006,7 @@
     },
     {
       "path": "src-tauri/src/lib.rs",
-      "sha256": "cd8a3515a290e5483989dc4f21f403c7d9a3b2fd293635739a5a818f5d13dc5a"
+      "sha256": "02f71f46be37c94af2586d7fcb43ae7cd1d1b8c9cbf7a17ca2c31807c3b988e3"
     },
     {
       "path": "src-tauri/src/macro_contracts.rs",
@@ -1482,15 +1482,15 @@
     },
     {
       "path": "src/theme.css",
-      "sha256": "071bbaeb0b3726a118db164792c707bf272de7d0196471d66e8648f055e3f595"
+      "sha256": "887d9aa135edfdad6ecef5f3a8d59896996969788d1e78a596338525fa748282"
     },
     {
       "path": "src/types.ts",
-      "sha256": "8e9ea0063ee908c6de0da61c98d41da57e1f10b7f843d4327335f8ddf0900395"
+      "sha256": "a7bd736074d62123f15a3556781cbcf058451880fcb2f99ac068c44c03625acf"
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "317af954f1ac08806c7281e551cfa16f9e23ed1df93241554d40d606deaf6cc9"
+      "sha256": "e61aaf57293170b1633b214c050f4a1ae439dbfb4b1bc8be78f4f4422ff09974"
     },
     {
       "path": "src/ui/AuditHistory.tsx",
@@ -1530,7 +1530,7 @@
     },
     {
       "path": "src/ui/ChatTranscript.tsx",
-      "sha256": "aa5810c35ee7404d911c4f68810b11ae5ce0cf005cee825132555b39e2f7ef1d"
+      "sha256": "98d4cbba475c810abd8d9ab4d36599ca1d4b22b2da91ee9bd5675761df1cb1c5"
     },
     {
       "path": "src/ui/ClaudeModel.tsx",
@@ -1562,7 +1562,7 @@
     },
     {
       "path": "src/ui/ManagedAssets.tsx",
-      "sha256": "fde35e37ebaecd38faf88bd05ab0e9f1c4414a49a18a7b49ac77d763fc2f724a"
+      "sha256": "d1d612b51880f9fbf236bc7962d3af77e5146ea9cf9bce1ecd8d0e2bd1460a07"
     },
     {
       "path": "src/ui/ManualHelp.tsx",
@@ -1670,7 +1670,7 @@
     },
     {
       "path": "tests/chat-transcript.test.tsx",
-      "sha256": "eac424fc51fe8de7ad37de6635175aac9d826588830aa6b6fb5ff547b43359fd"
+      "sha256": "23246b1038afce6df12672a798b03c1094efa27574d71230111f23f307ecaeeb"
     },
     {
       "path": "tests/claude-model.test.tsx",
@@ -1766,7 +1766,7 @@
     },
     {
       "path": "tests/managed-assets.test.tsx",
-      "sha256": "b3907e7c8969c25aff384c1588a3af6b856c2ee8e7a5a1e9eefbf8f28ced523a"
+      "sha256": "a510b7cd11e308fa9166e31f4bcf80495603cbf7ad8d19d5fd91de2bf6f0c4e7"
     },
     {
       "path": "tests/mcp-connection.test.tsx",

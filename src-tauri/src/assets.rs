@@ -879,6 +879,30 @@ pub async fn ui(c: &Arc<Core>, action: &str, input: &Value) -> Result<Value, Str
     if action == "get" {
         return dispatch_inner(c, "vision.asset_get", input, false).await;
     }
+    if action == "image" {
+        let lease = Lease::new(c, false, true)?;
+        let _serial = ACTIONS.lock().await;
+        lease.check()?;
+        let p = Profile::get(c, false)?;
+        let (r, row) = load(c, &p, input["id"].as_str().ok_or("ASSET_ID")?)?;
+        capture_access(c, &r)?;
+        if row["state"] != "ready" {
+            return Err("ASSET_NOT_READY".into());
+        }
+        if !["image/png", "image/jpeg", "image/gif", "image/webp"].contains(&r.mime.as_str()) {
+            return Err("ASSET_NOT_IMAGE".into());
+        }
+        if r.original.size > MAX_BYTES {
+            return Err("ASSET_BYTE_LIMIT".into());
+        }
+        let original = files::open(&p.original(&r), false)?;
+        let bytes = check_object(&original, &r.original, &lease)?;
+        lease.check()?;
+        p.check(c)?;
+        return Ok(
+            json!({"id":r.id,"label":r.label,"width":r.width,"height":r.height,"data_url":format!("data:{};base64,{}",r.mime,base64::engine::general_purpose::STANDARD.encode(bytes))}),
+        );
+    }
     if action != "delete" {
         return Err("ASSET_TOOL".into());
     }
@@ -1088,7 +1112,9 @@ fn insert_attachment(
 }
 pub fn attachments(c: &Core, conversation: &str) -> Result<Value, String> {
     uuid(conversation)?;
-    c.store.query("SELECT id,asset_id,path,mime,size,created_at,message_id,ephemeral,metadata_json FROM attachments WHERE conversation_id=? ORDER BY created_at,id",&[json!(conversation)])
+    // Older builds did not store message_id. Recover their presentation link
+    // without rewriting records during a read or assigning unsent files backwards.
+    c.store.query("SELECT a.id,a.asset_id,a.path,a.mime,a.size,a.created_at,COALESCE(a.message_id,(SELECT m.id FROM messages m WHERE m.conversation_id=a.conversation_id AND m.role='user' AND m.created_at>=a.created_at ORDER BY m.created_at,m.rowid LIMIT 1)) AS message_id,a.ephemeral,a.metadata_json FROM attachments a WHERE a.conversation_id=? ORDER BY a.created_at,a.id",&[json!(conversation)])
 }
 pub fn attachment_review(c: &Core, input: &Value) -> Result<Value, String> {
     let fields = input.as_object().ok_or("ATTACHMENT_INPUT")?;
@@ -1238,6 +1264,16 @@ impl ImageBatch<'_> {
             .map(|l| l.cancel.clone())
             .unwrap_or_default()
     }
+}
+/// The outgoing batch pins the asset profile until stdin is written. Keep the
+/// same action lock used by previews for that interval, not just acquisition.
+pub async fn verified_images_for_turn<'a>(
+    c: &'a Core,
+    conversation: &str,
+) -> Result<(tokio::sync::MutexGuard<'static, ()>, ImageBatch<'a>), String> {
+    let action = ACTIONS.lock().await;
+    let images = verified_images(c, conversation)?;
+    Ok((action, images))
 }
 pub fn verified_images<'a>(c: &'a Core, conversation: &str) -> Result<ImageBatch<'a>, String> {
     if c.store.setting("privacy") == true {

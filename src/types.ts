@@ -19,6 +19,15 @@ export interface Message {
   status: string;
   created_at: string;
 }
+export interface Attachment {
+  id: string;
+  asset_id: string | null;
+  message_id: string | null;
+  path: string;
+  mime: string;
+  size: number;
+  metadata_json: string;
+}
 export interface Module {
   id: string;
   name: string;

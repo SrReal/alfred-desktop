@@ -936,16 +936,117 @@ code {
 .conversation-attachments:empty {
   display: none;
 }
-.conversation-attachments .card {
+.conversation-attachments .attachment-card {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
 }
-.conversation-attachments .asset-thumbnail {
+.conversation-attachments .chat-image {
   max-width: 96px;
   max-height: 72px;
   margin: 0;
+}
+.conversation-attachments {
+  flex: 0 1 auto;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.attachment-card {
+  padding: 8px 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.app button.image-preview-button:not(.pet) {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-image: none;
+  background: none;
+  cursor: zoom-in;
+}
+.app button.image-preview-button:not(.pet):hover:not(:disabled) {
+  background: none;
+  border-image: none;
+}
+.image-preview-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.message-attachments {
+  grid-column: 2;
+  min-width: 0;
+}
+.message.user .message-attachments {
+  grid-column: 1;
+}
+.message-attachments .chat-image {
+  max-width: min(100%, 320px);
+  max-height: 200px;
+  margin: 4px 0;
+}
+.message.user .message-attachments .image-preview-button {
+  margin-left: auto;
+}
+.message-attachments .attachment-card > span {
+  color: var(--muted);
+  margin-right: 8px;
+}
+.app .message-attachments .attachment-card > button {
+  border: 0;
+  border-image: none;
+  background: none;
+  color: var(--muted);
+  padding: 3px 6px;
+  min-height: 28px;
+  height: auto;
+  font-size: 11px;
+}
+.image-viewer {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0;
+  max-width: 94vw;
+  max-height: 92vh;
+  overflow: hidden;
+}
+.image-viewer::backdrop {
+  background: #000b;
+}
+.image-viewer-shell {
+  padding: 16px;
+}
+.image-viewer header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.image-viewer strong {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.image-viewer-content {
+  overflow: auto;
+  max-width: calc(94vw - 32px);
+  max-height: calc(92vh - 96px);
+}
+.image-viewer-content img {
+  display: block;
+  max-width: min(100%, calc(94vw - 32px));
+  max-height: calc(92vh - 96px);
+  object-fit: contain;
+}
+.image-viewer-content.original-size img {
+  max-width: none;
+  max-height: none;
 }
 
 .drop-file {

@@ -1,8 +1,12 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { ChatTranscript } from "../src/ui/ChatTranscript";
 import { identity } from "../src/identity";
 import type { Message } from "../src/types";
+vi.mock("../src/api", () => ({
+  on: vi.fn(async () => () => {}),
+  request: vi.fn(async () => ({})),
+}));
 
 let height: number;
 let top: number;
@@ -95,6 +99,55 @@ test("history browsing survives unrelated renders until new content arrives", ()
     <ChatTranscript {...initial} conversationId="new" messages={[]} />,
   );
   expect(top).toBe(0);
+});
+test("sent files stay inside their exact message on reload and pending files stay out of the transcript", () => {
+  const rows = [
+    {
+      id: "one",
+      asset_id: null,
+      message_id: "user",
+      path: "first.png",
+      mime: "image/png",
+      size: 1024,
+      metadata_json: "{}",
+    },
+    {
+      id: "two",
+      asset_id: null,
+      message_id: "later",
+      path: "second.png",
+      mime: "image/png",
+      size: 2048,
+      metadata_json: "{}",
+    },
+    {
+      id: "pending",
+      asset_id: null,
+      message_id: null,
+      path: "draft.png",
+      mime: "image/png",
+      size: 1024,
+      metadata_json: "{}",
+    },
+  ];
+  const history = [
+    ...messages,
+    { ...messages[0], id: "later", content_text: "Segundo mensaje" },
+  ];
+  const view = render(
+    <ChatTranscript {...initial} messages={history} attachments={rows} />,
+  );
+  const first = screen.getByText("Hola, Alfred").closest("article")!;
+  const second = screen.getByText("Segundo mensaje").closest("article")!;
+  expect(within(first).getByText("first.png · 1.0 KiB")).toBeInTheDocument();
+  expect(within(first).queryByText(/second.png/)).not.toBeInTheDocument();
+  expect(within(second).getByText("second.png · 2.0 KiB")).toBeInTheDocument();
+  expect(screen.queryByText(/draft.png/)).not.toBeInTheDocument();
+  view.unmount();
+  render(<ChatTranscript {...initial} messages={history} attachments={rows} />);
+  expect(
+    screen.getAllByLabelText("Adjuntos enviados con el mensaje"),
+  ).toHaveLength(2);
 });
 
 test("keeps the bottom on reflow while following and cleans up its observer", () => {

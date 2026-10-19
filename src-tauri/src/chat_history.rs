@@ -5,6 +5,26 @@ use serde::Deserialize;
 use serde_json::{json, Value};
 use std::collections::HashMap;
 
+/// Commit the request and its attachments together. Historical unlinked files
+/// belong to the first user message at or after their import, not every turn.
+pub fn record_user_message(
+    store: &Store,
+    conversation: &str,
+    id: &str,
+    text: &str,
+) -> Result<(), String> {
+    let db = store.0.lock().map_err(|_| "DB_LOCK")?;
+    let tx = db.unchecked_transaction().map_err(|e| e.to_string())?;
+    tx.execute(
+        "INSERT INTO messages VALUES(?,?,'user',?,'complete',?)",
+        params![id, conversation, text, storage::now()],
+    )
+    .map_err(|e| e.to_string())?;
+    tx.execute("UPDATE attachments SET message_id=(SELECT m.id FROM messages m WHERE m.conversation_id=attachments.conversation_id AND m.role='user' AND m.created_at>=attachments.created_at ORDER BY m.created_at,m.rowid LIMIT 1) WHERE conversation_id=? AND message_id IS NULL",
+        [conversation]).map_err(|e| e.to_string())?;
+    tx.commit().map_err(|e| e.to_string())
+}
+
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Revision {
